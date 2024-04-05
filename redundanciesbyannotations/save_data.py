@@ -1,9 +1,11 @@
 import os
 import json
 
-def save_to_json_persistent(folderName: str, json_collection: any):
-    base_path = os.getcwd()
-    folder_path = base_path + '/results/' + folderName
+def save_to_json_persistent(folder_name: str, json_collection: any):
+    base_path: str = os.getcwd()
+    folder_path: str = base_path + '/results/'
+    os.makedirs(folder_path, exist_ok=True)
+    folder_path += folder_name
     os.makedirs(folder_path, exist_ok=True)
 
     json_file_path:str = ""
