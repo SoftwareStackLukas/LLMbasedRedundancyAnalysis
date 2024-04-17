@@ -1,1 +1,0 @@
-"\n  {\n    \"ID\": \"US1\",\n    \"User_Story_Description\": \"As a user, I want to be able to log in to the system so that I can access my account.\",\n    \"OUT_GOING_CONNECTIONS\": [\n        {\"ID\": \"US2\", \"connection_weight\": 8},\n        {\"ID\": \"US3\", \"connection_weight\": 6}\n    ]\n  }\n  "

@@ -1,1 +1,0 @@
-"\n  {\n    \"ID\": \"US001\",\n    \"User_Story_Description\": \"As a Public User, I want to quickly upload photos so that I can share them with friends.\",\n    \"OUT_GOING_CONNECTIONS\": [\n      {\"ID\": \"US002\", \"connection_weight\": \"7\"},\n      {\"ID\": \"US003\", \"connection_weight\": \"5\"}\n    ]\n  }\n"

@@ -21,6 +21,7 @@ def send_requierment_to_chatgpt(message: list[dict]) -> str:
     client.close()
     if system_is_r_eng.choices[0].finish_reason != 'stop':
         raise StoppedAnswerException("Response error message: The finish reason is not 'stop'. It is: " + system_is_r_eng.choices[0].finish_reason)
+    print(system_is_r_eng.choices[0].message.content)
     return system_is_r_eng.choices[0].message.content
 
 # #### Structure of the completion response:
