@@ -1,5 +1,19 @@
 # RedundancyAndConflictAnalysis
 
+## Goal Definition
+    - Hauptteil und Benefit analysieren
+
+### Steps
+    - [] Hauptteil definieren
+    - [] Analyse von Hauptteil und Benefit gleichzeitig
+    - [] JSON format dafür vorbereiten
+    - [] Beispiele der JSON Datei überarbeiten
+    - [] Analyse der Redundanzen gleichzeitig
+    - [] Den Studenten fragen, wie das finale Format für die Redundanzen aussieht
+    - [] Einmal nur die User Stories übergeben und einmal die User Stories mit den Annotations übergeben (Das Delta bestimmen, was besser funktioniert)
+    - [] First analyse the g03 dataset
+
+
 ### Libaries to look inside
     - [] LongChain
     - [] Multi Agent suppport (find a libary)
