@@ -7,6 +7,8 @@
 
 ### Steps
     - [] Mal eine Redundanzen aus den Daten von Amir raussuchen - Rausnehemen dann auch einfach die Daten dann aus den Analysen raus | schauen ob es besser wird mit dem oder neue beispiel 
+    - [] Create time protocoll of how long is needed to analyse all in average
+    - [] Create a token protokoll to check how long the single tokens are
     - [X] Hauptteil definieren
     - [X] Analyse von Hauptteil und Benefit gleichzeitig
     - [X] JSON format dafür vorbereiten
