@@ -6,6 +6,7 @@
     - Benefit: the outcome of the action
 
 ### Steps
+    - [] Imrpvoe the prompting and send it to gabi for validation
     - [] Consider the email from Alex, and consider that often when a main part redundancy is found also a benefit redundancy is found
     - [] What to do with ChatGPT 4 turbo? This is pretty expensive 11€ for just G03 dataset
     - [] Mal eine Redundanzen aus den Daten von Amir raussuchen - Rausnehemen dann auch einfach die Daten dann aus den Analysen raus | schauen ob es besser wird mit dem oder neue beispiel 
