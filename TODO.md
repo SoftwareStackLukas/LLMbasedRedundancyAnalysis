@@ -6,6 +6,9 @@
     - Benefit: the outcome of the action
 
 ### Steps
+    - [] Integrate Amirs Repo as submodul
+    - [] Implement a timer how long one US is needed to be analysed
+    - [] Write a JSON validator for my format
     - [] Imrpvoe the prompting and send it to gabi for validation
     - [] Consider the email from Alex, and consider that often when a main part redundancy is found also a benefit redundancy is found
     - [] What to do with ChatGPT 4 turbo? This is pretty expensive 11€ for just G03 dataset
