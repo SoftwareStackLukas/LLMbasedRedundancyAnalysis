@@ -1,11 +1,11 @@
 [
     {
-        "relatedStories": [1, 3],
+        "relatedStories": [590, 591],
         "redundantMainPart": true, 
         "mainPartRedundancies": [
             {
-                "redundancyTitel": "Improved Security through Authentication",
-                "reasonDescribtion": "The redundancy arises from the repetition of the concept of user verification expressed in slightly different ways for emphasis or to cater to different audiences.",
+                "redundancyTitel": "Dummy Value",
+                "reasonDescribtion": "Dummy Value Describtion",
                 "referenceToOriginalText": ["As a User, I want to verify myself", "As an application User, I want to verify that I am who I am"]
             },
             {
@@ -22,8 +22,8 @@
                 "referenceToOriginalText": ["I can login into the webpage.", "I could login into the website"]
             },
             {
-                "redundancyTitel": "Printing a document",
-                "reasonDescribtion": "The redundancy occurs due to the repetition of the action ('print') expressed in slightly different ways, conveying the same meaning of initiating the printing process.",
+                "redundancyTitel": "Dummy Value",
+                "reasonDescribtion": "Dummy Value Describtion",
                 "referenceToOriginalText": ["I can print a document", "I can give the order to print"]
             }
         ]
