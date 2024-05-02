@@ -21,8 +21,10 @@ class TimeRecorder:
     @property
     def minutes(self):
         return self.seconds / 60
-    
-# tr = TimeRecorder(1_000_000)
+
+# How to use it
+# tr = TimeRecorder()
+# tr.nanoseconds = 1_000_000 //setter is simpler
 # print(tr.nanoseconds)
 # print(tr.milliseconds)
 # print(tr.seconds)
