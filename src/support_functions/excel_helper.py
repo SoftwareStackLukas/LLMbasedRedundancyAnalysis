@@ -6,14 +6,9 @@ from dotenv import load_dotenv
 from functools import wraps
 from .load_data import load_datasets_with_annotations as loading
 
-def load_env(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        load_dotenv()  # Load environment variables
-        return func(*args, **kwargs)
-    return wrapper
 
-@load_env
+load_dotenv()
+
 def save_to_excel(local_data: pd.DataFrame, formatter: Callable[[Workbook, str], None] = None, sheet_name: str = "Sheet", name_xlsx: str = os.getenv("OUTPUT_EXCEL_NAME")):
     if os.path.exists(name_xlsx):
         try:
