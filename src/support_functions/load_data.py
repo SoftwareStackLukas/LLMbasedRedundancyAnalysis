@@ -4,7 +4,7 @@ import jsonlines
 
 def load_datasets_with_annotations() -> dict[str, list]:
     current_directory = os.getcwd()
-    suffix = '\\redundanciesbyannotations'
+    suffix = '\\src'
     directory = current_directory[:-len(suffix)] if current_directory.endswith(suffix) else current_directory
 
     sub_directories = {"g02_federal_funding", "g03_loudoun", "g04_recycling", "g05_open_spending", "g08_frictionless", "g10_scrum_alliance", 
@@ -13,7 +13,7 @@ def load_datasets_with_annotations() -> dict[str, list]:
 
     datasets: dict = {}
     for sub_directory in sub_directories:
-        jsonl_file_path = directory + f"\\Dataset\\doccano_files\\final_annotated_datasets\\{sub_directory}\\admin.jsonl"
+        jsonl_file_path = directory + f"\\Datasets\\doccano_files\\final_annotated_datasets\\{sub_directory}\\admin.jsonl"
         json_data = []
         prefix:str = ""
         with jsonlines.open(jsonl_file_path) as reader:
