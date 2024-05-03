@@ -1,8 +1,24 @@
+import distance.CosineSimilarityStrategy;
+import distance.LevenshteinDistanceStrategy;
+import distance.RatcliffObershelpSimilarity;
+import wordfinders.BigHugeThesaurus;
 import wordfinders.DatamuseConnector;
 import wordfinders.WordnikConnector;
 
 public class Main {
     public static void main(String[] args) {
+        LevenshteinDistanceStrategy levenDistance = new LevenshteinDistanceStrategy();
+        System.out.println("Similarity based on the Levenshtein Distance Alg.: " + levenDistance.calcWordDistanceAsDouble("webpage", "website"));
+
+        //This only works with full sentences like: "This webpage is great" and "This website is great"
+        CosineSimilarityStrategy cosineSimilarity = new CosineSimilarityStrategy();
+        System.out.println("Cosine Similarity: " + cosineSimilarity.calcWordDistanceAsDouble("webpage", "website"));
+
+        RatcliffObershelpSimilarity ratcliffObershelpSimilarity = new RatcliffObershelpSimilarity();
+        System.out.println("Similarity based on the Ratcliff Obershelp Alg.: " + ratcliffObershelpSimilarity.calcWordDistanceAsDouble("webpage", "website"));
+
+        //Maybe use 2 or 3 to check if a word is similar but look for good ones (as here just the first is good and the other twos not so
+        //Datamuse --> It is free accessable and I assume it is the best
         String[] words = new DatamuseConnector().getSimilarWords("webpage");
         String wordToCompare = "website";
         String contained = "no";
@@ -15,9 +31,21 @@ public class Main {
 
         System.out.println("Word is contained: " + contained);
 
-        // Wirdnik Connector
+        // Wirdnik Connector --> To get the api key needs 7 days... (until now we have no access) --> Maybe an alternative?
+//        words = new WordnikConnector().getSimilarWords("webpage");
+//        wordToCompare = "website";
+//        contained = "no";
+//        for (String word : words) {
+//            if (word.equals(wordToCompare)) {
+//                contained = "yes";
+//                break;
+//            }
+//        }
+//
+//        System.out.println("Word is contained: " + contained);
 
-        words = new WordnikConnector().getSimilarWords("webpage");
+        // BigHugeThesaurus Connector --> Looking at the output of similar words this is not a good dictonary --> Maybe an alternative?
+        words = new BigHugeThesaurus().getSimilarWords("webpage");
         wordToCompare = "website";
         contained = "no";
         for (String word : words) {
