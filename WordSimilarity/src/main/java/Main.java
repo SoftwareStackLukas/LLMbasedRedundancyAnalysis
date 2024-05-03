@@ -7,10 +7,16 @@ import wordfinders.WordnikConnector;
 
 public class Main {
     public static void main(String[] args) {
+        /*
+        * I implemented two apporaches:
+        *   1.) Calc the similarity on different stategies
+        *   2.) Look up the word searched for in a online dictonary and then look if the second word is contained in the answer of the response
+         */
+
 
         //Determining what is for use the significant  for Leven., Cos. and Ratc.
         LevenshteinDistanceStrategy levenDistance = new LevenshteinDistanceStrategy();
-        System.out.println("Similarity based on the Levenshtein Distance Alg.: " + levenDistance.calcWordDistanceAsDouble("webpage", "website"));
+        System.out.println("Similarity based on the Levenshtein Distance Alg.: " + levenDistance.calcWordDistanceAsDouble("t", "hello"));
 
         //This only works with full sentences like: "This webpage is great" and "This website is great"
         CosineSimilarityStrategy cosineSimilarity = new CosineSimilarityStrategy();
