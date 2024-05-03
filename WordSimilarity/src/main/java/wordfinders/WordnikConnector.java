@@ -18,7 +18,7 @@ public class WordnikConnector implements WordRelationshipFinder {
 
     @Override
     public String[] getSimilarWords(String word) {
-        String apiKey = "YOUR_API_KEY_HERE";  // Replace this with your actual API key
+        String apiKey = ConfigLoader.getApiKey();
         HttpClient client = HttpClient.newHttpClient();
         List<String> similarWords = new LinkedList<String>();
 
