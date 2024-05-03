@@ -7,6 +7,8 @@ import wordfinders.WordnikConnector;
 
 public class Main {
     public static void main(String[] args) {
+
+        //Determining what is for use the significant  for Leven., Cos. and Ratc.
         LevenshteinDistanceStrategy levenDistance = new LevenshteinDistanceStrategy();
         System.out.println("Similarity based on the Levenshtein Distance Alg.: " + levenDistance.calcWordDistanceAsDouble("webpage", "website"));
 

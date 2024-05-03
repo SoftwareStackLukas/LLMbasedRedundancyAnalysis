@@ -18,6 +18,9 @@ public class LevenshteinDistanceStrategy implements Distance {
      * The cost of substitution is determined by the `costOfSubstitution` method, which needs to be defined to use
      * this method correctly. This allows for customization based on specific character changes.
      *
+     * Based on: <a href="https://www.baeldung.com/java-levenshtein-distance">How to Calculate Levenshtein Distance in Java?</a>
+     * and <a href="https://stackoverflow.com/questions/6087281/similarity-score-levenshtein">stack overflow: Similarity Score - Levenshtein</a>
+     *
      * @param word1 the first string to compare; should not be null and should represent text data.
      * @param word2 the second string to compare; should not be null and should represent text data.
      * @return a double value representing the normalized edit distance, scaled such that 1 represents identical strings
@@ -25,6 +28,7 @@ public class LevenshteinDistanceStrategy implements Distance {
      */
     @Override
     public double calcWordDistanceAsDouble(String word1, String word2) {
+        //Baase on https://www.baeldung.com/java-levenshtein-distance
         int[][] dp = new int[word1.length() + 1][word2.length() + 1];
 
         for (int i = 0; i <= word1.length(); i++) {
