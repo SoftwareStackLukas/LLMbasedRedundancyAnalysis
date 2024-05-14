@@ -14,12 +14,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class WordnikConnector implements WordRelationshipFinder {
-    public static final String URL = "https://api.wordnik.com/v4/word.json/";
-    public static final String RELATED_WORDS_USE_CANONICAL_FALSE_LIMIT_PER_RELATIONSHIP_TYPE_10_API_KEY;
+    public static final String URL;
+    public static final String RELATED_WORDS_USE_CANONICAL_FALSE_LIMIT_PER_RELATIONSHIP;
+    private static final String API_KEY;
 
     static {
         try {
-            RELATED_WORDS_USE_CANONICAL_FALSE_LIMIT_PER_RELATIONSHIP_TYPE_10_API_KEY = "/relatedWords?useCanonical=false&limitPerRelationshipType=10&api_key=" + ConfigLoader.getApiKeyWordnik();
+            URL = "https://api.wordnik.com/v4/word.json/";
+            RELATED_WORDS_USE_CANONICAL_FALSE_LIMIT_PER_RELATIONSHIP = "/relatedWords?useCanonical=false&relationshipTypes=synonym&limitPerRelationshipType=100&api_key=";
+            API_KEY = ConfigLoader.getApiKeyWordnik();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -27,22 +30,13 @@ public class WordnikConnector implements WordRelationshipFinder {
 
     @Override
     public String[] getSimilarWords(String word) {
-        String apiKey = null;
-
-        try {
-            apiKey = ConfigLoader.getApiKeyWordnik();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-
         List<String> similarWords = new LinkedList<String>();
-        if (apiKey != null) {
+        if (API_KEY != null) {
             HttpClient client = HttpClient.newHttpClient();
 
 
             try {
-                URI uri = URI.create(URL + word + RELATED_WORDS_USE_CANONICAL_FALSE_LIMIT_PER_RELATIONSHIP_TYPE_10_API_KEY + apiKey);
+                URI uri = URI.create(URL + word + RELATED_WORDS_USE_CANONICAL_FALSE_LIMIT_PER_RELATIONSHIP + API_KEY);
                 HttpRequest request = HttpRequest.newBuilder()
                         .uri(uri)
                         .GET()

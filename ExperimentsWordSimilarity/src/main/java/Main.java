@@ -16,7 +16,7 @@ public class Main {
 
         //Determining what is for use the significant  for Leven., Cos. and Ratc.
         LevenshteinDistanceStrategy levenDistance = new LevenshteinDistanceStrategy();
-        System.out.println("Similarity based on the Levenshtein Distance Alg.: " + levenDistance.calcWordDistanceAsDouble("t", "hello"));
+        System.out.println("Similarity based on the Levenshtein Distance Alg.: " + levenDistance.calcWordDistanceAsDouble("webpage", "website"));
 
         //This only works with full sentences like: "This webpage is great" and "This website is great"
         CosineSimilarityStrategy cosineSimilarity = new CosineSimilarityStrategy();
@@ -40,17 +40,17 @@ public class Main {
         System.out.println("Word is contained: " + contained);
 
         // Wirdnik Connector --> To get the api key needs 7 days... (until now we have no access) --> Maybe an alternative?
-//        words = new WordnikConnector().getSimilarWords("webpage");
-//        wordToCompare = "website";
-//        contained = "no";
-//        for (String word : words) {
-//            if (word.equals(wordToCompare)) {
-//                contained = "yes";
-//                break;
-//            }
-//        }
-//
-//        System.out.println("Word is contained: " + contained);
+        words = new WordnikConnector().getSimilarWords("Earth");
+        wordToCompare = "website";
+        contained = "no";
+        for (String word : words) {
+            if (word.equals(wordToCompare)) {
+                contained = "yes";
+                break;
+            }
+        }
+
+        System.out.println("Word is contained: " + contained);
 
         // BigHugeThesaurus Connector --> Looking at the output of similar words this is not a good dictonary --> Maybe an alternative?
         words = new BigHugeThesaurus().getSimilarWords("webpage");
