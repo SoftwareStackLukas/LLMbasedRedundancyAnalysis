@@ -4,8 +4,11 @@
     - Main Part and Benefit analyse
     - Main Part: alles was nicht der Benefit ist
     - Benefit: the outcome of the action
+    - In the first analyse we did not consider the annotations to keep the context as minimal as possible 
+    - We wanted to compare the output with and without annotations === where same and where different
 
 ### Steps
+    - [X] Check if ChatGPT 4o is cheaper as 4 Turbo --> 4o is cheaper as Turbo 4 (Ressource)[https://openai.com/api/pricing/]
     - [] Integrate Amirs Repo as submodul
     - [] Implement a timer how long one US is needed to be analysed
     - [] Write a JSON validator for my format
