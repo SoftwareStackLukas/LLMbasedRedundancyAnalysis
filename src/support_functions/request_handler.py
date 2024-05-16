@@ -10,7 +10,7 @@ import pandas as pd
 
 from dotenv import load_dotenv
 from openai import OpenAI
-from multiprocessing import Lock, Process, Queue, Manager
+from multiprocessing import Process, Queue, Manager
 
 # .Env const.
 load_dotenv()
@@ -174,13 +174,13 @@ def manage_single_request(
         If there is a ValueError during processing.
     """
     time_recorder: TimeRecorder = None
-    count_of_runs: int = None
+    count_of_requests: int = None
     if LIMIT_OF_REQUESTS == -1:
-        count_of_runs = range(len(pairs))
+        count_of_requests = range(len(pairs))
     else:
-        count_of_runs = LIMIT_OF_REQUESTS
+        count_of_requests = range(LIMIT_OF_REQUESTS)
 
-    for idx in count_of_runs:
+    for idx in count_of_requests:
         current_message: list[dict] = message.copy()
         template_request_two_user_stories(
             current_message,

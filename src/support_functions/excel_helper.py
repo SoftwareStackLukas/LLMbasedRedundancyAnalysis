@@ -1,5 +1,9 @@
 import os
+import subprocess
+import signal
 import pandas as pd
+from multiprocessing import Process, Queue, Manager
+from time import sleep 
 from collections.abc import Callable
 from openpyxl import load_workbook, Workbook
 from dotenv import load_dotenv
@@ -8,6 +12,40 @@ from .load_data import load_datasets_with_annotations as loading
 
 load_dotenv()
 
+def kill_process_using_file(filename):
+    try:
+        proc = subprocess.run(['handle', filename], capture_output=True, text=True)
+        for line in proc.stdout.splitlines():
+            if filename in line:
+                pid = line.split()[2]
+                os.kill(int(pid), signal.SIGTERM)  # or signal.SIGKILL
+                print(f"Killed process {pid} that was using {filename}")
+    except Exception as e:
+        print(f"Error killing process: {e}")    
+
+def check_if_sheet_exists_and_delete(q: Queue) -> None:
+    delete_flag: bool = False
+    path_to_file: str = str(q.get())
+    file_name: str = str(q.get())
+    sheet_name: str = str(q.get())
+    full_path: str = os.path.join(path_to_file, file_name)
+    try:
+        wb = load_workbook(full_path)
+        if (sheet_name in wb.sheetnames and len(wb.sheetnames) == 1):
+            delete_flag = True
+        else:
+            if sheet_name in wb.sheetnames:
+                del wb[sheet_name]
+            wb.save(full_path)
+    except FileNotFoundError:
+        print(f"File not found: {full_path}")
+    except PermissionError:
+        print(f"Permission denied while accessing {full_path}")
+    except Exception as e:
+        print(f"An unexpected error occurred while processing {full_path}: {e}")
+    finally:
+        wb.close()
+        q.put(delete_flag)
 
 def save_to_excel(
     local_data: pd.DataFrame,
@@ -17,28 +55,35 @@ def save_to_excel(
 ):
     mode: str = "w"
     if os.path.exists(name_xlsx):
-        try:
-            wb = load_workbook(name_xlsx)
-            if sheet_name in wb.sheetnames:
-                del wb[sheet_name]
-            wb.save(name_xlsx)
-            mode = 'a'
-            #wb.close()
-        except Exception as e:
-            os.remove(name_xlsx)
-            print(e)
-            print("Corupted .xlsx was deleted")
-    
+        q: Queue = Queue()
+        q.put(os.getcwd())
+        q.put(name_xlsx)
+        q.put(sheet_name)
+        process = Process(
+            target=check_if_sheet_exists_and_delete,
+            args=(q,),
+        )
+        process.start()
+        process.join()
+        while process.is_alive():
+            sleep(1)
+        process.close()
+        if not q.empty():
+            if bool (q.get()):
+                full_file_path: str = os.path.join(os.getcwd(), name_xlsx)
+                os.remove(full_file_path)
+            else:
+                mode = "r+"
     with pd.ExcelWriter(name_xlsx, mode=mode) as writer:
         local_data.to_excel(writer, index=False, sheet_name=sheet_name)
-    
     if formatter:
         wb = load_workbook(name_xlsx)
         formatter(wb, sheet_name)
         wb.save(name_xlsx)
-        #wb.close()
-    
-    
+        wb.close()
+        
+        
+        
     # if os.path.exists(name_xlsx):
     #     try:
     #         wb = load_workbook(name_xlsx)
