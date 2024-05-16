@@ -1,8 +1,6 @@
 import os
-import subprocess
-import signal
 import pandas as pd
-from multiprocessing import Process, Queue, Manager
+from multiprocessing import Process, Queue
 from time import sleep 
 from collections.abc import Callable
 from openpyxl import load_workbook, Workbook
@@ -10,18 +8,7 @@ from dotenv import load_dotenv
 from .load_data import load_datasets_with_annotations as loading
 
 
-load_dotenv()
-
-def kill_process_using_file(filename):
-    try:
-        proc = subprocess.run(['handle', filename], capture_output=True, text=True)
-        for line in proc.stdout.splitlines():
-            if filename in line:
-                pid = line.split()[2]
-                os.kill(int(pid), signal.SIGTERM)  # or signal.SIGKILL
-                print(f"Killed process {pid} that was using {filename}")
-    except Exception as e:
-        print(f"Error killing process: {e}")    
+load_dotenv()  
 
 def check_if_sheet_exists_and_delete(q: Queue) -> None:
     delete_flag: bool = False
