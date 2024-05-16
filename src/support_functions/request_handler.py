@@ -71,3 +71,8 @@ def send_requierment_to_chatgpt(message: list[dict], time_recorder: TimeRecorder
 # print("Elapsed time (ms):", elapsed_time_ms)
 # print("Elapsed time (s):", elapsed_time_s)
 # print("Elapsed time (m):", elapsed_time_m)
+
+
+
+
+

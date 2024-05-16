@@ -11,18 +11,11 @@ import ctypes
 
 GLOBAL_SAVE_LOCK = Lock
 WAIT_FOR_REQUESTS_FINISHED: int = 3 #in seconds
+LIMIT_OF_REQUESTS: int = os.getenv('LIMIT')
 
-def templat_request_two_user_stories(current_message: list[dict], user_story_one: str, user_story_two: str, user_story_one_id: str, user_story_two_id: str):
+def template_request_two_user_stories(current_message: list[dict], user_story_one: str, user_story_two: str, user_story_one_id: str, user_story_two_id: str):
     tatarus(current_message, user_story_one, user_story_two, user_story_one_id, user_story_two_id)
-
-def save_to_json_persistent_thread_save(folder_name, key, results_thread_save, exceptions_thread_save, lock):    
-    results_collection: dict = {}
-    results_collection[key] = list(results_thread_save)
-    if len(list(exceptions_thread_save)) != 0:
-        results_collection[key.value.decode('utf-8'), 'Exceptions'] = list(exceptions_thread_save)
-    with lock:
-        save_to_json_persistent(folder_name.value.decode('utf-8'), results_collection)
-        
+  
 def manage_parallel_request(q_messages, results, exceptions_during_processing) -> None:
     time_recorder: TimeRecorder = None
     while not q_messages.empty():
@@ -51,13 +44,17 @@ def process_requests_parallel(message: list[dict], pairs: pd.DataFrame, folder_n
         results_thread_save = manager.list()
         exceptions_thread_save = manager.list()
         
-        elements: int = 0
         current_message: list[dict] = []
-        for idx in range(len(pairs)):
+        count_of_requests: int = None
+        if LIMIT_OF_REQUESTS == -1:
+            count_of_requests = range(len(pairs))
+        else:
+            count_of_requests = range(LIMIT_OF_REQUESTS)
+            
+        for idx in count_of_requests:
             current_message = message.copy()
-            templat_request_two_user_stories(current_message, pairs.iat[idx, 1], pairs.iat[idx, 3], str(pairs.iat[idx, 0]), str(pairs.iat[idx, 2]))
+            template_request_two_user_stories(current_message, pairs.iat[idx, 1], pairs.iat[idx, 3], str(pairs.iat[idx, 0]), str(pairs.iat[idx, 2]))
             requests_to_accomplish.put({pairs.iat[idx, 1] + ";" + pairs.iat[idx, 3] : current_message})
-            elements += 1
         
         for _ in range(os.cpu_count() * 2):
             process = Process(target=manage_parallel_request, args=(requests_to_accomplish, results_thread_save, exceptions_thread_save))
@@ -65,16 +62,11 @@ def process_requests_parallel(message: list[dict], pairs: pd.DataFrame, folder_n
             process.start()
         
         for _ in processes:
-            print("Wait for thread")
             _.join()
-            print("Thread terminated")
-        
-        shared_folder_name = multiprocessing.Array(ctypes.c_char, len(folder_name) + 1)
-        shared_folder_name.value = folder_name.encode('utf-8')
-        shared_key = multiprocessing.Array(ctypes.c_char, len(key) + 1)
-        shared_key.value = key.encode('utf-8')
 
-        process = Process(target=save_to_json_persistent_thread_save, args=(shared_folder_name, shared_key, results_thread_save, exceptions_thread_save, GLOBAL_SAVE_LOCK))
-        process.start()
-        process.join()
-        print("Reached End")
+        results_collection: dict = {}
+        results_collection[key] = list(results_thread_save)
+        print(list(results_thread_save))
+        if len(list(exceptions_thread_save)) != 0:
+            results_collection[key + 'Exceptions'] = list(exceptions_thread_save)
+        save_to_json_persistent(folder_name, results_collection)
