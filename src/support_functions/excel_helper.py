@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from .load_data import load_datasets_with_annotations as loading
 
 
-load_dotenv()  
+load_dotenv()
 
 def check_if_sheet_exists_and_delete(q: Queue) -> None:
     delete_flag: bool = False
@@ -68,51 +68,6 @@ def save_to_excel(
         formatter(wb, sheet_name)
         wb.save(name_xlsx)
         wb.close()
-        
-        
-        
-    # if os.path.exists(name_xlsx):
-    #     try:
-    #         wb = load_workbook(name_xlsx)
-    #         if sheet_name in wb.sheetnames:
-    #             try:
-    #                 del wb[sheet_name]
-    #                 wb.save(name_xlsx)
-    #             finally:
-    #                 if "wb" in locals() and wb:
-    #                     wb.close()
-    #                     wb = None
-    #                 wb = load_workbook(name_xlsx)
-    #         if len(wb.sheetnames) >= 1:
-    #             with pd.ExcelWriter(name_xlsx, mode="a") as writer:
-    #                 local_data.to_excel(writer, index=False, sheet_name=sheet_name)
-    #             if "writer" in locals():
-    #                 writer = None
-    #         else:
-    #             with pd.ExcelWriter(name_xlsx, mode="w") as writer:
-    #                 local_data.to_excel(writer, index=False, sheet_name=sheet_name)
-    #             if "writer" in locals():
-    #                 writer = None
-    #     finally:
-    #         if "wb" in locals() and wb:
-    #             wb.close()
-    #             wb = None
-    # else:
-    #     with pd.ExcelWriter(name_xlsx, mode="w") as writer:
-    #         local_data.to_excel(writer, index=False, sheet_name=sheet_name)
-    #     if "writer" in locals():
-    #         writer = None
-    # try:
-    #     wb: Workbook = None
-    #     if formatter:
-    #         wb: Workbook = load_workbook(name_xlsx)
-    #         formatter(wb, sheet_name)
-    #         wb.save(name_xlsx)
-    # finally:
-    #     if "wb" in locals() and wb:
-    #         wb.close()
-    #         wb = None
-
 
 def load_datasets_add_line_counter() -> dict[str, list]:
     datasets: dict[str, list] = loading()
