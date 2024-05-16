@@ -9,7 +9,7 @@ We use for the formal approach [Amirs Repo](https://github.com/amirrabieyannejad
      - Just cloning the importent code
 
 ## Env.
-You have to create a <bf>.env</bf>-file in the <bf>src</bf> folder. The following entries have to be consideres:
+You have to create a *.env*-file in the *src* folder. The following entries have to be consideres:
 - MODEL_VERSION (GPT 3.5 = gpt-3.5-turbo points to gpt-3.5-turbo-0125, GPT-4o = gpt-4o-2024-05-13)
 - OPENAI_API_KEY # Enter here your API key
 - OUTPUT_EXCEL_NAME_WITHOUT_ANNOTATIONS #Insert here the name of the .xlsx-file which stores the results of results from without annoations
