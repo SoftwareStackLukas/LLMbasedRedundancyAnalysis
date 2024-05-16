@@ -15,47 +15,71 @@ def save_to_excel(
     sheet_name: str = "Sheet",
     name_xlsx: str = os.getenv("OUTPUT_EXCEL_NAME_WITHOUT_ANNOTATIONS"),
 ):
+    mode: str = "w"
     if os.path.exists(name_xlsx):
         try:
             wb = load_workbook(name_xlsx)
             if sheet_name in wb.sheetnames:
-                try:
-                    del wb[sheet_name]
-                    wb.save(name_xlsx)
-                finally:
-                    if "wb" in locals() and wb:
-                        wb.close()
-                        wb = None
-                    wb = load_workbook(name_xlsx)
-            if len(wb.sheetnames) >= 1:
-                with pd.ExcelWriter(name_xlsx, mode="a") as writer:
-                    local_data.to_excel(writer, index=False, sheet_name=sheet_name)
-                if "writer" in locals():
-                    writer = None
-            else:
-                with pd.ExcelWriter(name_xlsx, mode="w") as writer:
-                    local_data.to_excel(writer, index=False, sheet_name=sheet_name)
-                if "writer" in locals():
-                    writer = None
-        finally:
-            if "wb" in locals() and wb:
-                wb.close()
-                wb = None
-    else:
-        with pd.ExcelWriter(name_xlsx, mode="w") as writer:
-            local_data.to_excel(writer, index=False, sheet_name=sheet_name)
-        if "writer" in locals():
-            writer = None
-    try:
-        wb: Workbook = None
-        if formatter:
-            wb: Workbook = load_workbook(name_xlsx)
-            formatter(wb, sheet_name)
+                del wb[sheet_name]
             wb.save(name_xlsx)
-    finally:
-        if "wb" in locals() and wb:
-            wb.close()
-            wb = None
+            mode = 'a'
+            #wb.close()
+        except Exception as e:
+            os.remove(name_xlsx)
+            print(e)
+            print("Corupted .xlsx was deleted")
+    
+    with pd.ExcelWriter(name_xlsx, mode=mode) as writer:
+        local_data.to_excel(writer, index=False, sheet_name=sheet_name)
+    
+    if formatter:
+        wb = load_workbook(name_xlsx)
+        formatter(wb, sheet_name)
+        wb.save(name_xlsx)
+        #wb.close()
+    
+    
+    # if os.path.exists(name_xlsx):
+    #     try:
+    #         wb = load_workbook(name_xlsx)
+    #         if sheet_name in wb.sheetnames:
+    #             try:
+    #                 del wb[sheet_name]
+    #                 wb.save(name_xlsx)
+    #             finally:
+    #                 if "wb" in locals() and wb:
+    #                     wb.close()
+    #                     wb = None
+    #                 wb = load_workbook(name_xlsx)
+    #         if len(wb.sheetnames) >= 1:
+    #             with pd.ExcelWriter(name_xlsx, mode="a") as writer:
+    #                 local_data.to_excel(writer, index=False, sheet_name=sheet_name)
+    #             if "writer" in locals():
+    #                 writer = None
+    #         else:
+    #             with pd.ExcelWriter(name_xlsx, mode="w") as writer:
+    #                 local_data.to_excel(writer, index=False, sheet_name=sheet_name)
+    #             if "writer" in locals():
+    #                 writer = None
+    #     finally:
+    #         if "wb" in locals() and wb:
+    #             wb.close()
+    #             wb = None
+    # else:
+    #     with pd.ExcelWriter(name_xlsx, mode="w") as writer:
+    #         local_data.to_excel(writer, index=False, sheet_name=sheet_name)
+    #     if "writer" in locals():
+    #         writer = None
+    # try:
+    #     wb: Workbook = None
+    #     if formatter:
+    #         wb: Workbook = load_workbook(name_xlsx)
+    #         formatter(wb, sheet_name)
+    #         wb.save(name_xlsx)
+    # finally:
+    #     if "wb" in locals() and wb:
+    #         wb.close()
+    #         wb = None
 
 
 def load_datasets_add_line_counter() -> dict[str, list]:
