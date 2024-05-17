@@ -3,7 +3,8 @@ import json
 
 
 def save_to_json_persistent(
-    folder_name: str, json_collection: any, param_base_path: str = os.getcwd()
+    folder_name: str, json_collection: any, 
+    param_base_path: str = os.getcwd()
 ):
     """
     Save a collection of JSON serializable objects to files in a specified folder, 

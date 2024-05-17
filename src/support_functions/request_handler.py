@@ -1,6 +1,6 @@
 ### One modules
-from support_functions.time_recorder import TimeRecorder
-from support_functions.save_data import save_to_json_persistent
+from .time_recorder import TimeRecorder
+from .save_data import save_to_json_persistent
 
 ### Third party modules
 import os

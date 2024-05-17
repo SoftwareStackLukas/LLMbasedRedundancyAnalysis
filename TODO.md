@@ -9,6 +9,7 @@
 
 ### Steps
     - [X] Check if ChatGPT 4o is cheaper as 4 Turbo --> 4o is cheaper as Turbo 4 (Ressource)[https://openai.com/api/pricing/]
+    - [] Build a json checker and send the data again to ChatGPT and ask for improvement (2xtime)
     - [] Integrate Amirs Repo as submodul
     - [] Implement a timer how long one US is needed to be analysed
     - [] Write a JSON validator for my format
