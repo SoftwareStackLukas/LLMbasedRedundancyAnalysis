@@ -1,6 +1,8 @@
 import unittest
 import json
-from src.support_functions.json_validator import validation, chat_gpt_schema_no_annotations
+#rom support_functions.json_validator import validation, chat_gpt_schema_no_annotations
+
+from support_functions.json_validator import validation, chat_gpt_schema_no_annotations
 
 class TestJSONValidation(unittest.TestCase):
     def test_valid_data1(self):

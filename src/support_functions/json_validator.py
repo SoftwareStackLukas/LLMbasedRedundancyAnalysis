@@ -23,7 +23,7 @@ chat_gpt_schema_no_annotations = chat_gpt_schema_no_annotations = {
             "items": {
                 "type": "object",
                 "properties": {
-                    "reasonDescribtion": {
+                    "reasonDescription": {
                         "type": "string"
                     },
                     "referenceToOriginalText": {
@@ -35,7 +35,7 @@ chat_gpt_schema_no_annotations = chat_gpt_schema_no_annotations = {
                         "maxItems": 2
                     }
                 },
-                "required": ["reasonDescribtion", "referenceToOriginalText"]
+                "required": ["reasonDescription", "referenceToOriginalText"]
             }
         },
         "redundantBenefit": {
@@ -46,7 +46,7 @@ chat_gpt_schema_no_annotations = chat_gpt_schema_no_annotations = {
             "items": {
                 "type": "object",
                 "properties": {
-                    "reasonDescribtion": {
+                    "reasonDescription": {
                         "type": "string"
                     },
                     "referenceToOriginalText": {
@@ -58,7 +58,7 @@ chat_gpt_schema_no_annotations = chat_gpt_schema_no_annotations = {
                         "maxItems": 2
                     }
                 },
-                "required": ["reasonDescribtion", "referenceToOriginalText"]
+                "required": ["reasonDescription", "referenceToOriginalText"]
             }
         }
     },
@@ -104,9 +104,6 @@ chat_gpt_schema_no_annotations = chat_gpt_schema_no_annotations = {
         }
     ]
 }
-
-
-
 
 ### Just an example --> Has to be changed
 # chat_gpt_schema_with_annotations = {
