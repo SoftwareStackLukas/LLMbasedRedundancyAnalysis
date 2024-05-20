@@ -6,12 +6,12 @@
         "mainPartRedundancies": [
             {
                 "redundancyTitel": "Dummy Value",
-                "reasonDescribtion": "Dummy Value Describtion",
+                "reasonDescription": "Dummy Value Describtion",
                 "referenceToOriginalText": ["As a User, I want to verify myself", "As an application User, I want to verify that I am who I am"]
             },
             {
                 "redundancyTitel": "Testing possibilities",
-                "reasonDescribtion": "The redundancy here stems from the repetition of the testing action and the tested entity, expressed in slightly different ways, likely for emphasis or to accommodate different perspectives",
+                "reasonDescription": "The redundancy here stems from the repetition of the testing action and the tested entity, expressed in slightly different ways, likely for emphasis or to accommodate different perspectives",
                 "referenceToOriginalText": ["As a software tester, I want to begin user testing", "As a tester, I want to begin testing the software"]
             }
         ],
@@ -19,12 +19,12 @@
         "benefitRedundancies": [
             {
                 "redundancyTitel": "User login button",
-                "reasonDescribtion": "The redundancy in these sentences lies in the repetition of the action ('login') and the destination ('webpage' and 'website'), which convey the same idea using slightly different wording.",
+                "reasonDescription": "The redundancy in these sentences lies in the repetition of the action ('login') and the destination ('webpage' and 'website'), which convey the same idea using slightly different wording.",
                 "referenceToOriginalText": ["I can login into the webpage.", "I could login into the website"]
             },
             {
                 "redundancyTitel": "Dummy Value",
-                "reasonDescribtion": "Dummy Value Describtion",
+                "reasonDescription": "Dummy Value Describtion",
                 "referenceToOriginalText": ["I can print a document", "I can give the order to print"]
             }
         ]

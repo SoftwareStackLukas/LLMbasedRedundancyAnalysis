@@ -2208,7 +2208,7 @@
         "redundantMainPart": true,
         "mainPartRedundancies": [
             {
-                "reasonDescribtion": "The redundancy arises from the repetition of the concept of choosing a flexible pick up time expressed in slightly different ways, likely for emphasis or to cater to different audiences.",
+                "reasonDescription": "The redundancy arises from the repetition of the concept of choosing a flexible pick up time expressed in slightly different ways, likely for emphasis or to cater to different audiences.",
                 "referenceToOriginalText": [
                     "As a user, I want to have a flexible pick up time",
                     "As a user, I want to choose a flexible pick up time"
@@ -7399,7 +7399,7 @@
         "redundantBenefit": true,
         "benefitRedundancies": [
             {
-                "reasonDescribtion": "The redundancy in benefits arises from the repetition of the outcome 'users get the most recent information' and 'provide the latest information about the recycling center', which convey the same idea using slightly different wording.",
+                "reasonDescription": "The redundancy in benefits arises from the repetition of the outcome 'users get the most recent information' and 'provide the latest information about the recycling center', which convey the same idea using slightly different wording.",
                 "referenceToOriginalText": [
                     "As an admin, I want to be able to add or remove recycling facilities' information, so that users get the most recent information.",
                     "As a superuser, I want to update the recycling center information, so that I can provide the latest information about the recycling center."

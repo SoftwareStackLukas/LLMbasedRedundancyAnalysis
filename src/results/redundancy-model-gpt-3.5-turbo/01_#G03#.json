@@ -6572,7 +6572,7 @@
         "redundantMainPart": true,
         "mainPartRedundancies": [
             {
-                "reasonDescribtion": "The redundancy arises from the repetition of the action of reviewing for compliance and making a decision, expressed in slightly different ways for emphasis or to cater to different audiences.",
+                "reasonDescription": "The redundancy arises from the repetition of the action of reviewing for compliance and making a decision, expressed in slightly different ways for emphasis or to cater to different audiences.",
                 "referenceToOriginalText": [
                     "As a Staff member, I want to Assign an Application for Detailed Review",
                     "As a Plan Review Staff member, I want to Review Plans"
@@ -6582,7 +6582,7 @@
         "redundantBenefit": true,
         "benefitRedundancies": [
             {
-                "reasonDescribtion": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the decision-making process ('approve or deny'), which convey the same idea using slightly different wording.",
+                "reasonDescription": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the decision-making process ('approve or deny'), which convey the same idea using slightly different wording.",
                 "referenceToOriginalText": [
                     "so that I can review the for compliance and subsequently approved or denied",
                     "so that I can review them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the Applicant"
@@ -15531,7 +15531,7 @@
         "redundantMainPart": true,
         "mainPartRedundancies": [
             {
-                "reasonDescribtion": "The redundancy arises from the repetition of the concept of reviewing plans, expressed in slightly different ways for emphasis or to cater to different audiences.",
+                "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing plans, expressed in slightly different ways for emphasis or to cater to different audiences.",
                 "referenceToOriginalText": [
                     "As a Plan Review Staff member, I want to successfully Conduct a Plan Review Meeting with the Applicant and record the outcome",
                     "As a Plan Review Staff member, I want to Review Plans"
@@ -15770,7 +15770,7 @@
         "redundantMainPart": true,
         "mainPartRedundancies": [
             {
-                "reasonDescribtion": "The redundancy arises from the repetition of the role 'Plan Review Staff member' and the action 'Review' in both User Stories, with slight variations in the context.",
+                "reasonDescription": "The redundancy arises from the repetition of the role 'Plan Review Staff member' and the action 'Review' in both User Stories, with slight variations in the context.",
                 "referenceToOriginalText": [
                     "As a Plan Review Staff member, I want to Review Plans",
                     "As a Plan Review Staff member, I want to Track the Completion of Required Plan Reviews"

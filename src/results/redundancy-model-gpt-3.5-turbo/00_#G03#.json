@@ -6465,7 +6465,7 @@
         "redundantMainPart": true,
         "mainPartRedundancies": [
             {
-                "reasonDescribtion": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+                "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
                 "referenceToOriginalText": [
                     "As a Staff member, I want to Assign an Application for Detailed Review",
                     "As a Plan Review Staff member, I want to Review Plans"
@@ -6475,7 +6475,7 @@
         "redundantBenefit": true,
         "benefitRedundancies": [
             {
-                "reasonDescribtion": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the actions ('approve' and 'deny'), which convey the same idea using slightly different wording.",
+                "reasonDescription": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the actions ('approve' and 'deny'), which convey the same idea using slightly different wording.",
                 "referenceToOriginalText": [
                     "so that I can review the for compliance and subsequently approved or denied",
                     "so that I can review them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the Applicant"
@@ -13721,7 +13721,7 @@
         "redundantBenefit": true,
         "benefitRedundancies": [
             {
-                "reasonDescribtion": "The redundancy in benefits lies in the repetition of ensuring that all pre-hearing requirements are satisfied, which is redundant as it is already mentioned in both stories.",
+                "reasonDescription": "The redundancy in benefits lies in the repetition of ensuring that all pre-hearing requirements are satisfied, which is redundant as it is already mentioned in both stories.",
                 "referenceToOriginalText": [
                     "I can ensure all pre-hearing requirements are satisfied in time for the hearing.",
                     "I can ensure all pre-hearing requirements are satisfied and staff and Applicant are ready for the hearing."
