@@ -2,15 +2,18 @@ import json
 import jsonschema
 from jsonschema import validate
 
-### Just an example --> Has to be checked and understood as it was generated from ChatGPT
-chat_gpt_schema_no_annotations = {
+### Needs validation
+chat_gpt_schema_no_annotations = chat_gpt_schema_no_annotations = {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "properties": {
         "relatedStories": {
             "type": "array",
             "items": {
                 "type": "integer"
-            }
+            },
+            "minItems": 2,
+            "maxItems": 2
         },
         "redundantMainPart": {
             "type": "boolean"
@@ -27,9 +30,12 @@ chat_gpt_schema_no_annotations = {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "minItems": 2,
+                        "maxItems": 2
                     }
-                }
+                },
+                "required": ["reasonDescribtion", "referenceToOriginalText"]
             }
         },
         "redundantBenefit": {
@@ -47,9 +53,12 @@ chat_gpt_schema_no_annotations = {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "minItems": 2,
+                        "maxItems": 2
                     }
-                }
+                },
+                "required": ["reasonDescribtion", "referenceToOriginalText"]
             }
         }
     },
@@ -59,21 +68,57 @@ chat_gpt_schema_no_annotations = {
         "mainPartRedundancies",
         "redundantBenefit",
         "benefitRedundancies"
+    ],
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "redundantMainPart": {
+                        "const": True
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "mainPartRedundancies": {
+                        "minItems": 1
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "redundantBenefit": {
+                        "const": True
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "benefitRedundancies": {
+                        "minItems": 1
+                    }
+                }
+            }
+        }
     ]
 }
 
 
+
+
 ### Just an example --> Has to be changed
-chat_gpt_schema_with_annotations = {
-    "type": "object",
-    "properties": {
-        "name": {"type": "string"},
-        "rollnumber": {"type": "number"},
-        "marks": {"type": "number"},
-    },
-}
+# chat_gpt_schema_with_annotations = {
+#     "type": "object",
+#     "properties": {
+#         "name": {"type": "string"},
+#         "rollnumber": {"type": "number"},
+#         "marks": {"type": "number"},
+#     },
+# }
 
-
+# JSON validation is based on this specifications: https://json-schema.org/specification
 def validation(json_data: str, current_schema: dict) -> bool:
     try:
         validate(instance=json_data, schema=current_schema)
@@ -82,21 +127,234 @@ def validation(json_data: str, current_schema: dict) -> bool:
     return True
 
 
-def validate_chat_gpt_json_no_annotations(json_data: str) -> bool:
-    return validation(json_data, chat_gpt_schema_no_annotations)
+# test_data1 = '''
+#     {
+#         "relatedStories": [
+#             315,
+#             316
+#         ],
+#         "redundantMainPart": false,
+#         "mainPartRedundancies": [],
+#         "redundantBenefit": false,
+#         "benefitRedundancies": []
+#     }
+# '''
+# print(validation(json.loads(test_data1), chat_gpt_schema_no_annotations))
+# print("Should be: true")
+# print("-" * 10)
 
-def validate_chat_gpt_json_with_annotations(json_data: str) -> bool:
-    return validation(json_data, chat_gpt_schema_with_annotations)
+# test_data2 = '''
+#     {
+#         "relatedStories": [
+#             326,
+#             353
+#         ],
+#         "redundantMainPart": true,
+#         "mainPartRedundancies": [
+#             {
+#                 "reasonDescribtion": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+#                 "referenceToOriginalText": [
+#                     "As a Staff member, I want to Assign an Application for Detailed Review",
+#                     "As a Plan Review Staff member, I want to Review Plans"
+#                 ]
+#             }
+#         ],
+#         "redundantBenefit": true,
+#         "benefitRedundancies": [
+#             {
+#                 "reasonDescribtion": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the actions ('approve' and 'deny'), which convey the same idea using slightly different wording.",
+#                 "referenceToOriginalText": [
+#                     "so that I can review the for compliance and subsequently approved or denied",
+#                     "so that I can review them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the Applicant"
+#                 ]
+#             }
+#         ]
+#     }
+# '''
+# print(validation(json.loads(test_data2), chat_gpt_schema_no_annotations))
+# print("Should be: true")
+# print("-" * 10)
+
+# test_data3 = '''
+#     {
+#         "relatedStories": [
+#             326,
+#             353
+#         ],
+#         "redundantMainPart": false,
+#         "mainPartRedundancies": [],
+#         "redundantBenefit": true,
+#         "benefitRedundancies": [
+#             {
+#                 "reasonDescribtion": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the actions ('approve' and 'deny'), which convey the same idea using slightly different wording.",
+#                 "referenceToOriginalText": [
+#                     "so that I can review the for compliance and subsequently approved or denied",
+#                     "so that I can review them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the Applicant"
+#                 ]
+#             }
+#         ]
+#     }
+# '''
+# print(validation(json.loads(test_data3), chat_gpt_schema_no_annotations))
+# print("Should be: true")
+# print("-" * 10)
+
+# test_data4 = '''
+#     {
+#         "relatedStories": [
+#             326,
+#             353
+#         ],
+#         "redundantMainPart": true,
+#         "mainPartRedundancies": [
+#             {
+#                 "reasonDescribtion": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+#                 "referenceToOriginalText": [
+#                     "As a Staff member, I want to Assign an Application for Detailed Review",
+#                     "As a Plan Review Staff member, I want to Review Plans"
+#                 ]
+#             }
+#         ],
+#         "redundantBenefit": false,
+#         "benefitRedundancies": []
+#     }
+# '''
+# print(validation(json.loads(test_data4), chat_gpt_schema_no_annotations))
+# print("Should be: true")
+# print("-" * 10)
 
 
-d = '''{
-        "relatedStories": [
-            315,
-            316
-        ],
-        "redundantMainPart": false,
-        "mainPartRedundancies": [],
-        "redundantBenefit": false,
-        "benefitRedundancies": []
-    }'''
-print(validate_chat_gpt_json_no_annotations(d))
+# test_data5 = '''
+#     {
+#         "relatedStories": [
+#             326,
+#             353
+#         ],
+#         "redundantMainPart": true,
+#         "mainPartRedundancies": [],
+#         "redundantBenefit": false,
+#         "benefitRedundancies": [
+#             {
+#                 "reasonDescribtion": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the actions ('approve' and 'deny'), which convey the same idea using slightly different wording.",
+#                 "referenceToOriginalText": [
+#                     "so that I can review the for compliance and subsequently approved or denied",
+#                     "so that I can review them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the Applicant"
+#                 ]
+#             }
+#         ]
+#     }
+# '''
+# print(validation(json.loads(test_data5), chat_gpt_schema_no_annotations))
+# print("Should be: false")
+# print("-" * 10)
+
+# test_data6 = '''
+#     {
+#         "relatedStories": [
+#             326,
+#             353
+#         ],
+#         "redundantMainPart": false,
+#         "mainPartRedundancies": [
+#             {
+#                 "reasonDescribtion": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+#                 "referenceToOriginalText": [
+#                     "As a Staff member, I want to Assign an Application for Detailed Review",
+#                     "As a Plan Review Staff member, I want to Review Plans"
+#                 ]
+#             }
+#         ],
+#         "redundantBenefit": true,
+#         "benefitRedundancies": []
+#     }
+# '''
+# print(validation(json.loads(test_data6), chat_gpt_schema_no_annotations))
+# print("Should be: false")
+# print("-" * 10)
+
+# test_data7 = '''
+#     {
+#         "relatedStories": [],
+#         "redundantMainPart": true,
+#         "mainPartRedundancies": [
+#             {
+#                 "reasonDescribtion": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+#                 "referenceToOriginalText": [
+#                     "As a Staff member, I want to Assign an Application for Detailed Review",
+#                     "As a Plan Review Staff member, I want to Review Plans"
+#                 ]
+#             }
+#         ],
+#         "redundantBenefit": false,
+#         "benefitRedundancies": []
+#     }
+# '''
+# print(validation(json.loads(test_data7), chat_gpt_schema_no_annotations))
+# print("Should be: false")
+# print("-" * 10)
+
+# test_data8 = '''
+#     {
+#         "relatedStories": [],
+#         "redundantMainPart": false,
+#         "mainPartRedundancies": [],
+#         "redundantBenefit": false,
+#         "benefitRedundancies": []
+#     }
+# '''
+# print(validation(json.loads(test_data8), chat_gpt_schema_no_annotations))
+# print("Should be: false")
+# print("-" * 10)
+
+# test_data9 = '''
+#     {
+#         "relatedStories": [111],
+#         "redundantMainPart": false,
+#         "mainPartRedundancies": [],
+#         "redundantBenefit": false,
+#         "benefitRedundancies": []
+#     }
+# '''
+# print(validation(json.loads(test_data9), chat_gpt_schema_no_annotations))
+# print("Should be: false")
+# print("-" * 10)
+
+# test_data10 = '''
+#     {
+#         "relatedStories": [ ,111],
+#         "redundantMainPart": false,
+#         "mainPartRedundancies": [],
+#         "redundantBenefit": false,
+#         "benefitRedundancies": []
+#     }
+# '''
+# try: 
+#     print("true")
+# except:
+#     print("false")
+
+# test_data11 = '''
+#     {
+#         "relatedStories": [453,111],
+#         "redundantMainPart": true,
+#         "mainPartRedundancies": [],
+#         "redundantBenefit": false,
+#         "benefitRedundancies": []
+#     }
+# '''
+# print(validation(json.loads(test_data9), chat_gpt_schema_no_annotations))
+# print("Should be: false")
+# print("-" * 10)
+
+# test_data12 = '''
+#     {
+#         "relatedStories": [453,111],
+#         "redundantMainPart": false,
+#         "mainPartRedundancies": [],
+#         "redundantBenefit": true,
+#         "benefitRedundancies": []
+#     }
+# '''
+# print(validation(json.loads(test_data12), chat_gpt_schema_no_annotations))
+# print("Should be: false")
+# print("-" * 10)
