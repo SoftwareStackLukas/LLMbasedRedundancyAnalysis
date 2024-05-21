@@ -1,5 +1,6 @@
 import pandas as pd
 from itertools import combinations
+import json
 
 ### This way of working with pandas is not recommend
 ### It has to be optimized to find a way to store for each text ther enteties and relations
@@ -56,3 +57,80 @@ def transform_pairwise(df: pd.DataFrame):
         }
         rows.append(row)
     return pd.DataFrame(rows)
+
+
+def convert_single_entry(item: dict, tiggers: dict, targets: dict, contains: dict) -> str:
+    new_data = {
+        "PID": item["PID"],
+        "User Story Text": item["Text"],
+        "Main Part": item["Text"].split(", so that")[0].split("#G04# ")[1],
+        "Benefit": item["Benefit"],
+        "Triggers": {
+            "Main Part": tiggers["mainpart"],
+            "Benefit": tiggers["benefit"]
+        },
+        "Targets": {
+            "Main Part": targets["mainpart"],
+            "Benefit": targets["benefit"]
+        },
+        "Contains": {
+            "Main Part": contains["mainpart"],
+            "Benefit": contains["benefit"]
+        }
+    }
+
+    return json.dumps(new_data, indent=4)
+
+def create_tiggers_targets_contains_mapping(item: dict) -> tuple[dict, dict, dict]:
+    triggers: dict = {
+        "Main Part": [],
+        "Benefit": []
+    }
+    targets: dict = {
+        "Main Part": [],
+        "Benefit": []
+    }
+    contains: dict = {
+        "Main Part": [],
+        "Benefit": []
+    }
+    
+    for trigger in item["Triggers"]:
+        if trigger[0] in item["Action"]["Primary Action"]:
+            triggers["Primary Action"].append(trigger)
+        elif trigger[1] == item["Action"]["Benefit"]:
+            triggers["Benefit"].append(trigger)
+        else:
+            raise ValueError("No entry mapped.")
+        
+    for target in item["Targets"]:
+        if target[0] in item["Entity"]["Main Part"]:
+            targets["Main Part"].append(target)
+        elif target[1] == item["Action"]["Benefit"]:
+            targets["Benefit"].append(target)
+        else:
+            raise ValueError("No entry mapped.")
+        
+    for contain in item["Contains"]:
+        if contain[0] in item["Action"]["Main Part"]:
+            triggers["Main Part"].append(contain)
+        elif contain[1] == item["Action"]["Benefit"]:
+            triggers["Benefit"].append(contain)
+        else:
+            raise ValueError("No entry mapped.")
+    
+    return triggers, targets, contains
+
+def convert_annotation_dataset(datasets: dict[list]) -> dict[list]:
+    items_to_append: list = []
+    current_item: str = None
+    for key, item in datasets.items():
+        items_to_append.clear()
+        for json_entry in item:
+            trigger, targets, contains = create_tiggers_targets_contains_mapping(item)
+            current_item = convert_single_entry(json_entry, trigger, targets, contains)
+            
+            items_to_append.append(current_item)
+        item.clear()
+        item.extend(items_to_append)
+        

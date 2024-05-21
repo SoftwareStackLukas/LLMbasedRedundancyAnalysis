@@ -1,8 +1,9 @@
 import os
 import jsonlines
+import json
 
 
-def load_datasets_with_annotations() -> dict[str, list]:
+def load_datasets_with_out_annotations() -> dict[str, list]:
     current_directory = os.getcwd()
     suffix = '\\src'
     directory = current_directory[:-len(suffix)] if current_directory.endswith(suffix) else current_directory
@@ -13,7 +14,7 @@ def load_datasets_with_annotations() -> dict[str, list]:
 
     datasets: dict = {}
     for sub_directory in sub_directories:
-        jsonl_file_path = directory + f"\\Datasets\\doccano_files\\final_annotated_datasets\\{sub_directory}\\admin.jsonl"
+        jsonl_file_path = os.path.join(directory, "Datasets", "doccano_files", "final_annotated_datasets", sub_directory, "admin.jsonl")
         json_data = []
         prefix:str = ""
         with jsonlines.open(jsonl_file_path) as reader:
@@ -28,4 +29,26 @@ def load_datasets_with_annotations() -> dict[str, list]:
                     line['text'] = line['text'].strip()
         key_id:str = prefix
         datasets[key_id] = json_data
+    return datasets
+
+def load_datasets_with_annotations() -> dict[str, list]:
+    current_directory = os.getcwd()
+    suffix = '\\src'
+    directory = current_directory[:-len(suffix)] if current_directory.endswith(suffix) else current_directory
+
+    json_file_path: str = os.path.join(directory, "Datasets", "nlp", "nlp_outputs", "individual_backlog", "nlp_outputs_original", "pos_baseline")
+    file_path: str = None
+    key: str = None
+    datasets: dict = {}
+    for filename in os.listdir(json_file_path):
+        if filename.endswith('.json'):
+            file_path = os.path.join(json_file_path, filename)
+            with open(file_path, 'r', encoding='utf-8') as file:
+                data = json.load(file)
+                if "Action POS" in data:
+                    del data["Action POS"]
+                if "Entity POS" in data:
+                    del data["Entity POS"]
+                key = filename.split("_")[0]
+                datasets[key] = data
     return datasets
