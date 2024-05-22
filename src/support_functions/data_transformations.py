@@ -62,20 +62,20 @@ def transform_pairwise(df: pd.DataFrame):
 def convert_single_entry(item: dict, tiggers: dict, targets: dict, contains: dict) -> str:
     new_data = {
         "PID": item["PID"],
-        "User Story Text": item["Text"],
-        "Main Part": item["Text"].split(", so that")[0].split("#G04# ")[1],
+        "User Story Text": item["Text"].replace(f"{item["PID"]}\u0020", ""),
+        "Main Part": item["Text"].split(", so that")[0].split(f"{item["PID"]}\u0020")[1],
         "Benefit": item["Benefit"],
         "Triggers": {
-            "Main Part": tiggers["mainpart"],
-            "Benefit": tiggers["benefit"]
+            "Main Part": tiggers["Main Part"],
+            "Benefit": tiggers["Benefit"]
         },
         "Targets": {
-            "Main Part": targets["mainpart"],
-            "Benefit": targets["benefit"]
+            "Main Part": targets["Main Part"],
+            "Benefit": targets["Benefit"]
         },
         "Contains": {
-            "Main Part": contains["mainpart"],
-            "Benefit": contains["benefit"]
+            "Main Part": contains["Main Part"],
+            "Benefit": contains["Benefit"]
         }
     }
 
@@ -96,28 +96,36 @@ def create_tiggers_targets_contains_mapping(item: dict) -> tuple[dict, dict, dic
     }
     
     for trigger in item["Triggers"]:
-        if trigger[0] in item["Action"]["Primary Action"]:
-            triggers["Primary Action"].append(trigger)
-        elif trigger[1] == item["Action"]["Benefit"]:
-            triggers["Benefit"].append(trigger)
+        if (trigger[0] in item["Persona"] and 
+                trigger[1] in item["Action"]["Primary Action"]):
+            triggers["Main Part"].append(trigger)
+        # elif trigger[1] == item["Action"]["Benefit"]:
+        #     triggers["Benefit"].append(trigger)
         else:
-            raise ValueError("No entry mapped.")
+            print(f"No entry mapped (trigger). For PID: {item["PID"]} and Text: {item["Text"]}")
+            #raise ValueError(f"No entry mapped (trigger). For PID: {item["PID"]} and Text: {item["Text"]}")
         
     for target in item["Targets"]:
-        if target[0] in item["Entity"]["Main Part"]:
+        if (target[0] in item["Action"]["Primary Action"] and
+                target[1] in item["Entity"]["Primary Entity"]):
             targets["Main Part"].append(target)
-        elif target[1] == item["Action"]["Benefit"]:
+        elif (target[0] in item["Action"]["Secondary Action"] and
+                target[1] in item["Entity"]["Secondary Entity"]):
             targets["Benefit"].append(target)
         else:
-            raise ValueError("No entry mapped.")
+            print(f"No entry mapped (target). For PID: {item["PID"]} and Text: {item["Text"]}")
+            #raise ValueError(f"No entry mapped (target). For PID: {item["PID"]} and Text: {item["Text"]}")
         
     for contain in item["Contains"]:
-        if contain[0] in item["Action"]["Main Part"]:
+        if (contain[0] in item["Entity"]["Primary Entity"] and
+                contain[1] in item["Entity"]["Primary Entity"]):
             triggers["Main Part"].append(contain)
-        elif contain[1] == item["Action"]["Benefit"]:
+        elif (contain[0] in item["Entity"]["Secondary Entity"] and
+                contain[1] in item["Entity"]["Secondary Entity"]):
             triggers["Benefit"].append(contain)
         else:
-            raise ValueError("No entry mapped.")
+            print(f"No entry mapped (contains). For PID: {item["PID"]} and Text: {item["Text"]}")
+            #raise ValueError(f"No entry mapped (contains). For PID: {item["PID"]} and Text: {item["Text"]}")
     
     return triggers, targets, contains
 
@@ -127,10 +135,12 @@ def convert_annotation_dataset(datasets: dict[list]) -> dict[list]:
     for key, item in datasets.items():
         items_to_append.clear()
         for json_entry in item:
-            trigger, targets, contains = create_tiggers_targets_contains_mapping(item)
+            trigger, targets, contains = create_tiggers_targets_contains_mapping(json_entry)
             current_item = convert_single_entry(json_entry, trigger, targets, contains)
             
             items_to_append.append(current_item)
         item.clear()
         item.extend(items_to_append)
+        
+    return datasets
         
