@@ -1,39 +1,49 @@
-import pandas as pd
-from itertools import combinations
-import json
 from .load_data import load_datasets_with_out_annotations
 
-### This way of working with pandas is not recommend
-### It has to be optimized to find a way to store for each text ther enteties and relations
+ONE_WHITESPACE: str = "\u0020"
 
-def transform_data_id_text(data: list):
-    rows = []
-    for entry in data:
-        row = {
-            'ID': entry['id'],
-            'User Story': entry['text']
-        }
-        rows.append(row)
-    return pd.DataFrame(rows)
+### Used for Datasets with no modification
+def return_usid(DATASET_WITH_ID: dict, story: dict) -> int:
+    text1: str = None
+    text2: str = None
+    local_key: str = None
+    for key, _ in DATASET_WITH_ID.items():
+        if (str(story["PID"]).lower() in str(key).lower()):
+            for item in _:
+                local_key = str(key)
+                text1 = str(item['text']).lower()
+                text2 = str(story['Text']).replace(f"{local_key}{ONE_WHITESPACE}", "").lower()
+                if text1 == text2:
+                    return int(item['id'])
+    raise ValueError(f"No USID found for: {story['Text']}")   
 
-def transform_pairwise(df: pd.DataFrame):
-    rows = []
-    for i, j in combinations(range(df.shape[0]), 2):
-        row = {
-            'First ID': df.iloc[i, 0],
-            'First User Story': df.iloc[i, 1],
-            'Second ID': df.iloc[j, 0],
-            'Second User Story': df.iloc[j, 1]
-        }
-        rows.append(row)
-    return pd.DataFrame(rows)
+def remove_pov_and_add_usid(dataset: dict) -> dict:
+    DATASET_WITH_USID = load_datasets_with_out_annotations()
+    
+    usid: str = None
+    new_entries: list[dict] = []
+    for _ in dataset.values():
+        for item in _:
+            # if "Persona POS" in item:
+            #     del item["Persona POS"]
+            # if "Action POS" in item:
+            #     del item["Action POS"]
+            # if "Entity POS" in item:
+            #     del item["Entity POS"]
+            usid = return_usid(DATASET_WITH_ID=DATASET_WITH_USID, story=item)
+            new_entries.append({'usid': usid, **item})
+        _.clear()
+        _ += new_entries
+        new_entries.clear()
+    return dataset
 
+### Used for Datasets with reorganizing the datasets for annotations
 def convert_single_entry(item: dict, tiggers: dict, targets: dict, contains: dict) -> dict:
     new_data = {
         "PID": item["PID"],
         "USID": "",
-        "User Story Text": item["Text"].replace(f"{item["PID"]}\u0020", ""),
-        "Main Part": item["Text"].split(", so that")[0].split(f"{item["PID"]}\u0020")[1],
+        "User Story Text": item["Text"].replace(f"{item["PID"]}{ONE_WHITESPACE}", ""),
+        "Main Part": item["Text"].split(", so that")[0].split(f"{item["PID"]}{ONE_WHITESPACE}")[1],
         "Benefit": item["Benefit"],
         "Triggers": {
             "Main Part": tiggers["Main Part"],

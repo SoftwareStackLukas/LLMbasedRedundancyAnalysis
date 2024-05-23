@@ -5027,7 +5027,7 @@
     },
     {
         "PID": "#G08#",
-        "Text": "#G08# As a ResearcherPublisher, I want an integration with Zenodo, so that when I store my dataset in GitHub, I donâ€™t have to retype descriptive information about my dataset.",
+        "Text": "#G08# As a ResearcherPublisher, I want an integration with Zenodo, so that when I store my dataset in GitHub, I don’t have to retype descriptive information about my dataset.",
         "Persona": [
             "ResearcherPublisher"
         ],
