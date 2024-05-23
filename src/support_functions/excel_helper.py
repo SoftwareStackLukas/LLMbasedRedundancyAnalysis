@@ -5,7 +5,7 @@ from time import sleep
 from collections.abc import Callable
 from openpyxl import load_workbook, Workbook
 from dotenv import load_dotenv
-from .load_data import load_datasets_with_annotations as loading
+from .load_data import load_datasets_with_out_annotations as loading
 
 
 load_dotenv()

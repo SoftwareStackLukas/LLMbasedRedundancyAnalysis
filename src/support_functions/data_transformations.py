@@ -1,40 +1,10 @@
 import pandas as pd
 from itertools import combinations
 import json
+from .load_data import load_datasets_with_out_annotations
 
 ### This way of working with pandas is not recommend
 ### It has to be optimized to find a way to store for each text ther enteties and relations
-
-def transform_data(data):
-    rows = []
-    row_enteties = []
-    row_relations = []
-    for line in data:
-        for entity in line['entities']:
-            entity_row = {
-                "id": entity["id"],
-                "label": entity["label"],
-                "start_offset": entity["start_offset"],
-                "end_offset": entity["end_offset"]
-            }
-            row_enteties.append(entity_row)
-        for relation in line['relations']:
-            relation_row = {
-                "id": relation["id"],
-                "type": relation["type"],
-                "from id": relation["from_id"],
-                "to id": relation["to_id"]
-            }
-            row_relations.append(relation_row)
-        row = {
-            'ID': line['id'],
-            'User Story': line['text'],
-            'Enteties': row_enteties,
-            'Relations': row_relations
-        }
-        rows.append(row)
-    return pd.DataFrame(rows)
-
 
 def transform_data_id_text(data: list):
     rows = []
@@ -58,10 +28,10 @@ def transform_pairwise(df: pd.DataFrame):
         rows.append(row)
     return pd.DataFrame(rows)
 
-
-def convert_single_entry(item: dict, tiggers: dict, targets: dict, contains: dict) -> str:
+def convert_single_entry(item: dict, tiggers: dict, targets: dict, contains: dict) -> dict:
     new_data = {
         "PID": item["PID"],
+        "USID": "",
         "User Story Text": item["Text"].replace(f"{item["PID"]}\u0020", ""),
         "Main Part": item["Text"].split(", so that")[0].split(f"{item["PID"]}\u0020")[1],
         "Benefit": item["Benefit"],
@@ -79,7 +49,7 @@ def convert_single_entry(item: dict, tiggers: dict, targets: dict, contains: dic
         }
     }
 
-    return json.dumps(new_data, indent=4)
+    return new_data
 
 def create_tiggers_targets_contains_mapping(item: dict) -> tuple[dict, dict, dict]:
     triggers: dict = {
@@ -130,8 +100,10 @@ def create_tiggers_targets_contains_mapping(item: dict) -> tuple[dict, dict, dic
     return triggers, targets, contains
 
 def convert_annotation_dataset(datasets: dict[list]) -> dict[list]:
+    DATASET_WITH_USID = load_datasets_with_out_annotations()
+    
     items_to_append: list = []
-    current_item: str = None
+    current_item: dict = None
     for key, item in datasets.items():
         items_to_append.clear()
         for json_entry in item:
