@@ -11,12 +11,15 @@ import pandas as pd
 from dotenv import load_dotenv
 from openai import OpenAI
 from multiprocessing import Process, Queue, Manager
+from typing import Callable, List, Dict
+import copy
 
 # .Env const.
 load_dotenv()
 API_KEY = os.getenv("OPENAI_API_KEY")
 MODEL_CODE = os.getenv("MODEL_VERSION")
 LIMIT_OF_REQUESTS: int = int(os.getenv("LIMIT"))
+THRESHOLD_REPAIR: int = int(os.getenv("THRESHOLD_REPAIR"))
 
 # Const. for processing
 REDUNDANCY_MODEL: str = "redundancy-model-"
@@ -28,6 +31,7 @@ USID_ONE = "UID1"
 USID2_TWO = "UID2"
 VALUE_ERROR = "ValueError"
 ELIPSED_TIME = "elipsedTimeNs"
+REPAIR_REQUEST = {"role": "user", "content": "Please, check and repair the json format as it is not correct and return me the correct json output with the correct values. I used jsonschema libary from python to check the json. "}
 
 
 class StoppedAnswerException(Exception):
@@ -47,8 +51,50 @@ class StoppedAnswerException(Exception):
         self.message = message
         super().__init__(self.message)
 
+def check_for_stopped_resonse(system_is_r_eng):
+    if system_is_r_eng.choices[0].finish_reason != "stop":
+        raise StoppedAnswerException(
+            "Response error message: The finish reason is not 'stop'. It is: "
+            + system_is_r_eng.choices[0].finish_reason
+        )
+
+def repair_json_by_gpt(
+    message: list[dict],
+    answer: str,
+    not_correct_json_reason: str,
+    client,
+    json_validation: Callable[[Dict], bool]) -> str:
+    
+    message = copy.deepcopy(message)
+    correct: bool = False
+    current_repair_request: str = None
+    for _ in range(THRESHOLD_REPAIR):
+        current_repair_request = copy.deepcopy(REPAIR_REQUEST)
+        current_repair_request["content"] = current_repair_request["content"] + not_correct_json_reason
+        if not correct:
+            message.append({"role": "assistent", "content": answer})
+            message.append({"role": "user", "content": current_repair_request})
+            system_is_r_eng = client.chat.completions.create(
+                model=MODEL_CODE,
+                stream=False,
+                temperature=0.2,
+                response_format={"type": "json_object"},
+                messages=message,
+            )
+            check_for_stopped_resonse(system_is_r_eng)
+            answer = system_is_r_eng.choices[0].message.content
+            correct, not_correct_json_reason = json_validation(json.loads(answer))
+            if correct:
+                return answer
+    raise StoppedAnswerException(
+        "Response error message: The schema could not been correctly generated and not been repaired"
+    )
+            
+
 def send_requierment_to_chatgpt(
-    message: list[dict], time_recorder: TimeRecorder = None
+    message: list[dict],
+    json_validation: Callable[[Dict], bool],
+    time_recorder: TimeRecorder = None
 ) -> str:
     """
     Sends a requirement to the ChatGPT API and returns the response.
@@ -76,6 +122,9 @@ def send_requierment_to_chatgpt(
     StoppedAnswerException
         If the finish reason of the response is not 'stop'.
     """
+    answer: str = None
+    correct: bool = False
+    not_correct_json_reason: str = None
     client = OpenAI()
     start_time = time.time_ns()
     system_is_r_eng = client.chat.completions.create(
@@ -85,62 +134,31 @@ def send_requierment_to_chatgpt(
         response_format={"type": "json_object"},
         messages=message,
     )
+    check_for_stopped_resonse(system_is_r_eng)
+    answer = system_is_r_eng.choices[0].message.content
+    correct, not_correct_json_reason = json_validation(json.loads(answer))
+    if THRESHOLD_REPAIR > 0 and not correct:
+        answer = repair_json_by_gpt(message, answer, not_correct_json_reason, client, json_validation)
+    client.close()
     end_time = time.time_ns()
     if time_recorder:
         elapsed_time_ns = end_time - start_time
         time_recorder.nanoseconds = elapsed_time_ns
-    client.close()
-    if system_is_r_eng.choices[0].finish_reason != "stop":
-        raise StoppedAnswerException(
-            "Response error message: The finish reason is not 'stop'. It is: "
-            + system_is_r_eng.choices[0].finish_reason
-        )
-    return system_is_r_eng.choices[0].message.content
-
+    return answer
 
 # --> make this part more abstract and pass the functions needed to process data with annotations and without annotations to reduce the code here
 
 ## Data Processing Definition Pipline for User Stories
 ### General Function for data requests
-def template_request_two_user_stories(
-    current_message: list[dict],
-    user_story_one: str,
-    user_story_two: str,
-    user_story_one_id: str,
-    user_story_two_id: str,
-):
-    """
-    Creates a request template for two user stories and appends it to the current message list.
-
-    This function constructs a request dictionary containing the given user stories and their IDs.
-    The constructed request is then appended to the provided `current_message` list.
-
-    Parameters:
-    ----------
-    current_message : list[dict]
-        A list of dictionaries representing the current messages to which the new request will be appended.
-    user_story_one : str
-        The first user story to be included in the request.
-    user_story_two : str
-        The second user story to be included in the request.
-    user_story_one_id : str
-        The ID of the first user story.
-    user_story_two_id : str
-        The ID of the second user story.
-    """
-    request: dict = {
-        "role": "user",
-        "content": "Yes. Please, process the following pair of user stories:\n"
-        f"id: {user_story_one_id}, describtion:  {user_story_one}\n"
-        f"id: {user_story_two_id}, describtion: {user_story_two}",
-    }
-    current_message.append(request)
-
 def manage_single_request(
+    index_usid1: int,
+    index_usid2: int,
     message: list[dict],
     pairs: pd.DataFrame,
     results: list,
     exceptions_during_processing: list,
+    template_request_two_user_stories: Callable[[List[Dict], int, pd.DataFrame], None],
+    json_validation: Callable[[Dict], bool]
 ) -> None:
     """
     Processes multiple user story pairs by sending requests to 
@@ -181,25 +199,19 @@ def manage_single_request(
         count_of_requests = range(LIMIT_OF_REQUESTS)
 
     for idx in count_of_requests:
-        current_message: list[dict] = message.copy()
-        template_request_two_user_stories(
-            current_message,
-            pairs.iat[idx, 1],
-            pairs.iat[idx, 3],
-            str(pairs.iat[idx, 0]),
-            str(pairs.iat[idx, 2]),
-        )
+        current_message: list[dict] = copy.deepcopy(message)
+        template_request_two_user_stories(current_message, idx, pairs)
         try:
             time_recorder = TimeRecorder()
-            resonse = send_requierment_to_chatgpt(current_message, time_recorder)
+            resonse = send_requierment_to_chatgpt(current_message, time_recorder, json_validation)
             json_object = json.loads(resonse)
             json_object = {ELIPSED_TIME: time_recorder.nanoseconds, **json_object}
             results.append(json_object)
         except StoppedAnswerException:  # Handle StoppedAnswerException
             exceptions_during_processing_data = {
                 REASON_KEY: NOT_STOPPED_EXCEPTION_CHAT_GPT,
-                USID_ONE: str(pairs.iat[idx, 0]),
-                USID2_TWO: str(pairs.iat[idx, 2]),
+                USID_ONE: str(pairs.iat[idx, index_usid1]),
+                USID2_TWO: str(pairs.iat[idx, index_usid2]),
             }
             exceptions_during_processing.append(
                 json.loads(exceptions_during_processing_data)
@@ -207,8 +219,17 @@ def manage_single_request(
         except ValueError:
             exceptions_during_processing_data = {
                 REASON_KEY: VALUE_ERROR,
-                USID_ONE: str(pairs.iat[idx, 0]),
-                USID2_TWO: str(pairs.iat[idx, 2]),
+                USID_ONE: str(pairs.iat[idx, index_usid1]),
+                USID2_TWO: str(pairs.iat[idx, index_usid2]),
+            }
+            exceptions_during_processing.append(
+                json.loads(exceptions_during_processing_data)
+            )
+        except Exception as e:
+            exceptions_during_processing_data = {
+                REASON_KEY: str(e),
+                USID_ONE: str(pairs.iat[idx, index_usid1]),
+                USID2_TWO: str(pairs.iat[idx, index_usid2]),
             }
             exceptions_during_processing.append(
                 json.loads(exceptions_during_processing_data)
@@ -216,10 +237,14 @@ def manage_single_request(
 
 
 def process_user_stories(
+    index_usid1: int,
+    index_usid2: int,
     message: list[dict],
     pairs: pd.DataFrame,
     key: str,
     model_version_name: str,
+    template_request_two_user_stories: Callable[[List[Dict], int, pd.DataFrame], None],
+    json_validation: Callable[[Dict], bool],
     redundancy_prefix: str = "",
     time_recorder: TimeRecorder = None
 ) -> None:
@@ -258,7 +283,7 @@ def process_user_stories(
     exceptions_during_processing: list = []
     start_time = time.time_ns()
     
-    manage_single_request(message, pairs, results, exceptions_during_processing)
+    manage_single_request(index_usid1, index_usid2, message, pairs, results, exceptions_during_processing, template_request_two_user_stories, json_validation)
     
     end_time = time.time_ns()
     elapsed_time_ns = end_time - start_time
@@ -276,7 +301,12 @@ def process_user_stories(
     )
 
 ### Threading functions for data request
-def manage_parallel_request(q_messages, results, exceptions_during_processing) -> None:
+def manage_parallel_request(
+    q_messages,
+    results,
+    exceptions_during_processing,
+    json_validation: Callable[[Dict], bool]
+    ) -> None:
     """
     Processes a set of user stories by sending requests to the ChatGPT API and saves the results.
 
@@ -307,7 +337,7 @@ def manage_parallel_request(q_messages, results, exceptions_during_processing) -
         local_messages = list(dict(d).values())[0]
         try:
             time_recorder = TimeRecorder()
-            resonse = send_requierment_to_chatgpt(local_messages, time_recorder)
+            resonse = send_requierment_to_chatgpt(local_messages, time_recorder, json_validation)
             json_object = json.loads(resonse)
             json_object = {ELIPSED_TIME: time_recorder.nanoseconds, **json_object}
             results.append(json_object)
@@ -329,13 +359,26 @@ def manage_parallel_request(q_messages, results, exceptions_during_processing) -
             exceptions_during_processing.append(
                 json.loads(exceptions_during_processing_data)
             )
-
+        except Exception as e:
+            exceptions_during_processing_data = {
+                REASON_KEY: str(e),
+                USID_ONE: str(pairs.iat[idx, index_usid1]),
+                USID2_TWO: str(pairs.iat[idx, index_usid2]),
+            }
+            exceptions_during_processing.append(
+                json.loads(exceptions_during_processing_data)
+            )
 
 def process_user_stories_parallel(
     message: list[dict],
     pairs: pd.DataFrame,
     key: str,
     model_version_name: str,
+    index_usid1: int,
+    index_usid2: int,
+    template_request_two_user_stories: Callable[[List[Dict], int, pd.DataFrame], None],
+    sort_threaded_results: Callable[[Dict[List]], None],
+    json_validation: Callable[[Dict], bool],
     redundancy_prefix: str = "",
     time_recorder: TimeRecorder = None
 ):
@@ -343,12 +386,12 @@ def process_user_stories_parallel(
     Manages parallel processing of multiple user story pairs,
     sends requests to the ChatGPT API, and saves the results.
 
-    This function sets up multiprocessing resources to handle multiple user story pairs in parallel. 
-    It initializes queues and shared lists, spawns multiple processes to handle the requests, 
-    collects the results and any exceptions that occur during processing, 
+    This function sets up multiprocessing resources to handle multiple user story pairs in parallel.
+    It initializes queues and shared lists, spawns multiple processes to handle the requests,
+    collects the results and any exceptions that occur during processing,
     and saves the results to a JSON file.
 
-    Parameters:
+    Parameters
     ----------
     message : list[dict]
         A list of dictionaries representing the initial messages to be used as 
@@ -360,8 +403,37 @@ def process_user_stories_parallel(
         A unique key used to identify the results in the saved JSON file.
     model_version_name : str
         The version name of the ChatGPT model used for processing the requests.
+    index_usid1 : int
+        The column index in the DataFrame 'pairs' that contains the first user story ID.
+    index_usid2 : int
+        The column index in the DataFrame 'pairs' that contains the second user story ID.
+    template_request_two_user_stories : Callable[[List[Dict], int, pd.DataFrame], None]
+        A function that templates a request for two user stories. It takes the current message,
+        the index of the pair, and the DataFrame of pairs as arguments.
+    sort_threaded_results : Callable[[dict[list]], None]
+        A function that sorts the results from the threads. It takes a dictionary with lists as values
+        and returns None
     redundancy_prefix : str, optional
         A prefix added to the file name of the saved results. Default is an empty string.
+    time_recorder : TimeRecorder, optional
+        An object to record the elapsed time of the processing in nanoseconds. Default is None.
+
+    Returns
+    -------
+    None
+
+    Raises
+    ------
+    ValueError
+        If the input parameters do not meet the required conditions.
+    
+    Notes
+    -----
+    - This function uses the Python multiprocessing module to handle parallel processing.
+    - The function assumes the existence of constants `LIMIT_OF_REQUESTS`, `EXCEPTION`, `SEPERATOR`, 
+      and `REDUNDANCY_MODEL`, which should be defined elsewhere in the code.
+    - The results and exceptions are saved in a JSON file with a naming convention that includes
+      the `redundancy_prefix`, `REDUNDANCY_MODEL`, and `model_version_name`.
     """
     with Manager() as manager:
         # Data types for threading
@@ -378,16 +450,15 @@ def process_user_stories_parallel(
             count_of_requests = range(LIMIT_OF_REQUESTS)
 
         for idx in count_of_requests:
-            current_message = message.copy()
+            current_message = copy.deepcopy(message)
             template_request_two_user_stories(
                 current_message,
-                pairs.iat[idx, 1],
-                pairs.iat[idx, 3],
-                str(pairs.iat[idx, 0]),
-                str(pairs.iat[idx, 2]),
+                idx,
+                pairs
             )
             requests_to_accomplish.put(
-                {pairs.iat[idx, 1] + ";" + pairs.iat[idx, 3]: current_message}
+                #{pairs.iat[idx, 1] + ";" + pairs.iat[idx, 3]: current_message}
+                {pairs.iat[idx, index_usid1] + ";" + pairs.iat[idx, index_usid2]: current_message}
             )
 
         start_time = time.time_ns()
@@ -398,6 +469,7 @@ def process_user_stories_parallel(
                     requests_to_accomplish,
                     results_thread_save,
                     exceptions_thread_save,
+                    json_validation
                 ),
             )
             processes.append(process)
@@ -417,6 +489,7 @@ def process_user_stories_parallel(
             results_collection[key + EXCEPTION] = list(exceptions_thread_save)
         if redundancy_prefix:
             redundancy_prefix += SEPERATOR
+        sort_threaded_results(results_collection)       
         save_to_json_persistent(
             f"{redundancy_prefix}{REDUNDANCY_MODEL}{model_version_name}",
             results_collection,

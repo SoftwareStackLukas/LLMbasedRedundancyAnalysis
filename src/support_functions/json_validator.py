@@ -116,12 +116,29 @@ chat_gpt_schema_no_annotations = chat_gpt_schema_no_annotations = {
 # }
 
 # JSON validation is based on this specifications: https://json-schema.org/specification
-def validation(json_data: str, current_schema: dict) -> bool:
+def validation(json_data: str, current_schema: dict) -> tuple[bool, str]:
     try:
         validate(instance=json_data, schema=current_schema)
-    except jsonschema.exceptions.ValidationError:
-        return False
-    return True
+    except jsonschema.exceptions.ValidationError as e:
+        error_message = (
+            f"Message: {e.message}, "
+            f"Validator: {e.validator}, "
+            f"Validator Value: {e.validator_value}, "
+            f"Schema: {e.schema}, "
+            f"Relative Schema Path: {list(e.relative_schema_path)}, "
+            f"Absolute Schema Path: {list(e.absolute_schema_path)}"
+        )
+        
+        # If there are sub-errors, add their details as well
+        if e.context:
+            error_message += "Suberrors:\n"
+            for suberror in sorted(e.context, key=lambda sub: list(sub.schema_path)):
+                error_message += (
+                    f"  Path: {list(suberror.schema_path)}\n"
+                    f"  Message: {suberror.message}\n"
+                )
+        return False, f"The schema and error is: Schema: {current_schema} and Error-Content: {error_message}"
+    return True, ""
 
 
 test_data1 = '''
