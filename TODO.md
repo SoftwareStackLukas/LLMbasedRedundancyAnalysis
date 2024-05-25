@@ -11,6 +11,7 @@
     - False positives are better as falls negatives as a human can look at them both other way around would be rather time consumeing
 
 ### Steps
+    - Different abstractions redundant 0/1 full 0/1 partial 0/1
     - [] Multi Agent strategy that another LLM is checking the response 
     - [] Make architecture diagram for the request and the check and reasking ChatGPT 
     - [X] Check if ChatGPT 4o is cheaper as 4 Turbo --> 4o is cheaper as Turbo 4 (Ressource)[https://openai.com/api/pricing/]
