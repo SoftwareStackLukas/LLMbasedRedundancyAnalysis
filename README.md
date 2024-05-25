@@ -14,6 +14,8 @@ You have to create a *.env*-file in the *src* folder. The following entries have
 - OPENAI_API_KEY # Enter here your API key
 - OUTPUT_EXCEL_NAME_WITHOUT_ANNOTATIONS #Insert here the name of the .xlsx-file which stores the results of results from without annoations
 - OUTPUT_EXCEL_NAME_WITH_ANNOTATIONS #Insert here the name of the .xlsx-file which stores the results of results from with annoations
+- OUTPUT_EXCEL_NAME_WITH_PLAIN_ANNOTATIONS #Insert here the name of the .xlsx-file which stores the results of results from with plain annoations
+- THRESHOLD_REPAIR #Any number of repairs e.g. "3"
 - THREADING # "1" = ON, "2" = OFF
 - LIMIT  #"-1" =None, ""n" = any number
   
