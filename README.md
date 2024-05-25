@@ -8,6 +8,12 @@ We use for the formal approach [Amirs Repo](https://github.com/amirrabieyannejad
      - Git-Submodules
      - Just cloning the importent code
 
+## Folder explanation
+
+## Dependencies
+
+## Installation guide
+
 ## Env.
 You have to create a *.env*-file in the *src* folder. The following entries have to be consideres:
 - MODEL_VERSION (GPT 3.5 = gpt-3.5-turbo points to gpt-3.5-turbo-0125, GPT-4o = gpt-4o-2024-05-13)
