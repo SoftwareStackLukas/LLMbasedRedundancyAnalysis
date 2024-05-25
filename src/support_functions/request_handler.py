@@ -1,4 +1,4 @@
-### One modules
+### Own modules
 from .time_recorder import TimeRecorder
 from .save_data import save_to_json_persistent
 from .json_validator import validation

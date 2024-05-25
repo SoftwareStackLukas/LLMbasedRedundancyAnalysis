@@ -105,18 +105,39 @@ chat_gpt_schema_no_annotations = chat_gpt_schema_no_annotations = {
     ]
 }
 
-### Just an example --> Has to be changed
-# chat_gpt_schema_with_annotations = {
-#     "type": "object",
-#     "properties": {
-#         "name": {"type": "string"},
-#         "rollnumber": {"type": "number"},
-#         "marks": {"type": "number"},
-#     },
-# }
+## Just an example --> Has to be changed
+chat_gpt_schema_with_annotations = {
+    "type": "object",
+    "properties": {
+        "name": {"type": "string"},
+        "rollnumber": {"type": "number"},
+        "marks": {"type": "number"},
+    },
+}
 
 # JSON validation is based on this specifications: https://json-schema.org/specification
 def validation(json_data: str, current_schema: dict) -> tuple[bool, str]:
+    """
+    Validates a JSON object against a provided JSON schema.
+
+    This function attempts to validate the given JSON data against the specified schema.
+    If the validation fails, it catches the `ValidationError` and constructs a detailed error message,
+    including information about the validation failure and any sub-errors that occurred.
+
+    Parameters
+    ----------
+    json_data : str
+        The JSON data to be validated, represented as a string.
+    current_schema : dict
+        The JSON schema to validate against, represented as a dictionary.
+
+    Returns
+    -------
+    tuple[bool, str]
+        A tuple containing:
+        - A boolean indicating whether the JSON data is valid (True if valid, False otherwise).
+        - A string containing the error message if the validation fails, or an empty string if the validation is successful.
+    """
     try:
         validate(instance=json_data, schema=current_schema)
     except jsonschema.exceptions.ValidationError as e:
