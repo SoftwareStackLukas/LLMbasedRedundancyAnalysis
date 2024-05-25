@@ -1,6 +1,6 @@
 class TimeRecorder:
     def __init__(self):
-        self._nanoseconds = None
+        self._nanoseconds = 0
     
     @property
     def nanoseconds(self):
@@ -8,7 +8,10 @@ class TimeRecorder:
     
     @nanoseconds.setter
     def nanoseconds(self, value):
-        self._nanoseconds = value
+        if value is None:
+            self._nanoseconds = 0
+        else:
+            self._nanoseconds = value
 
     @property
     def milliseconds(self):
@@ -21,10 +24,3 @@ class TimeRecorder:
     @property
     def minutes(self):
         return self.seconds / 60
-
-# How to use it
-# tr = TimeRecorder()
-# tr.nanoseconds = 1_000_000 //setter is simpler
-# print(tr.nanoseconds)
-# print(tr.milliseconds)
-# print(tr.seconds)

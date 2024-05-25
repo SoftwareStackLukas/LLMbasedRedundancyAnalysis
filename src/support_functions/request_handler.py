@@ -1,6 +1,7 @@
 ### One modules
 from .time_recorder import TimeRecorder
 from .save_data import save_to_json_persistent
+from .json_validator import validation
 
 ### Third party modules
 import os
@@ -11,7 +12,7 @@ import pandas as pd
 from dotenv import load_dotenv
 from openai import OpenAI
 from multiprocessing import Process, Queue, Manager
-from typing import Callable, List, Dict
+from typing import Callable
 import copy
 
 # .Env const.
@@ -63,8 +64,8 @@ def repair_json_by_gpt(
     answer: str,
     not_correct_json_reason: str,
     client,
-    json_validation: Callable[[Dict], bool]) -> str:
-    
+    json_validation: Callable[[dict], bool]
+    ) -> str:
     message = copy.deepcopy(message)
     correct: bool = False
     current_repair_request: str = None
@@ -93,7 +94,7 @@ def repair_json_by_gpt(
 
 def send_requierment_to_chatgpt(
     message: list[dict],
-    json_validation: Callable[[Dict], bool],
+    json_validation: Callable[[dict], bool],
     time_recorder: TimeRecorder = None
 ) -> str:
     """
@@ -157,8 +158,8 @@ def manage_single_request(
     pairs: pd.DataFrame,
     results: list,
     exceptions_during_processing: list,
-    template_request_two_user_stories: Callable[[List[Dict], int, pd.DataFrame], None],
-    json_validation: Callable[[Dict], bool]
+    template_request_two_user_stories: Callable[[list[dict], int, pd.DataFrame], None],
+    json_validation: Callable[[dict], bool]
 ) -> None:
     """
     Processes multiple user story pairs by sending requests to 
@@ -200,10 +201,14 @@ def manage_single_request(
 
     for idx in count_of_requests:
         current_message: list[dict] = copy.deepcopy(message)
-        template_request_two_user_stories(current_message, idx, pairs)
+        template_request_two_user_stories(
+            current_message=current_message,
+            idx=idx, 
+            pairs=pairs
+        )
         try:
             time_recorder = TimeRecorder()
-            resonse = send_requierment_to_chatgpt(current_message, time_recorder, json_validation)
+            resonse = send_requierment_to_chatgpt(message=current_message, json_validation=json_validation, time_recorder=time_recorder)
             json_object = json.loads(resonse)
             json_object = {ELIPSED_TIME: time_recorder.nanoseconds, **json_object}
             results.append(json_object)
@@ -243,8 +248,8 @@ def process_user_stories(
     pairs: pd.DataFrame,
     key: str,
     model_version_name: str,
-    template_request_two_user_stories: Callable[[List[Dict], int, pd.DataFrame], None],
-    json_validation: Callable[[Dict], bool],
+    template_request_two_user_stories: Callable[[list[dict], int, pd.DataFrame], None],
+    json_validation: Callable[[dict], bool],
     redundancy_prefix: str = "",
     time_recorder: TimeRecorder = None
 ) -> None:
@@ -283,7 +288,8 @@ def process_user_stories(
     exceptions_during_processing: list = []
     start_time = time.time_ns()
     
-    manage_single_request(index_usid1, index_usid2, message, pairs, results, exceptions_during_processing, template_request_two_user_stories, json_validation)
+    manage_single_request(index_usid1=index_usid1, index_usid2=index_usid2, message=message, pairs=pairs, results=results, exceptions_during_processing=exceptions_during_processing, 
+                          template_request_two_user_stories=template_request_two_user_stories, json_validation=json_validation)
     
     end_time = time.time_ns()
     elapsed_time_ns = end_time - start_time
@@ -305,7 +311,7 @@ def manage_parallel_request(
     q_messages,
     results,
     exceptions_during_processing,
-    json_validation: Callable[[Dict], bool]
+    json_schema: str
     ) -> None:
     """
     Processes a set of user stories by sending requests to the ChatGPT API and saves the results.
@@ -330,6 +336,8 @@ def manage_parallel_request(
     redundancy_prefix : str, optional
         A prefix added to the file name of the saved results. Default is an empty string.
     """
+    def json_validation(json_data: dict) -> tuple[bool, str]:
+        return validation(json_data, json_schema)
     time_recorder: TimeRecorder = None
     while not q_messages.empty():
         d: dict = dict(q_messages.get())
@@ -337,7 +345,7 @@ def manage_parallel_request(
         local_messages = list(dict(d).values())[0]
         try:
             time_recorder = TimeRecorder()
-            resonse = send_requierment_to_chatgpt(local_messages, time_recorder, json_validation)
+            resonse = send_requierment_to_chatgpt(message=local_messages, json_validation=json_validation, time_recorder=time_recorder)
             json_object = json.loads(resonse)
             json_object = {ELIPSED_TIME: time_recorder.nanoseconds, **json_object}
             results.append(json_object)
@@ -362,23 +370,23 @@ def manage_parallel_request(
         except Exception as e:
             exceptions_during_processing_data = {
                 REASON_KEY: str(e),
-                USID_ONE: str(pairs.iat[idx, index_usid1]),
-                USID2_TWO: str(pairs.iat[idx, index_usid2]),
+                USID_ONE: usid1,
+                USID2_TWO: usid2,
             }
             exceptions_during_processing.append(
                 json.loads(exceptions_during_processing_data)
             )
 
 def process_user_stories_parallel(
+    index_usid1: int,
+    index_usid2: int,
     message: list[dict],
     pairs: pd.DataFrame,
     key: str,
     model_version_name: str,
-    index_usid1: int,
-    index_usid2: int,
-    template_request_two_user_stories: Callable[[List[Dict], int, pd.DataFrame], None],
-    sort_threaded_results: Callable[[Dict[List]], None],
-    json_validation: Callable[[Dict], bool],
+    template_request_two_user_stories: Callable[[list[dict], int, pd.DataFrame], None],
+    sort_threaded_results: Callable[[dict[list]], None],
+    json_schema: str,
     redundancy_prefix: str = "",
     time_recorder: TimeRecorder = None
 ):
@@ -452,13 +460,13 @@ def process_user_stories_parallel(
         for idx in count_of_requests:
             current_message = copy.deepcopy(message)
             template_request_two_user_stories(
-                current_message,
-                idx,
-                pairs
+                current_message=current_message,
+                idx=idx,
+                pairs=pairs
             )
+            
             requests_to_accomplish.put(
-                #{pairs.iat[idx, 1] + ";" + pairs.iat[idx, 3]: current_message}
-                {pairs.iat[idx, index_usid1] + ";" + pairs.iat[idx, index_usid2]: current_message}
+                {str(pairs.iat[idx, index_usid1]) + ";" + str(pairs.iat[idx, index_usid2]): current_message}
             )
 
         start_time = time.time_ns()
@@ -469,7 +477,7 @@ def process_user_stories_parallel(
                     requests_to_accomplish,
                     results_thread_save,
                     exceptions_thread_save,
-                    json_validation
+                    json_schema,
                 ),
             )
             processes.append(process)
@@ -489,7 +497,8 @@ def process_user_stories_parallel(
             results_collection[key + EXCEPTION] = list(exceptions_thread_save)
         if redundancy_prefix:
             redundancy_prefix += SEPERATOR
-        sort_threaded_results(results_collection)       
+        print(results_collection.items())
+        sort_threaded_results(results_collection)
         save_to_json_persistent(
             f"{redundancy_prefix}{REDUNDANCY_MODEL}{model_version_name}",
             results_collection,
