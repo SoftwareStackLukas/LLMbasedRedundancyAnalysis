@@ -7,6 +7,9 @@ class TestJSONValidationSchemaWithOutAnnotations(unittest.TestCase):
     test_data: str = ""
     
     def test_valid_data1(self):
+        '''
+            Covering the schema when no redundancy is detected
+        '''
         test_data = '''
         {
             "relatedStories": [
@@ -23,6 +26,9 @@ class TestJSONValidationSchemaWithOutAnnotations(unittest.TestCase):
         self.assertTrue(results)
 
     def test_valid_data2(self):
+        '''
+            Covering the schema when in main part and the benefit a redundancy is detected
+        '''
         test_data = '''
         {
             "relatedStories": [
@@ -54,8 +60,75 @@ class TestJSONValidationSchemaWithOutAnnotations(unittest.TestCase):
         results, _ = validation(json.loads(test_data), chat_gpt_schema_no_annotations)
         self.assertFalse(bool(_))
         self.assertTrue(results)
+        
+    def test_valid_data2_multiple_redundancies(self):
+        '''
+            Covering the schema when in main part and the benefit multiple redundancies are detected
+        '''
+        test_data = '''
+        {
+            "relatedStories": [
+                326,
+                353
+            ],
+            "redundantMainPart": true,
+            "mainPartRedundancies": [
+                {
+                    "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+                    "referenceToOriginalText": [
+                        "As a Staff member, I want to Assign an Application for Detailed Review",
+                        "As a Plan Review Staff member, I want to Review Plans"
+                    ]
+                },
+                {
+                    "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+                    "referenceToOriginalText": [
+                        "As a Staff member, I want to Assign an Application for Detailed Review",
+                        "As a Plan Review Staff member, I want to Review Plans"
+                    ]
+                },
+                {
+                    "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+                    "referenceToOriginalText": [
+                        "As a Staff member, I want to Assign an Application for Detailed Review",
+                        "As a Plan Review Staff member, I want to Review Plans"
+                    ]
+                }
+            ],
+            "redundantBenefit": true,
+            "benefitRedundancies": [
+                {
+                    "reasonDescription": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the actions ('approve' and 'deny'), which convey the same idea using slightly different wording.",
+                    "referenceToOriginalText": [
+                        "so that I can review the for compliance and subsequently approved or denied",
+                        "so that I can review them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the Applicant"
+                    ]
+                },
+                {
+                    "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+                    "referenceToOriginalText": [
+                        "As a Staff member, I want to Assign an Application for Detailed Review",
+                        "As a Plan Review Staff member, I want to Review Plans"
+                    ]
+                },
+                {
+                    "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+                    "referenceToOriginalText": [
+                        "As a Staff member, I want to Assign an Application for Detailed Review",
+                        "As a Plan Review Staff member, I want to Review Plans"
+                    ]
+                }
+            ]
+        }
+        '''
+        results, _ = validation(json.loads(test_data), chat_gpt_schema_no_annotations)
+        self.assertFalse(bool(_))
+        self.assertTrue(results)
 
     def test_valid_data3(self):
+        '''
+            Covering the schema when in benefit a redundancy is detected
+        '''
         test_data = '''
         {
             "relatedStories": [
@@ -78,8 +151,52 @@ class TestJSONValidationSchemaWithOutAnnotations(unittest.TestCase):
         '''
         results, _ = validation(json.loads(test_data), chat_gpt_schema_no_annotations)
         self.assertTrue(results)
+        
+    def test_valid_data3_multiple_redundancies(self):
+        '''
+            Covering the schema when in benefit multiple redundancies are detected
+        '''
+        test_data = '''
+        {
+            "relatedStories": [
+                326,
+                353
+            ],
+            "redundantMainPart": false,
+            "mainPartRedundancies": [],
+            "redundantBenefit": true,
+            "benefitRedundancies": [
+                {
+                    "reasonDescription": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the actions ('approve' and 'deny'), which convey the same idea using slightly different wording.",
+                    "referenceToOriginalText": [
+                        "so that I can review the for compliance and subsequently approved or denied",
+                        "so that I can review them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the Applicant"
+                    ]
+                },
+                {
+                    "reasonDescription": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the actions ('approve' and 'deny'), which convey the same idea using slightly different wording.",
+                    "referenceToOriginalText": [
+                        "so that I can review the for compliance and subsequently approved or denied",
+                        "so that I can review them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the Applicant"
+                    ]
+                },
+                {
+                    "reasonDescription": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the actions ('approve' and 'deny'), which convey the same idea using slightly different wording.",
+                    "referenceToOriginalText": [
+                        "so that I can review the for compliance and subsequently approved or denied",
+                        "so that I can review them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the Applicant"
+                    ]
+                }
+            ]
+        }
+        '''
+        results, _ = validation(json.loads(test_data), chat_gpt_schema_no_annotations)
+        self.assertTrue(results)
 
     def test_valid_data4(self):
+        '''
+            Covering the schema when in main part a redundancy is detected
+        '''
         test_data = '''
         {
             "relatedStories": [
@@ -88,6 +205,48 @@ class TestJSONValidationSchemaWithOutAnnotations(unittest.TestCase):
             ],
             "redundantMainPart": true,
             "mainPartRedundancies": [
+                {
+                    "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+                    "referenceToOriginalText": [
+                        "As a Staff member, I want to Assign an Application for Detailed Review",
+                        "As a Plan Review Staff member, I want to Review Plans"
+                    ]
+                }
+            ],
+            "redundantBenefit": false,
+            "benefitRedundancies": []
+        }
+        '''
+        results, _ = validation(json.loads(test_data), chat_gpt_schema_no_annotations)
+        self.assertFalse(bool(_))
+        self.assertTrue(results)
+        
+    def test_valid_data4_multiple_redundancies(self):
+        '''
+            Covering the schema when in main part multiple redundancies are detected
+        '''
+        test_data = '''
+        {
+            "relatedStories": [
+                326,
+                353
+            ],
+            "redundantMainPart": true,
+            "mainPartRedundancies": [
+                {
+                    "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+                    "referenceToOriginalText": [
+                        "As a Staff member, I want to Assign an Application for Detailed Review",
+                        "As a Plan Review Staff member, I want to Review Plans"
+                    ]
+                },
+                {
+                    "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+                    "referenceToOriginalText": [
+                        "As a Staff member, I want to Assign an Application for Detailed Review",
+                        "As a Plan Review Staff member, I want to Review Plans"
+                    ]
+                },
                 {
                     "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
                     "referenceToOriginalText": [
@@ -352,7 +511,7 @@ class TestJSONValidationSchemaWithOutAnnotations(unittest.TestCase):
             "redundantBenefit": true,
             "benefitRedundancies": [
                 {
-                    "reasonDescription": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the actions ('approve' and 'deny'), which convey the same idea using slightly different wording.",
+                    "reasonDescription": "The redundancy in these sentences lies in the repetition of the outcome ('review for compliance') and the actions ('approve' and 'deny'), which convey the same idea using slightly different wording."
                 }
             ]
         }
@@ -371,7 +530,8 @@ class TestJSONValidationSchemaWithOutAnnotations(unittest.TestCase):
             "redundantMainPart": true,
             "mainPartRedundancies": [
                 {
-                    "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences.",
+                    "reasonDescription": "The redundancy arises from the repetition of the concept of reviewing for compliance expressed in slightly different ways for emphasis or to cater to different audiences."
+                }
             ],
             "redundantBenefit": false,
             "benefitRedundancies": []
