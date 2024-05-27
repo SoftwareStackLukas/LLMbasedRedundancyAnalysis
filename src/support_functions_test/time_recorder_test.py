@@ -1,6 +1,6 @@
 import unittest
 
-from src.support_functions.time_recorder import TimeRecorder
+from support_functions.time_recorder import TimeRecorder
 
 
 class TestTimeRecorder(unittest.TestCase):
