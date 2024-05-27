@@ -10,9 +10,23 @@ We use for the formal approach [Amirs Repo](https://github.com/amirrabieyannejad
 
 ## Folder explanation
 
+## IDE + Plugins
+- VSCode
+- Jupyter
+- Jupyter Cell Tags
+- Jupyter Keymap
+- Pylint
+- Pylance
+- Python
+- Python Debugger
+- Python Enviorment Manager
+
 ## Dependencies
 
 ## Installation guide
+- Create a .venv
+- pip pip install -r /<usr_path>/requirements.txt
+- pip install . in src
 
 ## Env.
 You have to create a *.env*-file in the *src* folder. The following entries have to be consideres:
