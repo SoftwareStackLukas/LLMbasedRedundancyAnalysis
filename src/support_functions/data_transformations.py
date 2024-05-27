@@ -95,6 +95,8 @@ def create_tiggers_targets_contains_mapping(item: dict, ignored: dict[str,list])
         "Benefit": []
     }
     
+    temp_text: str = None
+    
     # First checking if items can be assigned by labels and then in the text
     for trigger in item["Triggers"]:
         # trigger[0] = Persona
@@ -107,9 +109,9 @@ def create_tiggers_targets_contains_mapping(item: dict, ignored: dict[str,list])
             triggers["Main Part"].append(trigger)
         # Benefits do not be to considered
         else:
-            ignored_element = f"PID: {item["PID"]}; Text: {item["Text"]}; Label Type: Trigger"
+            temp_text = str(item["Text"]).replace(str(item["PID"]) + ONE_WHITESPACE, "")
+            ignored_element = f"PID: {item["PID"]}; Text: {temp_text}; Label Type: Trigger"
             ignored_element_list.append(ignored_element)
-            ignored_element = None
     
     # First checking if items can be assigned by labels and then in the text
     for target in item["Targets"]:
@@ -128,9 +130,9 @@ def create_tiggers_targets_contains_mapping(item: dict, ignored: dict[str,list])
                 target[1] in benefit):
             targets["Benefit"].append(target)
         else:
-            ignored_element = f"PID: {item["PID"]}; Text: {item["Text"]}; Label Type: Target"
+            temp_text = str(item["Text"]).replace(str(item["PID"]) + ONE_WHITESPACE, "")
+            ignored_element = f"PID: {item["PID"]}; Text: {temp_text}; Label Type: Target"
             ignored_element_list.append(ignored_element)
-            ignored_element = None
     
     # First checking if items can be assigned by labels and then in the text
     for contain in item["Contains"]:
@@ -149,9 +151,9 @@ def create_tiggers_targets_contains_mapping(item: dict, ignored: dict[str,list])
                 contain[1] in item["Entity"]["Secondary Entity"]):
             triggers["Benefit"].append(contain)
         else:
-            ignored_element = f"PID: {item["PID"]}; Text: {item["Text"]}; Label Type: Contain"
+            temp_text = str(item["Text"]).replace(str(item["PID"]) + ONE_WHITESPACE, "")
+            ignored_element = f"PID: {item["PID"]}; Text: {temp_text}; Label Type: Contain"
             ignored_element_list.append(ignored_element)
-            ignored_element = None
     
     return triggers, targets, contains
 
