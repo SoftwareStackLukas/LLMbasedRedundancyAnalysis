@@ -3,7 +3,7 @@ import jsonschema
 from jsonschema import validate
 
 ### Needs validation
-chat_gpt_schema_no_annotations = chat_gpt_schema_no_annotations = {
+chat_gpt_schema_no_annotations =  {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "properties": {
