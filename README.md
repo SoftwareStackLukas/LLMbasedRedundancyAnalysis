@@ -10,6 +10,17 @@ We use for the formal approach [Amirs Repo](https://github.com/amirrabieyannejad
 
 ## Folder explanation
 
+## IDE + Plugins
+- VSCode
+- Jupyter
+- Jupyter Cell Tags
+- Jupyter Keymap
+- Pylint
+- Pylance
+- Python
+- Python Debugger
+- Python Enviorment Manager
+
 ## Dependencies
 
 ## Installation guide
