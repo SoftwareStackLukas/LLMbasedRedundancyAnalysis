@@ -33,7 +33,7 @@ def remove_pov_and_add_usid(dataset: dict) -> dict:
             # if "Entity POS" in item:
             #     del item["Entity POS"]
             usid = return_usid(DATASET_WITH_ID=DATASET_WITH_USID, story=item)
-            new_entries.append({'usid': usid, **item})
+            new_entries.append({'USID': usid, **item})
         _.clear()
         _ += new_entries
         new_entries.clear()
