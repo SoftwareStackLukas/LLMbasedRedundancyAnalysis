@@ -105,14 +105,532 @@ chat_gpt_schema_no_annotations =  {
     ]
 }
 
-## Just an example --> Has to be changed
+# This part checks if at last one trigger is set for a redundancy
+# has to be done also for the benefit as we can not determine here if it is a full or partial redundancy
+# {
+#     "if": {
+#         "properties": {
+#             "partialRedundancy": {
+#                 "const": True
+#             }
+#         }
+#     },
+#     "then": {
+#         "properties": {
+#              --> Maybe add here Contains and Triggers
+#             "pairsOfTargetsRedundancies": { 
+#                 "minItems": 1
+#             }
+#         }
+#     }
+# },
+
+# Check if this fullfills the expected behaviour
+# {
+#     "if": {
+#         "properties": {
+#             "partialRedundancy": {
+#                 "const": True
+#             }
+#         }
+#     },
+#     "then": {
+#         "properties": {
+#             "pairsOfTargetsRedundancies": {
+#                 "minItems": 1
+#             }
+#         }
+#     }, 
+#     "else": {
+#         "if": {
+#             "properties": {
+#                 "fullRedundancy": {
+#                     "const": True
+#                 }
+#             }
+#         },
+#         "then": {
+#             "properties": {
+#                 "pairsOfTargetsRedundancies": {
+#                     "minItems": 1
+#                 }
+#             }
+#         }
+#     }
+# },
+
+# This part is not correct
+# "allOf": [
+#     {
+#         "if": {
+#             "properties": {
+#                 "redundantMainPart": {
+#                     "const": True
+#                 }
+#             }
+#         },
+#         "then": {
+#             "anyOf": [
+#                 {
+#                     "properties": {
+#                         "partialRedundancy": {
+#                             "const": True
+#                         }
+#                     }
+#                 },
+#                 {
+#                     "properties": {
+#                         "fullRedundancy": {
+#                             "const": True
+#                         }
+#                     }
+#                 }
+#             ]
+#         },
+#         "else": {
+#             "properties": {
+#                 "partialRedundancy": {
+#                     "const": False
+#                 },
+#                 "fullRedundancy": {
+#                     "const": False
+#                 }
+#             }
+#         }
+#     }
+# ]
+
+## Just an example --> Check if the neste condition checks it
 chat_gpt_schema_with_annotations = {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "properties": {
-        "name": {"type": "string"},
-        "rollnumber": {"type": "number"},
-        "marks": {"type": "number"},
+        "relatedStories": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            },
+            "minItems": 2,
+            "maxItems": 2
+        },
+        "redundantMainPart": {
+            "type": "boolean"
+        },
+        "mainPartRedundancies": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "partialRedundancy": {
+                        "type": "boolean"
+                    },
+                    "fullRedundancy": {
+                        "type": "boolean"
+                    },
+                    "pairsOfTriggerRedundancies": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                        },
+                        "minItems": 0,
+                    },
+                    "pairsOfTargetsRedundancies": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                        },
+                        "minItems": 0,
+                    },
+                    "pairsOfTContainesdundancies": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                        },
+                        "minItems": 0,
+                    }
+                },
+                "required": ["pairsOfTriggerRedundancies", "pairsOfTargetsRedundancies", "pairsOfTContainsredundancies"],
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "partialRedundancy": {
+                                    "const": False
+                                },
+                                "fullRedundancy": {
+                                    "const": False
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "pairsOfTargetsRedundancies": {
+                                    "maxItems": 0
+                                },
+                                "pairsOfTriggersRedundancies": {
+                                    "maxItems": 0
+                                },
+                                "pairsOfTContainsedundancies": {
+                                    "maxItems": 0
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "partialRedundancy": {
+                                    "const": True
+                                }
+                            }
+                        },
+                        "then": {
+                            "not": {
+                                "properties": {
+                                    "fullRedundancy": {
+                                        "const": True
+                                    }
+                                }
+                            }
+                        },
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "fullRedundancy": {
+                                    "const": True
+                                }
+                            }
+                        },
+                        "then": {
+                            "not": {
+                                "properties": {
+                                    "partialRedundancy": {
+                                        "const": True
+                                    }
+                                }
+                            }
+                        },
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "partialRedundancy": {
+                                    "const": True
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "pairsOfTargetsRedundancies": {
+                                    "minItems": 1
+                                }
+                            }
+                        }, 
+                        "else": {
+                            "if": {
+                                "properties": {
+                                    "fullRedundancy": {
+                                        "const": True
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "pairsOfTargetsRedundancies": {
+                                        "minItems": 1
+                                    }
+                                }
+                            }
+                        }
+                    },
+                ]
+            }
+        },
+        "redundantBenefit": {
+            "type": "boolean"
+        },
+        "benefitRedundancies": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "partialRedundancy": {
+                        "type": "boolean"
+                    },
+                    "fullRedundancy": {
+                        "type": "boolean"
+                    },
+                    "pairsOfTriggerRedundancies": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                        },
+                        "minItems": 0,
+                    },
+                    "pairsOfTargetsRedundancies": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                        },
+                        "minItems": 0,
+                    },
+                    "pairsOfTContainesdundancies": {
+                        "type": "array",
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                        },
+                        "minItems": 0,
+                    }
+                },
+                "required": ["pairsOfTriggerRedundancies", "pairsOfTargetsRedundancies", "pairsOfTContainsredundancies"],
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "partialRedundancy": {
+                                    "const": False
+                                },
+                                "fullRedundancy": {
+                                    "const": False
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "pairsOfTargetsRedundancies": {
+                                    "maxItems": 0
+                                },
+                                "pairsOfTriggersRedundancies": {
+                                    "maxItems": 0
+                                },
+                                "pairsOfTContainsedundancies": {
+                                    "maxItems": 0
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "partialRedundancy": {
+                                    "const": True
+                                }
+                            }
+                        },
+                        "then": {
+                            "not": {
+                                "properties": {
+                                    "fullRedundancy": {
+                                        "const": True
+                                    }
+                                }
+                            }
+                        },
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "fullRedundancy": {
+                                    "const": True
+                                }
+                            }
+                        },
+                        "then": {
+                            "not": {
+                                "properties": {
+                                    "partialRedundancy": {
+                                        "const": True
+                                    }
+                                }
+                            }
+                        },
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "partialRedundancy": {
+                                    "const": True
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "pairsOfTargetsRedundancies": {
+                                    "minItems": 1
+                                }
+                            }
+                        }, 
+                        "else": {
+                            "if": {
+                                "properties": {
+                                    "fullRedundancy": {
+                                        "const": True
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "pairsOfTargetsRedundancies": {
+                                        "minItems": 1
+                                    }
+                                }
+                            }
+                        }
+                    },
+                ]
+            }
+        }
     },
+    "required": [
+        "relatedStories",
+        "redundantMainPart",
+        "mainPartRedundancies",
+        "redundantBenefit",
+        "benefitRedundancies"
+    ],
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "redundantMainPart": {
+                        "const": True
+                    }
+                }
+            },
+            "then": {
+                "anyOf": [
+                    {
+                        "properties": {
+                            "mainPartRedundancies": {
+                                "items": {
+                                    "properties": {
+                                        "partialRedundancy": {
+                                            "const": True
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "properties": {
+                            "mainPartRedundancies": {
+                                "items": {
+                                    "properties": {
+                                        "fullRedundancy": {
+                                            "const": True
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "else": {
+                "properties": {
+                    "mainPartRedundancies": {
+                        "items": {
+                            "properties": {
+                                "partialRedundancy": {
+                                    "const": False
+                                },
+                                "fullRedundancy": {
+                                    "const": False
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "redundantBenefit": {
+                        "const": True
+                    }
+                }
+            },
+            "then": {
+                "anyOf": [
+                    {
+                        "properties": {
+                            "benefitRedundancies": {
+                                "items": {
+                                    "properties": {
+                                        "partialRedundancy": {
+                                            "const": True
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "properties": {
+                            "benefitRedundancies": {
+                                "items": {
+                                    "properties": {
+                                        "fullRedundancy": {
+                                            "const": True
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "else": {
+                "properties": {
+                    "benefitRedundancies": {
+                        "items": {
+                            "properties": {
+                                "partialRedundancy": {
+                                    "const": False
+                                },
+                                "fullRedundancy": {
+                                    "const": False
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
 }
 
 # JSON validation is based on this specifications: https://json-schema.org/specification
