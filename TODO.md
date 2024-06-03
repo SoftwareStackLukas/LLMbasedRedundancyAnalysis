@@ -12,6 +12,7 @@
 
 ### Steps
     - Different abstractions redundant 0/1 full 0/1 partial 0/1
+    - Do in future work just plain text and then non processed jsons
     - [] Multi Agent strategy that another LLM is checking the response 
     - [] Make architecture diagram for the request and the check and reasking ChatGPT 
     - [X] Check if ChatGPT 4o is cheaper as 4 Turbo --> 4o is cheaper as Turbo 4 (Ressource)[https://openai.com/api/pricing/]

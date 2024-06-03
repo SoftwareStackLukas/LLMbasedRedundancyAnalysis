@@ -1238,7 +1238,7 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
-    def test_invalid_data56_1(self):
+    def test_invalid_data6_1(self):
         '''
             Missing required field: partialRedundancy
         '''
@@ -2103,7 +2103,6 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "partialRedundancy": true,
                 "fullRedundancy": false,
                 "descriptionOfTargetsRedundancies": "",
-                "pairsOfTargetsRedundancies": ,
                 "descriptionOfTriggersRedundancies": "",
                 "pairsOfTriggersRedundancies": [],
                 "descriptionOfContainsRedundancies": "Test String",
@@ -2122,12 +2121,12 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
         }
         '''
         results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
-        self.assertTrue(bool(_))  
+        self.assertTrue(bool(_))
         self.assertFalse(results)
         
     def test_invalid_data11_1(self):
         '''
-            Invalid item type in pairsOfTargetsRedundancies
+            ...
         '''
         test_data = '''
         {
@@ -2158,7 +2157,7 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
         self.assertTrue(bool(_))  
         self.assertFalse(results)
         
-    def test_invalid_data10_2(self):
+    def test_invalid_data11_2(self):
         '''
             Invalid item type in pairsOfTargetsRedundancies
         '''
@@ -2190,8 +2189,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
         results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
-        
-    def test_invalid_data10_3(self):
+      
+    def test_invalid_data11_3(self):
         '''
             Invalid item type in pairsOfTargetsRedundancies
         '''

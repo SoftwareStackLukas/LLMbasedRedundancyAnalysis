@@ -4,9 +4,10 @@ from multiprocessing import Process, Queue
 from time import sleep 
 from collections.abc import Callable
 from openpyxl import load_workbook, Workbook
+from openpyxl.styles import Alignment, Font
+from openpyxl.utils import get_column_letter as utils_get_column_letter
 from dotenv import load_dotenv
 from .load_data import load_datasets_with_out_annotations as loading
-
 
 load_dotenv()
 
@@ -135,3 +136,41 @@ def prepaire_excel_data() -> pd:
             if item["linecounter"] == second_number:
                 excel_data.iat[idx, 5] = item["id"]
     return excel_data
+
+def formatter_ignored_items(wb: Workbook, sheet_name: str): 
+        ws = wb[sheet_name]
+        header_font = Font(size=14, bold=True)
+        for cell in ws["1:1"]:
+            cell.font = header_font
+        
+        ADDITIONAL_LENGTH: int = 0
+        ADJUSTED_WIDTH: int = 0
+        MAX_LEN: int = 0
+        for col in ws.iter_cols(min_row=1, max_row=1):
+            for cell in col:
+                MAX_LEN = len(str(cell.value))
+                ADDITIONAL_LENGTH = (MAX_LEN + 2)
+                ADJUSTED_WIDTH = 0
+                
+                if cell.col_idx == 1:
+                    ADJUSTED_WIDTH =  ADDITIONAL_LENGTH * 10
+                if cell.col_idx == 2:
+                    ADJUSTED_WIDTH =  ADDITIONAL_LENGTH * 3
+                else:
+                    ADJUSTED_WIDTH =  ADDITIONAL_LENGTH * 1.5
+                ws.column_dimensions[utils_get_column_letter(cell.column)].width = ADJUSTED_WIDTH
+                
+        alignment = Alignment(vertical='center', horizontal='left')
+        for row in ws.iter_rows():
+            for cell in row:
+                cell.alignment = alignment
+
+        num_columns = ws.max_column
+        header_range = f"A1:{utils_get_column_letter(num_columns)}1"
+        ws.auto_filter.ref = header_range
+        ws.freeze_panes = ws['A2']
+
+        wrap_alignment = Alignment(wrap_text=True, vertical='top', horizontal='left')
+        for row in ws.iter_rows(min_row=2):
+            for cell in row:
+                cell.alignment = wrap_alignment
