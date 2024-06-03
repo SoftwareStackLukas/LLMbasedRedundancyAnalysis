@@ -214,146 +214,159 @@ chat_gpt_schema_with_annotations = {
             "maxItems": 2
         },
         "mainPartRedundancies": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "partialRedundancy": {
-                        "type": "boolean"
-                    },
-                    "fullRedundancy": {
-                        "type": "boolean"
-                    },
-                    "describtionOfTriggersRedundancies": {
-                        "type": "string"
-                    },
-                    "pairsOfTriggersRedundancies": {
+            "type": "object",
+            "properties": {
+                "partialRedundancy": {
+                    "type": "boolean"
+                },
+                "fullRedundancy": {
+                    "type": "boolean"
+                },
+                "describtionOfTriggersRedundancies": {
+                    "type": "string"
+                },
+                "pairsOfTriggersRedundancies": {
+                    "type": "array",
+                    "items": {
                         "type": "array",
                         "items": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "minItems": 2,
-                            "maxItems": 2
+                            "type": "string"
                         },
-                        "minItems": 0,
+                        "minItems": 2,
+                        "maxItems": 2
                     },
-                    "descriptionOfTargetsRedundancies": {
-                        "type": "string"
-                    },
-                    "pairsOfTargetsRedundancies": {
+                    "minItems": 0,
+                },
+                "descriptionOfTargetsRedundancies": {
+                    "type": "string"
+                },
+                "pairsOfTargetsRedundancies": {
+                    "type": "array",
+                    "items": {
                         "type": "array",
                         "items": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "minItems": 2,
-                            "maxItems": 2
+                            "type": "string"
                         },
-                        "minItems": 0,
+                        "minItems": 2,
+                        "maxItems": 2
                     },
-                    "descriptionOfContainsRedundancies": {
-                        "type": "string"
-                    },
-                    "pairsOfTContainesRedundancies": {
+                    "minItems": 0,
+                },
+                "descriptionOfContainsRedundancies": {
+                    "type": "string"
+                },
+                "pairsOfTContainesRedundancies": {
+                    "type": "array",
+                    "items": {
                         "type": "array",
                         "items": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "minItems": 2,
-                            "maxItems": 2
+                            "type": "string"
                         },
-                        "minItems": 0,
+                        "minItems": 2,
+                        "maxItems": 2
+                    },
+                    "minItems": 0,
+                }
+            },
+            "required": [
+                "partialRedundancy",
+                "fullRedundancy",
+                "descriptionOfTargetsRedundancies",
+                "pairsOfTargetsRedundancies",
+                "descriptionOfTriggersRedundancies",
+                "pairsOfTriggersRedundancies",
+                "descriptionOfContainsRedundancies",
+                "pairsOfContainsRedundancies"],
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "partialRedundancy": {
+                                "const": False
+                            },
+                            "fullRedundancy": {
+                                "const": False
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "descriptionOfTriggersRedundancies": {
+                                "const": ""
+                            },
+                            "pairsOfTriggersRedundancies": {
+                                "maxItems": 0
+                            },
+                            "descriptionOfTargetsRedundancies": {
+                                "const": ""
+                            },
+                            "pairsOfTargetsRedundancies": {
+                                "maxItems": 0
+                            },
+                            "descriptionOfContainsRedundancies": {
+                                "const": ""
+                            },
+                            "pairsOfContainsRedundancies": {
+                                "maxItems": 0
+                            }
+                        }
                     }
                 },
-                "required": [
-                    "partialRedundancy",
-                    "fullRedundancy",
-                    "descriptionOfTargetsRedundancies",
-                    "pairsOfTargetsRedundancies",
-                    "descriptionOfTriggersRedundancies",
-                    "pairsOfTriggersRedundancies",
-                    "descriptionOfContainsRedundancies",
-                    "pairsOfContainsRedundancies"],
-                "allOf": [
-                    {
-                        "if": {
-                            "properties": {
-                                "partialRedundancy": {
-                                    "const": False
-                                },
-                                "fullRedundancy": {
-                                    "const": False
-                                }
+                {
+                    "if": {
+                        "properties": {
+                            "partialRedundancy": {
+                                "const": True
                             }
-                        },
-                        "then": {
+                        }
+                    },
+                    "then": {
+                        "not": {
                             "properties": {
-                                "descriptionOfTriggersRedundancies": {
-                                    "const": ""
-                                },
-                                "pairsOfTriggersRedundancies": {
-                                    "maxItems": 0
-                                },
-                                "descriptionOfTargetsRedundancies": {
-                                    "const": ""
-                                },
-                                "pairsOfTargetsRedundancies": {
-                                    "maxItems": 0
-                                },
-                                "descriptionOfContainsRedundancies": {
-                                    "const": ""
-                                },
-                                "pairsOfContainsRedundancies": {
-                                    "maxItems": 0
+                                "fullRedundancy": {
+                                    "const": True
                                 }
                             }
                         }
                     },
-                    {
-                        "if": {
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "fullRedundancy": {
+                                "const": True
+                            }
+                        }
+                    },
+                    "then": {
+                        "not": {
                             "properties": {
                                 "partialRedundancy": {
                                     "const": True
                                 }
                             }
-                        },
-                        "then": {
-                            "not": {
-                                "properties": {
-                                    "fullRedundancy": {
-                                        "const": True
-                                    }
-                                }
-                            }
-                        },
+                        }
                     },
-                    {
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "partialRedundancy": {
+                                "const": True
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "pairsOfTargetsRedundancies": {
+                                "minItems": 1
+                            }
+                        }
+                    }, 
+                    "else": {
                         "if": {
                             "properties": {
                                 "fullRedundancy": {
-                                    "const": True
-                                }
-                            }
-                        },
-                        "then": {
-                            "not": {
-                                "properties": {
-                                    "partialRedundancy": {
-                                        "const": True
-                                    }
-                                }
-                            }
-                        },
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "partialRedundancy": {
                                     "const": True
                                 }
                             }
@@ -364,168 +377,165 @@ chat_gpt_schema_with_annotations = {
                                     "minItems": 1
                                 }
                             }
-                        }, 
-                        "else": {
-                            "if": {
-                                "properties": {
-                                    "fullRedundancy": {
-                                        "const": True
-                                    }
-                                }
-                            },
-                            "then": {
-                                "properties": {
-                                    "pairsOfTargetsRedundancies": {
-                                        "minItems": 1
-                                    }
-                                }
-                            }
                         }
-                    },
-                ]
-            }
+                    }
+                },
+            ]
         },
         "benefitRedundancies": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "partialRedundancy": {
-                        "type": "boolean"
-                    },
-                    "fullRedundancy": {
-                        "type": "boolean"
-                    },
-                    "descriptionOfTriggersRedundancies": {
-                        "type": "string"
-                    },
-                    "pairsOfTriggersRedundancies": {
+            "type": "object",
+            "properties": {
+                "partialRedundancy": {
+                    "type": "boolean"
+                },
+                "fullRedundancy": {
+                    "type": "boolean"
+                },
+                "descriptionOfTriggersRedundancies": {
+                    "type": "string"
+                },
+                "pairsOfTriggersRedundancies": {
+                    "type": "array",
+                    "items": {
                         "type": "array",
                         "items": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "minItems": 2,
-                            "maxItems": 2
+                            "type": "string"
                         },
-                        "minItems": 0,
+                        "minItems": 2,
+                        "maxItems": 2
                     },
-                    "descriptionOfTargetsRedundancies": {
-                        "type": "string"
-                    },
-                    "pairsOfTargetsRedundancies": {
+                    "minItems": 0,
+                },
+                "descriptionOfTargetsRedundancies": {
+                    "type": "string"
+                },
+                "pairsOfTargetsRedundancies": {
+                    "type": "array",
+                    "items": {
                         "type": "array",
                         "items": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "minItems": 2,
-                            "maxItems": 2
+                            "type": "string"
                         },
-                        "minItems": 0,
+                        "minItems": 2,
+                        "maxItems": 2
                     },
-                    "descriptionOfContainsRedundancies": {
-                        "type": "string"
-                    },
-                    "pairsOfTContainesRedundancies": {
+                    "minItems": 0,
+                },
+                "descriptionOfContainsRedundancies": {
+                    "type": "string"
+                },
+                "pairsOfTContainesRedundancies": {
+                    "type": "array",
+                    "items": {
                         "type": "array",
                         "items": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "minItems": 2,
-                            "maxItems": 2
+                            "type": "string"
                         },
-                        "minItems": 0,
+                        "minItems": 2,
+                        "maxItems": 2
+                    },
+                    "minItems": 0,
+                }
+            },
+            "required": [
+                "partialRedundancy",
+                "fullRedundancy",
+                "descriptionOfTargetsRedundancies",
+                "pairsOfTargetsRedundancies",
+                "descriptionOfTriggersRedundancies",
+                "pairsOfTriggersRedundancies",
+                "descriptionOfContainsRedundancies",
+                "pairsOfContainsRedundancies"],
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "partialRedundancy": {
+                                "const": False
+                            },
+                            "fullRedundancy": {
+                                "const": False
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "descriptionOfTriggersRedundancies": {
+                                "const": ""
+                            },
+                            "pairsOfTriggersRedundancies": {
+                                "maxItems": 0
+                            },
+                            "descriptionOfTargetsRedundancies": {
+                                "const": ""
+                            },
+                            "pairsOfTargetsRedundancies": {
+                                "maxItems": 0
+                            },
+                            "descriptionOfContainsRedundancies": {
+                                "const": ""
+                            },
+                            "pairsOfTContainsedundancies": {
+                                "maxItems": 0
+                            }
+                        }
                     }
                 },
-                "required": [
-                    "partialRedundancy",
-                    "fullRedundancy",
-                    "descriptionOfTargetsRedundancies",
-                    "pairsOfTargetsRedundancies",
-                    "descriptionOfTriggersRedundancies",
-                    "pairsOfTriggersRedundancies",
-                    "descriptionOfContainsRedundancies",
-                    "pairsOfContainsRedundancies"],
-                "allOf": [
-                    {
-                        "if": {
-                            "properties": {
-                                "partialRedundancy": {
-                                    "const": False
-                                },
-                                "fullRedundancy": {
-                                    "const": False
-                                }
+                {
+                    "if": {
+                        "properties": {
+                            "partialRedundancy": {
+                                "const": True
                             }
-                        },
-                        "then": {
+                        }
+                    },
+                    "then": {
+                        "not": {
                             "properties": {
-                                "descriptionOfTriggersRedundancies": {
-                                    "const": ""
-                                },
-                                "pairsOfTriggersRedundancies": {
-                                    "maxItems": 0
-                                },
-                                "descriptionOfTargetsRedundancies": {
-                                    "const": ""
-                                },
-                                "pairsOfTargetsRedundancies": {
-                                    "maxItems": 0
-                                },
-                                "descriptionOfContainsRedundancies": {
-                                    "const": ""
-                                },
-                                "pairsOfTContainsedundancies": {
-                                    "maxItems": 0
+                                "fullRedundancy": {
+                                    "const": True
                                 }
                             }
                         }
                     },
-                    {
-                        "if": {
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "fullRedundancy": {
+                                "const": True
+                            }
+                        }
+                    },
+                    "then": {
+                        "not": {
                             "properties": {
                                 "partialRedundancy": {
                                     "const": True
                                 }
                             }
-                        },
-                        "then": {
-                            "not": {
-                                "properties": {
-                                    "fullRedundancy": {
-                                        "const": True
-                                    }
-                                }
-                            }
-                        },
+                        }
                     },
-                    {
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "partialRedundancy": {
+                                "const": True
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "pairsOfTargetsRedundancies": {
+                                "minItems": 1
+                            }
+                        }
+                    }, 
+                    "else": {
                         "if": {
                             "properties": {
                                 "fullRedundancy": {
-                                    "const": True
-                                }
-                            }
-                        },
-                        "then": {
-                            "not": {
-                                "properties": {
-                                    "partialRedundancy": {
-                                        "const": True
-                                    }
-                                }
-                            }
-                        },
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "partialRedundancy": {
                                     "const": True
                                 }
                             }
@@ -536,26 +546,10 @@ chat_gpt_schema_with_annotations = {
                                     "minItems": 1
                                 }
                             }
-                        }, 
-                        "else": {
-                            "if": {
-                                "properties": {
-                                    "fullRedundancy": {
-                                        "const": True
-                                    }
-                                }
-                            },
-                            "then": {
-                                "properties": {
-                                    "pairsOfTargetsRedundancies": {
-                                        "minItems": 1
-                                    }
-                                }
-                            }
                         }
-                    },
-                ]
-            }
+                    }
+                },
+            ]
         }
     },
     "required": [
