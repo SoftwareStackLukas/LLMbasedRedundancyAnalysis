@@ -8,6 +8,8 @@ We use for the formal approach [Amirs Repo](https://github.com/amirrabieyannejad
      - Git-Submodules
      - Just cloning the importent code
 
+Add https://zenodo.org/records/8136975 and https://github.com/ace-design/nlp-stories/tree/main
+
 ## Folder explanation
 
 ## IDE + Plugins
