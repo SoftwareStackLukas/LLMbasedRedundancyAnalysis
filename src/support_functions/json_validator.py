@@ -200,7 +200,7 @@ chat_gpt_schema_no_annotations =  {
 #     }
 # ]
 
-## Just an example --> Check if the neste condition checks it
+## Check if the neste condition checks it
 chat_gpt_schema_with_annotations = {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
@@ -213,9 +213,6 @@ chat_gpt_schema_with_annotations = {
             "minItems": 2,
             "maxItems": 2
         },
-        "redundantMainPart": {
-            "type": "boolean"
-        },
         "mainPartRedundancies": {
             "type": "array",
             "items": {
@@ -227,7 +224,10 @@ chat_gpt_schema_with_annotations = {
                     "fullRedundancy": {
                         "type": "boolean"
                     },
-                    "pairsOfTriggerRedundancies": {
+                    "describtionOfTriggersRedundancies": {
+                        "type": "string"
+                    },
+                    "pairsOfTriggersRedundancies": {
                         "type": "array",
                         "items": {
                             "type": "array",
@@ -238,6 +238,9 @@ chat_gpt_schema_with_annotations = {
                             "maxItems": 2
                         },
                         "minItems": 0,
+                    },
+                    "descriptionOfTargetsRedundancies": {
+                        "type": "string"
                     },
                     "pairsOfTargetsRedundancies": {
                         "type": "array",
@@ -251,7 +254,10 @@ chat_gpt_schema_with_annotations = {
                         },
                         "minItems": 0,
                     },
-                    "pairsOfTContainesdundancies": {
+                    "descriptionOfContainsRedundancies": {
+                        "type": "string"
+                    },
+                    "pairsOfTContainesRedundancies": {
                         "type": "array",
                         "items": {
                             "type": "array",
@@ -264,7 +270,15 @@ chat_gpt_schema_with_annotations = {
                         "minItems": 0,
                     }
                 },
-                "required": ["pairsOfTriggerRedundancies", "pairsOfTargetsRedundancies", "pairsOfTContainsredundancies"],
+                "required": [
+                    "partialRedundancy",
+                    "fullRedundancy",
+                    "descriptionOfTargetsRedundancies",
+                    "pairsOfTargetsRedundancies",
+                    "descriptionOfTriggersRedundancies",
+                    "pairsOfTriggersRedundancies",
+                    "descriptionOfContainsRedundancies",
+                    "pairsOfContainsRedundancies"],
                 "allOf": [
                     {
                         "if": {
@@ -279,13 +293,22 @@ chat_gpt_schema_with_annotations = {
                         },
                         "then": {
                             "properties": {
-                                "pairsOfTargetsRedundancies": {
-                                    "maxItems": 0
+                                "descriptionOfTriggersRedundancies": {
+                                    "const": ""
                                 },
                                 "pairsOfTriggersRedundancies": {
                                     "maxItems": 0
                                 },
-                                "pairsOfTContainsedundancies": {
+                                "descriptionOfTargetsRedundancies": {
+                                    "const": ""
+                                },
+                                "pairsOfTargetsRedundancies": {
+                                    "maxItems": 0
+                                },
+                                "descriptionOfContainsRedundancies": {
+                                    "const": ""
+                                },
+                                "pairsOfContainsRedundancies": {
                                     "maxItems": 0
                                 }
                             }
@@ -362,9 +385,6 @@ chat_gpt_schema_with_annotations = {
                 ]
             }
         },
-        "redundantBenefit": {
-            "type": "boolean"
-        },
         "benefitRedundancies": {
             "type": "array",
             "items": {
@@ -376,7 +396,10 @@ chat_gpt_schema_with_annotations = {
                     "fullRedundancy": {
                         "type": "boolean"
                     },
-                    "pairsOfTriggerRedundancies": {
+                    "descriptionOfTriggersRedundancies": {
+                        "type": "string"
+                    },
+                    "pairsOfTriggersRedundancies": {
                         "type": "array",
                         "items": {
                             "type": "array",
@@ -387,6 +410,9 @@ chat_gpt_schema_with_annotations = {
                             "maxItems": 2
                         },
                         "minItems": 0,
+                    },
+                    "descriptionOfTargetsRedundancies": {
+                        "type": "string"
                     },
                     "pairsOfTargetsRedundancies": {
                         "type": "array",
@@ -400,7 +426,10 @@ chat_gpt_schema_with_annotations = {
                         },
                         "minItems": 0,
                     },
-                    "pairsOfTContainesdundancies": {
+                    "descriptionOfContainsRedundancies": {
+                        "type": "string"
+                    },
+                    "pairsOfTContainesRedundancies": {
                         "type": "array",
                         "items": {
                             "type": "array",
@@ -413,7 +442,15 @@ chat_gpt_schema_with_annotations = {
                         "minItems": 0,
                     }
                 },
-                "required": ["pairsOfTriggerRedundancies", "pairsOfTargetsRedundancies", "pairsOfTContainsredundancies"],
+                "required": [
+                    "partialRedundancy",
+                    "fullRedundancy",
+                    "descriptionOfTargetsRedundancies",
+                    "pairsOfTargetsRedundancies",
+                    "descriptionOfTriggersRedundancies",
+                    "pairsOfTriggersRedundancies",
+                    "descriptionOfContainsRedundancies",
+                    "pairsOfContainsRedundancies"],
                 "allOf": [
                     {
                         "if": {
@@ -428,11 +465,20 @@ chat_gpt_schema_with_annotations = {
                         },
                         "then": {
                             "properties": {
-                                "pairsOfTargetsRedundancies": {
-                                    "maxItems": 0
+                                "descriptionOfTriggersRedundancies": {
+                                    "const": ""
                                 },
                                 "pairsOfTriggersRedundancies": {
                                     "maxItems": 0
+                                },
+                                "descriptionOfTargetsRedundancies": {
+                                    "const": ""
+                                },
+                                "pairsOfTargetsRedundancies": {
+                                    "maxItems": 0
+                                },
+                                "descriptionOfContainsRedundancies": {
+                                    "const": ""
                                 },
                                 "pairsOfTContainsedundancies": {
                                     "maxItems": 0
@@ -513,124 +559,9 @@ chat_gpt_schema_with_annotations = {
         }
     },
     "required": [
-        "relatedStories",
-        "redundantMainPart",
-        "mainPartRedundancies",
-        "redundantBenefit",
-        "benefitRedundancies"
-    ],
-    "allOf": [
-        {
-            "if": {
-                "properties": {
-                    "redundantMainPart": {
-                        "const": True
-                    }
-                }
-            },
-            "then": {
-                "anyOf": [
-                    {
-                        "properties": {
-                            "mainPartRedundancies": {
-                                "items": {
-                                    "properties": {
-                                        "partialRedundancy": {
-                                            "const": True
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "properties": {
-                            "mainPartRedundancies": {
-                                "items": {
-                                    "properties": {
-                                        "fullRedundancy": {
-                                            "const": True
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
-            "else": {
-                "properties": {
-                    "mainPartRedundancies": {
-                        "items": {
-                            "properties": {
-                                "partialRedundancy": {
-                                    "const": False
-                                },
-                                "fullRedundancy": {
-                                    "const": False
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "if": {
-                "properties": {
-                    "redundantBenefit": {
-                        "const": True
-                    }
-                }
-            },
-            "then": {
-                "anyOf": [
-                    {
-                        "properties": {
-                            "benefitRedundancies": {
-                                "items": {
-                                    "properties": {
-                                        "partialRedundancy": {
-                                            "const": True
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "properties": {
-                            "benefitRedundancies": {
-                                "items": {
-                                    "properties": {
-                                        "fullRedundancy": {
-                                            "const": True
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
-            "else": {
-                "properties": {
-                    "benefitRedundancies": {
-                        "items": {
-                            "properties": {
-                                "partialRedundancy": {
-                                    "const": False
-                                },
-                                "fullRedundancy": {
-                                    "const": False
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    ]
+            "relatedStories",
+            "mainPartRedundancies",
+            "benefitRedundancies"]
 }
 
 # JSON validation is based on this specifications: https://json-schema.org/specification

@@ -23,6 +23,7 @@ class TestJSONValidationSchemaWithOutAnnotations(unittest.TestCase):
         }
         '''
         results, _ = validation(json.loads(test_data), chat_gpt_schema_no_annotations)
+        self.assertFalse(bool(_))
         self.assertTrue(results)
 
     def test_valid_data2(self):
@@ -285,6 +286,7 @@ class TestJSONValidationSchemaWithOutAnnotations(unittest.TestCase):
         }
         '''
         results, _ = validation(json.loads(test_data), chat_gpt_schema_no_annotations)
+        self.assertTrue(bool(_))
         self.assertFalse(results)
 
     def test_invalid_data6(self):
