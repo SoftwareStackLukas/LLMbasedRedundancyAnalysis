@@ -1,8 +1,11 @@
 ### Own modules
+from prompt_structure.helper_prompt_composition import (
+    REPAIR_REQUEST,
+    combine_chat_history_repair_request)
+
 from .time_recorder import TimeRecorder
 from .save_data import save_to_json_persistent
 from .json_validator import validation
-from prompt_structure.helper_prompt_composition import REPAIR_REQUEST, combine_chat_history_repair_request
 
 ### Third party modules
 import os
@@ -33,6 +36,7 @@ USID_ONE = "UID1"
 USID2_TWO = "UID2"
 VALUE_ERROR = "ValueError"
 ELIPSED_TIME = "elipsedTimeNs"
+REPAIR_RUNS_JSON_FIELD = "repairRuns"
 
 class StoppedAnswerException(Exception):
     """
@@ -57,6 +61,9 @@ def check_for_stopped_resonse(system_is_r_eng):
             "Response error message: The finish reason is not 'stop'. It is: "
             + system_is_r_eng.choices[0].finish_reason
         )
+
+def add_repair_runs_count(answer: str, repair_run: int) -> str:
+    return json.dumps({REPAIR_RUNS_JSON_FIELD: repair_run, **json.loads(answer)})
 
 def repair_json_by_gpt(
     message: list[dict],
@@ -86,11 +93,11 @@ def repair_json_by_gpt(
             answer = system_is_r_eng.choices[0].message.content
             correct, not_correct_json_reason = json_validation(json.loads(answer))
             if correct:
-                return json.dumps({"REPAIR_RUNS": repair_run, **json.loads(answer)})
+                return add_repair_runs_count(answer, repair_run)
             repair_run += 1
     raise StoppedAnswerException(
         "Response error message: The schema could not been correctly generated and not been repaired"
-    )       
+    )
 
 def send_requierment_to_chatgpt(
     message: list[dict],
@@ -140,6 +147,8 @@ def send_requierment_to_chatgpt(
     correct, not_correct_json_reason = json_validation(json.loads(answer))
     if THRESHOLD_REPAIR > 0 and not correct:
         answer = repair_json_by_gpt(message, answer, not_correct_json_reason, client, json_validation)
+    else:
+        answer = add_repair_runs_count(answer=answer, repair_run=0)
     client.close()
     end_time = time.time_ns()
     if time_recorder:
