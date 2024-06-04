@@ -2,6 +2,7 @@
 from .time_recorder import TimeRecorder
 from .save_data import save_to_json_persistent
 from .json_validator import validation
+from prompt_structure.helper_prompt_composition import REPAIR_REQUEST, combine_chat_history_repair_request
 
 ### Third party modules
 import os
@@ -32,8 +33,6 @@ USID_ONE = "UID1"
 USID2_TWO = "UID2"
 VALUE_ERROR = "ValueError"
 ELIPSED_TIME = "elipsedTimeNs"
-REPAIR_REQUEST = {"role": "user", "content": "Please, check and repair the json format as it is not correct and return me the correct json output with the correct values. I used jsonschema libary from python to check the json. "}
-
 
 class StoppedAnswerException(Exception):
     """
@@ -66,15 +65,16 @@ def repair_json_by_gpt(
     client,
     json_validation: Callable[[dict], bool]
     ) -> str:
+    repair_run: int = 1
     message = copy.deepcopy(message)
     correct: bool = False
-    current_repair_request: str = None
+    current_repair_request: dict = None
     for _ in range(THRESHOLD_REPAIR):
         current_repair_request = copy.deepcopy(REPAIR_REQUEST)
         current_repair_request["content"] = current_repair_request["content"] + not_correct_json_reason
         if not correct:
-            message.append({"role": "assistent", "content": answer})
-            message.append({"role": "user", "content": current_repair_request})
+            combine_chat_history_repair_request(message=message, answer=answer, 
+                                                current_repair_request=current_repair_request)
             system_is_r_eng = client.chat.completions.create(
                 model=MODEL_CODE,
                 stream=False,
@@ -86,11 +86,11 @@ def repair_json_by_gpt(
             answer = system_is_r_eng.choices[0].message.content
             correct, not_correct_json_reason = json_validation(json.loads(answer))
             if correct:
-                return answer
+                return json.dumps({"REPAIR_RUNS": repair_run, **json.loads(answer)})
+            repair_run += 1
     raise StoppedAnswerException(
         "Response error message: The schema could not been correctly generated and not been repaired"
-    )
-            
+    )       
 
 def send_requierment_to_chatgpt(
     message: list[dict],
@@ -146,8 +146,6 @@ def send_requierment_to_chatgpt(
         elapsed_time_ns = end_time - start_time
         time_recorder.nanoseconds = elapsed_time_ns
     return answer
-
-# --> make this part more abstract and pass the functions needed to process data with annotations and without annotations to reduce the code here
 
 ## Data Processing Definition Pipline for User Stories
 ### General Function for data requests
