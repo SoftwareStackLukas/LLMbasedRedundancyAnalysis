@@ -11,8 +11,8 @@ DEFINITION_BASE_REDUNDANCY: str = (
 
 DEFINITION_MAIN_PART_BENEFIT: str = (
     "The main part of the user Story describes the core action that a persona wishes to accomplish. "
-    "It is the value of the key called \"Main Part\". "
-    "The definition of a benefit is as follows: The benefit of the User Story is contained the value of the key \"Benefit\"." 
+    "It is the value of the key called 'Main Part'. "
+    "The definition of a benefit is as follows: The benefit of the User Story is contained the value of the key 'Benefit'." 
 )
 
 DEFINITION_USER_STORY_RELATIONSHIPS: str = (
@@ -21,42 +21,76 @@ DEFINITION_USER_STORY_RELATIONSHIPS: str = (
 
 ### Something is broken with the second, third, forth, sentence (old version)
 OLD_DEFINITION_PARTIAL_FULL_REDUNDANCY: str = (
-    "1.) A partial main part redundancy occurs if the values of \"Targets\".\"Main Part\" of the first User Story also occur in the second User story.\n"
-    "2.) A main part redundancy occurs if the values of \"Targets\".\"Main Part\", \"Triggers\". \"Main Part\" and \"Contains\". \"Main Part\" of the first User Story also occur in the second User story and vice versa.\n"
-    "3.) A benefit partial redundancy occurs if one value of \"Triggers\". \"Benefit\" or \"Targets\". \"Benefit\" or \"Contains\". \"Benefit\" also occur in the second User Story.\n"
-    "4.) A benefit redundancy occurs if the values of \"Triggers\". \"Benefit\" and \"Targets\". \"Benefit\" and \"Contains\". \"Benefit\" also occur in the second User Story and vice versa."
+    "1.) A partial main part redundancy occurs if the values of 'Targets'.'Main Part' of the first User Story also occur in the second User Story.\n"
+    "2.) A main part redundancy occurs if the values of 'Targets'.'Main Part', 'Triggers'. 'Main Part' and 'Contains'. 'Main Part' of the first User Story also occur in the second User story and vice versa.\n"
+    "3.) A benefit partial redundancy occurs if one value of 'Triggers'. 'Benefit' or 'Targets'. 'Benefit' or 'Contains'. 'Benefit' also occur in the second User Story.\n"
+    "4.) A benefit redundancy occurs if the values of 'Triggers'. 'Benefit' and 'Targets'. 'Benefit' and 'Contains'. 'Benefit' also occur in the second User Story and vice versa."
 )
 
+# Defining the handtel pair?
+# at last one / minium of one?
+# Something is broken with the second, third, forth, sentence
 DEFINITION_PARTIAL_FULL_REDUNDANCY: str = (
-    "1.) A partial main part redundancy occurs if the values of \"Targets\".\"Main Part\" of the first User Story also occur in the second User story.\n"
-    "2.) A main part redundancy occurs if the values of \"Targets\".\"Main Part\", \"Triggers\". \"Main Part\" and \"Contains\". \"Main Part\" of the first User Story also occur in the second User story and vice versa.\n"
-    "3.) A benefit partial redundancy occurs if one value of \"Triggers\". \"Benefit\" or \"Targets\". \"Benefit\" or \"Contains\". \"Benefit\" also occur in the second User Story.\n"
-    "4.) A benefit redundancy occurs if the values of \"Triggers\". \"Benefit\" and \"Targets\". \"Benefit\" and \"Contains\". \"Benefit\" also occur in the second User Story and vice versa."
+    "1.) A partial main part redundancy occurs if one value of 'Targets'. 'Main Part' of the first User Story also occur in the second User Story.\n"
+    "2.) A main part redundancy occurs if the values of 'Targets'. 'Main Part', 'Triggers'. 'Main Part' and 'Contains'. 'Main Part' of the first User Story also occur in the second User story and vice versa.\n"
+    "3.) A benefit partial redundancy occurs if one value of of 'Targets'. 'Benefit' of the first User Story also occur in the second User Story. \n"
+    "4.) A benefit redundancy occurs if the values of 'Triggers'. 'Benefit' and 'Targets'. 'Benefit' and 'Contains'. 'Benefit' also occur in the second User Story and vice versa."
 )
 
+## Add Gabis definitions
 ## Maybe examples for the format. and improving the sentences
 ## Defining the JSON output format and provide an example
 
 print(DEFINITION_PARTIAL_FULL_REDUNDANCY)
 
+### Redefine the fields pairsOfTriggersRedundancies, pairsOfTargetsRedundancies, pairsOfContainsRedundancies
+DEFINITION_JSON_SCHEMA: str = (
+    "Before we proceed, consider the following JSON output format:\n"
+    "This JSON structure organizes information about redundancies in User Stories, focusing on both the main parts and the benefits regarding full and partial redundancies. "
+    "Each section includes descriptions of the redundancies and specific text references to illustrate where these redundancies occur within the stories."
+    "1.) The field 'relatedStories' is an array of two integer value. The value are the ids of the User Stories and this field is also mandatory.\n"
+    "2.) The 'mainPartRedundancies' is an json object which containes the following fields:\n"
+        "2.1) The field 'partialRedundancy' is of the type bool. true indicates that a pair of User Stories has a partial redundancy (partialRedundancy) in the main part and otherwise false. It can just be true when the main part is not full redundant. It is a mandatory field. \n"
+        "2.2) The field 'fullRedundancy' is of the type bool. true indicates that a pair of User Stories has a full redundancy (fullRedundancy) in the main part and otherwise false. It is a mandatory field."
+        "2.3) The field 'descriptionOfTriggersRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the trigger redundancies and when no trigger redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfTriggersRedundancies. \n"
+        "2.4) The field 'pairsOfTriggersRedundancies' is \n"
+        "2.5) The field 'descriptionOfTargetsRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the target redundancies and when no target redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfTargetsRedundancies.\n"
+        "2.6) The field 'pairsOfTargetsRedundancies' \n"
+        "2.7) The field 'descriptionOfContainsRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the contain redundancies and when no contain redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfContainsRedundancies.\n"
+        "2.8) The field 'pairsOfContainsRedundancies' \n"
+    "3.) The 'mainPartRedundancies' is an json object which containes the following fields:\n"
+        "3.1) The field 'partialRedundancy' is of the type bool. true indicates that a pair of User Stories has a partial redundancy (partialRedundancy) in the main part and otherwise false. It can just be true when the main part is not full redundant. It is a mandatory field. \n"
+        "3.2) The field 'fullRedundancy' is of the type bool. true indicates that a pair of User Stories has a full redundancy (fullRedundancy) in the main part and otherwise false. It is a mandatory field."
+        "3.3) The field 'descriptionOfTriggersRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the trigger redundancies and when no trigger redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfTriggersRedundancies.\n"
+        "3.4) The field 'pairsOfTriggersRedundancies' \n"
+        "3.5) The field 'descriptionOfTargetsRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the target redundancies and when no target redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfTargetsRedundancies.\n"
+        "3.6) The field 'pairsOfTargetsRedundancies' \n"
+        "3.7) The field 'descriptionOfContainsRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the contain redundancies and when no contain redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfContainsRedundancies.\n"
+        "3.8) The field 'pairsOfContainsRedundancies' \n"
+)
+
+INTRODUCING_EXAMPLES: str = (
+    ""
+)
+
 ##Provide input and output examples for the wanted results
-EXAMPLE_OUTPUT_ONE: str = (
+EXAMPLE_INPUT_OUTPUT_ONE: str = (
     ""
 )
 
-EXAMPLE_OUTPUT_TWO: str = (
+EXAMPLE_INPUT_OUTPUT_TWO: str = (
     ""
 )
 
-EXAMPLE_OUTPUT_THREE: str = (
+EXAMPLE_INPUT_OUTPUT_THREE: str = (
     ""
 )
 
-EXAMPLE_OUTPUT_FOUR: str = (
+EXAMPLE_INPUT_OUTPUT_FOUR: str = (
     ""
 )
 
-EXAMPLE_OUTPUT_FIVE: str = (
+EXAMPLE_INPUT_OUTPUT_FIVE: str = (
     ""
 )
 

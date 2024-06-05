@@ -126,7 +126,7 @@ chat_gpt_schema_with_annotations = {
                 "fullRedundancy": {
                     "type": "boolean"
                 },
-                "describtionOfTriggersRedundancies": {
+                "descriptionOfTriggersRedundancies": {
                     "type": "string"
                 },
                 "pairsOfTriggersRedundancies": {
@@ -159,7 +159,7 @@ chat_gpt_schema_with_annotations = {
                 "descriptionOfContainsRedundancies": {
                     "type": "string"
                 },
-                "pairsOfTContainesRedundancies": {
+                "pairsOfContainsRedundancies": {
                     "type": "array",
                     "items": {
                         "type": "array",
@@ -442,7 +442,7 @@ chat_gpt_schema_with_annotations = {
                 "descriptionOfContainsRedundancies": {
                     "type": "string"
                 },
-                "pairsOfTContainesRedundancies": {
+                "pairsOfContainsRedundancies": {
                     "type": "array",
                     "items": {
                         "type": "array",

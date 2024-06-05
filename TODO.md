@@ -37,6 +37,7 @@
     - [] Play with the parameterization of the model tempruature context etc.
     - [] Make similarity search by using word embeddings and vecoter database --> look for results
     - [] Simple similarity search based on an free word embedding (tokinizer) + simple simple similarity searches like: https://developers.google.com/machine-learning/clustering/similarity/measuring-similarity where I pass just the main part or the benfit but not together plus annotations (optional)
+    - [] Use hypothesis-jsonschema to create the json data needed for correct values
 
     --> Seperate the User Storys. All for "so that" is the main part and aftwards is the benefit. Grammatikalisch anuseinander ziehen wobei der Nebensatz der benefit ist.  
     --> Future Work: Building tooling for popular repositories

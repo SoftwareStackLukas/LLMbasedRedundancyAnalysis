@@ -3,8 +3,23 @@ import json
 
 from support_functions.json_validator import validation, chat_gpt_schema_with_annotations
 
+
+## Think about test data generation:
+## https://stackoverflow.com/questions/35231234/python-json-dummy-data-generation-from-json-schema
+## https://github.com/python-jsonschema/hypothesis-jsonschema 
+## Problem: I need a valid json schema
 class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls._shared_invalid_json_data: list[dict] = []
+
+    @classmethod
+    def tearDownClass(cls):
+        cls._shared_invalid_json_data.clear()
+        cls._shared_invalid_json_data = None
+        
     test_data: str = ""
+    
     
     def test_valid_data1(self):
         '''
@@ -798,7 +813,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
 
@@ -828,7 +845,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -858,10 +877,12 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
-
+        
     def test_invalid_data4_1(self):
         test_data = '''
         {
@@ -888,7 +909,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -918,7 +941,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -948,7 +973,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -977,7 +1004,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1234,7 +1263,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1525,7 +1556,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1558,7 +1591,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1591,7 +1626,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
     
@@ -1624,7 +1661,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1657,7 +1696,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1690,7 +1731,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1723,7 +1766,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1756,7 +1801,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1789,7 +1836,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1822,7 +1871,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1857,7 +1908,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1890,7 +1943,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1923,7 +1978,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1956,7 +2013,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -1989,7 +2048,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -2022,7 +2083,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -2120,7 +2183,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
         
@@ -2186,7 +2251,9 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
       
@@ -2219,10 +2286,19 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             }
         }
         '''
-        results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
+        json_data: dict = json.loads(test_data)
+        self._shared_invalid_json_data.append(json_data)
+        results, _ = validation(json_data, chat_gpt_schema_with_annotations)
         self.assertTrue(bool(_))
         self.assertFalse(results)
 
+    def test_if_all_positive_conditions_are_tested(self):
+        ### Has to be implemented
+        self.assertFalse(True)
+
+    def test_if_all_negative_conditions_are_tested(self):
+        ### Has to be implemented
+        self.assertFalse(True)
 
     
 if __name__ == "__main__":
