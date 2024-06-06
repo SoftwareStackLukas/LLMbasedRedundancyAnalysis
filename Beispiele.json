@@ -36,8 +36,7 @@
 "Main Part": "As a Publisher, I want to publish a dataset",
 "Benefit": " I can view just the dataset with a few people",
 "Triggers": {"Main Part": [["Publisher", "publish"]], "Benefit": []},
-"Targets": {"Main Part": [["publish", "dataset"]],
-"Benefit": [["view", "dataset"]]},
+"Targets": {"Main Part": [["publish", "dataset"]],"Benefit": [["view", "dataset"]]},
 "Contains": {"Main Part": [], "Benefit": []}},
 
 {"PID": "#G04#",
@@ -46,8 +45,7 @@
 "Main Part": "As a Publisher, I want to publish a dataset",
 "Benefit": "I can share the dataset publicly with everyone",
 "Triggers": {"Main Part": [["Publisher", "publish"]], "Benefit": []},
-"Targets": {"Main Part": [["publish", "dataset"]],
-"Benefit": [["share", "dataset"]]},
+"Targets": {"Main Part": [["publish", "dataset"]],"Benefit": [["share", "dataset"]]},
 "Contains": {"Main Part": [], "Benefit": [["everyone", "dataset"]]}},
 
 
