@@ -39,7 +39,7 @@
 {
     "relatedStories": [3, 4],
     "mainPartRedundancies": {
-                   "partialRedundancy": true,
+                   "partialRedundancy": false,
                    "fullRedundancy": true,
                    "pairsOfTriggersRedundancies": [
                                  ["descriptionOfTriggersRedundancies": "In both stories, the Publisher wants to publish something.", 
@@ -111,7 +111,7 @@
                    ]
     },
     "benefitRedundancies": {
-                   "partialRedundancy": true,
+                   "partialRedundancy": false,
                    "fullRedundancy": true,
                    "pairsOfTriggersRedundancies": [       
                    ],
