@@ -105,6 +105,8 @@ chat_gpt_schema_no_annotations =  {
     ]
 }
 
+# Check if the uniqueItems constrain is correct here
+# Consider extra checks for the unique keyword
 chat_gpt_schema_with_annotations = {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
@@ -126,60 +128,111 @@ chat_gpt_schema_with_annotations = {
                 "fullRedundancy": {
                     "type": "boolean"
                 },
-                "descriptionOfTriggersRedundancies": {
-                    "type": "string"
-                },
                 "pairsOfTriggersRedundancies": {
                     "type": "array",
                     "items": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "descriptionOfTriggerPairRedundancies": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "FirstUserStoryTriggerPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            },
+                            "SecondUserStoryTriggerPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            }
                         },
-                        "minItems": 2,
-                        "maxItems": 2
+                        "required": ["descriptionOfTriggerPairRedundancies",
+                                     "FirstUserStoryTriggerPair",
+                                     "SecondUserStoryTriggerPair"]
                     },
                     "minItems": 0,
-                },
-                "descriptionOfTargetsRedundancies": {
-                    "type": "string"
+                    "uniqueItems": True
                 },
                 "pairsOfTargetsRedundancies": {
                     "type": "array",
                     "items": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "descriptionOfTargetPairRedundancies": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "FirstUserStoryTargetPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            },
+                            "SecondUserStoryTargetPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            }
                         },
-                        "minItems": 2,
-                        "maxItems": 2
+                        "required": ["descriptionOfTargetPairRedundancies",
+                                     "FirstUserStoryTargetPair",
+                                     "SecondUserStoryTargetPair"]
                     },
                     "minItems": 0,
-                },
-                "descriptionOfContainsRedundancies": {
-                    "type": "string"
+                    "uniqueItems": True
                 },
                 "pairsOfContainsRedundancies": {
                     "type": "array",
                     "items": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "descriptionOfContainPairsRedundancies": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "FirstUserStoryContainPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            },
+                            "SecondUserStoryContainPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            }
                         },
-                        "minItems": 2,
-                        "maxItems": 2
+                        "required": ["descriptionOfContainPairRedundancies",
+                                     "FirstUserStoryContainPair",
+                                     "SecondUserStoryContainPair"]
                     },
                     "minItems": 0,
+                    "uniqueItems": True
                 }
             },
             "required": [
                 "partialRedundancy",
                 "fullRedundancy",
-                "descriptionOfTargetsRedundancies",
                 "pairsOfTargetsRedundancies",
-                "descriptionOfTriggersRedundancies",
                 "pairsOfTriggersRedundancies",
-                "descriptionOfContainsRedundancies",
                 "pairsOfContainsRedundancies"],
             "allOf": [
                 {
@@ -195,20 +248,11 @@ chat_gpt_schema_with_annotations = {
                     },
                     "then": {
                         "properties": {
-                            "descriptionOfTriggersRedundancies": {
-                                "const": ""
-                            },
                             "pairsOfTriggersRedundancies": {
                                 "maxItems": 0
                             },
-                            "descriptionOfTargetsRedundancies": {
-                                "const": ""
-                            },
                             "pairsOfTargetsRedundancies": {
                                 "maxItems": 0
-                            },
-                            "descriptionOfContainsRedundancies": {
-                                "const": ""
                             },
                             "pairsOfContainsRedundancies": {
                                 "maxItems": 0
@@ -230,40 +274,6 @@ chat_gpt_schema_with_annotations = {
                                 "fullRedundancy": {
                                     "const": True
                                 }
-                            }
-                        }
-                    },
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "fullRedundancy": {
-                                "const": True
-                            }
-                        }
-                    },
-                    "then": {
-                        "not": {
-                            "properties": {
-                                "partialRedundancy": {
-                                    "const": True
-                                }
-                            }
-                        }
-                    },
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "partialRedundancy": {
-                                "const": True
-                            }
-                        }
-                    },
-                    "then": {
-                        "properties": {
-                            "pairsOfTargetsRedundancies": {
-                                "minItems": 1
                             }
                         }
                     },
@@ -276,129 +286,56 @@ chat_gpt_schema_with_annotations = {
                             }
                         },
                         "then": {
+                            "not": {
+                                "properties": {
+                                    "partialRedundancy": {
+                                        "const": True
+                                    }
+                                }
+                            }
+                        },
+                    }
+                },
+                {
+                    "if": {
+                            "properties": {
+                                "fullRedundancy": {
+                                    "const": True
+                                }
+                            }
+                        },
+                    "then": {
+                        "properties": {
+                            "pairsOfTriggersRedundancies": {
+                                "minItems": 1
+                            },
+                            "pairsOfTargetsRedundancies": {
+                                "minItems": 1
+                            },
+                            "pairsOfContainsRedundancies": {
+                                "minItems": 1
+                            }
+                        }
+                    },
+                    "else": {
+                        "if": {
+                            "properties": {
+                                "partialRedundancy": {
+                                    "const": True
+                                }
+                            }
+                        },
+                        "then": {
                             "properties": {
                                 "pairsOfTargetsRedundancies": {
                                     "minItems": 1
-                                }
+                                },
                             }
-                        }
+                        },
                     }
                 },
-                {
-                "if": {
-                    "properties": {
-                    "descriptionOfTriggersRedundancies": {
-                        "not": {
-                            "const": ""
-                        }
-                    }
-                    }
-                },
-                "then": {
-                    "required": ["pairsOfTriggersRedundancies"],
-                    "properties": {
-                        "pairsOfTriggersRedundancies": {
-                            "minItems": 1
-                        }
-                    }
-                },
-                "else": {
-                    "if": {
-                        "properties": {
-                            "pairsOfTriggersRedundancies": {
-                            "minItems": 1
-                            }
-                        }
-                    },
-                    "then": {
-                        "required": ["descriptionOfTriggersRedundancies"],
-                            "properties": {
-                                "descriptionOfTriggersRedundancies": {
-                                    "not": {
-                                        "const": ""
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "descriptionOfTargetsRedundancies": {
-                                "not": {
-                                    "const": ""
-                                }
-                            }
-                        }
-                },
-                "then": {
-                    "required": ["pairsOfTargetsRedundancies"],
-                    "properties": {
-                        "pairsOfTargetsRedundancies": {
-                            "minItems": 1
-                        }
-                    }
-                },
-                "else": {
-                    "if": {
-                        "properties": {
-                            "pairsOfTargetsRedundancies": {
-                                "minItems": 1
-                            }
-                        }
-                    },
-                    "then": {
-                        "required": ["descriptionOfTargetsRedundancies"],
-                            "properties": {
-                                "descriptionOfTargetsRedundancies": {
-                                    "not": {
-                                        "const": ""
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "descriptionOfContainsRedundancies": {
-                                "not": {
-                                    "const": ""
-                                }
-                            }
-                        }
-                    },
-                    "then": {
-                        "required": ["pairsOfContainsRedundancies"],
-                        "properties": {
-                            "pairsOfContainsRedundancies": {
-                                "minItems": 1
-                            }
-                        }
-                    },
-                "else": {
-                    "if": {
-                        "properties": {
-                            "pairsOfContainsRedundancies": {
-                            "minItems": 1
-                            }
-                        }
-                    },
-                    "then": {
-                        "required": ["descriptionOfContainsRedundancies"],
-                            "properties": {
-                                "descriptionOfContainsRedundancies": {
-                                    "not": {
-                                        "const": ""
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            ]
+                
+            ],
         },
         "benefitRedundancies": {
             "type": "object",
@@ -409,60 +346,111 @@ chat_gpt_schema_with_annotations = {
                 "fullRedundancy": {
                     "type": "boolean"
                 },
-                "descriptionOfTriggersRedundancies": {
-                    "type": "string"
-                },
                 "pairsOfTriggersRedundancies": {
                     "type": "array",
                     "items": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "descriptionOfTriggerPairRedundancies": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "FirstUserStoryTriggerPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            },
+                            "SecondUserStoryTriggerPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            }
                         },
-                        "minItems": 2,
-                        "maxItems": 2
+                        "required": ["descriptionOfTriggerPairRedundancies",
+                                     "FirstUserStoryTriggerPair",
+                                     "SecondUserStoryTriggerPair"]
                     },
                     "minItems": 0,
-                },
-                "descriptionOfTargetsRedundancies": {
-                    "type": "string"
+                    "uniqueItems": True
                 },
                 "pairsOfTargetsRedundancies": {
                     "type": "array",
                     "items": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "descriptionOfTargetPairRedundancies": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "FirstUserStoryTargetPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            },
+                            "SecondUserStoryTargetPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            }
                         },
-                        "minItems": 2,
-                        "maxItems": 2
+                        "required": ["descriptionOfTargetPairRedundancies",
+                                     "FirstUserStoryTargetPair",
+                                     "SecondUserStoryTargetPair"]
                     },
                     "minItems": 0,
-                },
-                "descriptionOfContainsRedundancies": {
-                    "type": "string"
+                    "uniqueItems": True
                 },
                 "pairsOfContainsRedundancies": {
                     "type": "array",
                     "items": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "descriptionOfContainPairsRedundancies": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "FirstUserStoryContainPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            },
+                            "SecondUserStoryContainPair": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            }
                         },
-                        "minItems": 2,
-                        "maxItems": 2
+                        "required": ["descriptionOfContainPairRedundancies",
+                                     "FirstUserStoryContainPair",
+                                     "SecondUserStoryContainPair"]
                     },
                     "minItems": 0,
+                    "uniqueItems": True
                 }
             },
             "required": [
                 "partialRedundancy",
                 "fullRedundancy",
-                "descriptionOfTargetsRedundancies",
                 "pairsOfTargetsRedundancies",
-                "descriptionOfTriggersRedundancies",
                 "pairsOfTriggersRedundancies",
-                "descriptionOfContainsRedundancies",
                 "pairsOfContainsRedundancies"],
             "allOf": [
                 {
@@ -478,22 +466,13 @@ chat_gpt_schema_with_annotations = {
                     },
                     "then": {
                         "properties": {
-                            "descriptionOfTriggersRedundancies": {
-                                "const": ""
-                            },
                             "pairsOfTriggersRedundancies": {
                                 "maxItems": 0
-                            },
-                            "descriptionOfTargetsRedundancies": {
-                                "const": ""
                             },
                             "pairsOfTargetsRedundancies": {
                                 "maxItems": 0
                             },
-                            "descriptionOfContainsRedundancies": {
-                                "const": ""
-                            },
-                            "pairsOfTContainsedundancies": {
+                            "pairsOfContainsRedundancies": {
                                 "maxItems": 0
                             }
                         }
@@ -513,40 +492,6 @@ chat_gpt_schema_with_annotations = {
                                 "fullRedundancy": {
                                     "const": True
                                 }
-                            }
-                        }
-                    },
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "fullRedundancy": {
-                                "const": True
-                            }
-                        }
-                    },
-                    "then": {
-                        "not": {
-                            "properties": {
-                                "partialRedundancy": {
-                                    "const": True
-                                }
-                            }
-                        }
-                    },
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "partialRedundancy": {
-                                "const": True
-                            }
-                        }
-                    },
-                    "then": {
-                        "properties": {
-                            "pairsOfTargetsRedundancies": {
-                                "minItems": 1
                             }
                         }
                     },
@@ -559,129 +504,56 @@ chat_gpt_schema_with_annotations = {
                             }
                         },
                         "then": {
+                            "not": {
+                                "properties": {
+                                    "partialRedundancy": {
+                                        "const": True
+                                    }
+                                }
+                            }
+                        },
+                    }
+                },
+                {
+                    "if": {
+                            "properties": {
+                                "fullRedundancy": {
+                                    "const": True
+                                }
+                            }
+                        },
+                    "then": {
+                        "properties": {
+                            "pairsOfTriggersRedundancies": {
+                                "minItems": 1
+                            },
+                            "pairsOfTargetsRedundancies": {
+                                "minItems": 1
+                            },
+                            "pairsOfContainsRedundancies": {
+                                "minItems": 1
+                            }
+                        }
+                    },
+                    "else": {
+                        "if": {
+                            "properties": {
+                                "partialRedundancy": {
+                                    "const": True
+                                }
+                            }
+                        },
+                        "then": {
                             "properties": {
                                 "pairsOfTargetsRedundancies": {
                                     "minItems": 1
-                                }
+                                },
                             }
-                        }
+                        },
                     }
                 },
-                {
-                "if": {
-                    "properties": {
-                    "descriptionOfTriggersRedundancies": {
-                        "not": {
-                            "const": ""
-                        }
-                    }
-                    }
-                },
-                "then": {
-                    "required": ["pairsOfTriggersRedundancies"],
-                    "properties": {
-                        "pairsOfTriggersRedundancies": {
-                            "minItems": 1
-                        }
-                    }
-                },
-                "else": {
-                    "if": {
-                        "properties": {
-                            "pairsOfTriggersRedundancies": {
-                            "minItems": 1
-                            }
-                        }
-                    },
-                    "then": {
-                        "required": ["descriptionOfTriggersRedundancies"],
-                            "properties": {
-                                "descriptionOfTriggersRedundancies": {
-                                    "not": {
-                                        "const": ""
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "descriptionOfTargetsRedundancies": {
-                                "not": {
-                                    "const": ""
-                                }
-                            }
-                        }
-                },
-                "then": {
-                    "required": ["pairsOfTargetsRedundancies"],
-                    "properties": {
-                        "pairsOfTargetsRedundancies": {
-                            "minItems": 1
-                        }
-                    }
-                },
-                "else": {
-                    "if": {
-                        "properties": {
-                            "pairsOfTargetsRedundancies": {
-                                "minItems": 1
-                            }
-                        }
-                    },
-                    "then": {
-                        "required": ["descriptionOfTargetsRedundancies"],
-                            "properties": {
-                                "descriptionOfTargetsRedundancies": {
-                                    "not": {
-                                        "const": ""
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "descriptionOfContainsRedundancies": {
-                                "not": {
-                                    "const": ""
-                                }
-                            }
-                        }
-                    },
-                    "then": {
-                        "required": ["pairsOfContainsRedundancies"],
-                        "properties": {
-                            "pairsOfContainsRedundancies": {
-                                "minItems": 1
-                            }
-                        }
-                    },
-                "else": {
-                    "if": {
-                        "properties": {
-                            "pairsOfContainsRedundancies": {
-                            "minItems": 1
-                            }
-                        }
-                    },
-                    "then": {
-                        "required": ["descriptionOfContainsRedundancies"],
-                            "properties": {
-                                "descriptionOfContainsRedundancies": {
-                                    "not": {
-                                        "const": ""
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            ]
+                
+            ],
         }
     },
     "required": [
