@@ -1,0 +1,207 @@
+[{
+    "relatedStories": [615, 636],
+    "mainPartRedundancies": {
+                   "partialRedundancy": true,
+                   "fullRedundancy": false,
+                   "pairsOfTriggersRedundancies": [
+                                 {"descriptionOfTriggersRedundancies": "In both stories, the camp administrator wants to schedule something.", 
+                                 "FirstUserStoryTriggerPair": ["camp administrator", "schedule"],
+                                 "SecondUserStoryTriggerPair": ["camp administrator", "schedule"]
+                                }
+                                
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                                 {"descriptionOfTargetPairRedundancies": "In both stories, the camp adiministrator wants to schedule activities.", 
+                                  "FirstUserStoryTargetPair": ["schedule", "activities"],
+                                                "SecondUserStoryTargetPair": ["schedule", "activities"]
+                   }
+                                 
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]
+    },
+    "benefitRedundancies": {
+                   "partialRedundancy": false,
+                   "fullRedundancy": false,
+                   "pairsOfTriggersRedundancies": [       
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]             
+    }
+},
+
+{
+    "relatedStories": [640, 642],
+    "mainPartRedundancies": {
+                   "partialRedundancy": false,
+                   "fullRedundancy": false,
+                   "pairsOfTriggersRedundancies": [                                
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                                                    
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]
+    },
+    "benefitRedundancies": {
+                   "partialRedundancy": true,
+                   "fullRedundancy": false,
+                   "pairsOfTriggersRedundancies": [ 
+                          
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                    {"descriptionOfTargetPairRedundancies": "In both stories, pages should kept in some way.", 
+                    "FirstUserStoryTargetPair": ["keep", "pages"],
+                                  "SecondUserStoryTargetPair": ["keep", "pages"]
+                    }
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]             
+    }
+}, 
+
+{
+    "relatedStories": [646, 649],
+    "mainPartRedundancies": {
+                   "partialRedundancy": false,
+                   "fullRedundancy": false,
+                   "pairsOfTriggersRedundancies": [                                
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                                                    
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]
+    },
+    "benefitRedundancies": {
+                   "partialRedundancy": false,
+                   "fullRedundancy": true,
+                   "pairsOfTriggersRedundancies": [ 
+                          
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                    {"descriptionOfTargetPairRedundancies": "In both stories, someone wants to have a peace of mind.", 
+                    "FirstUserStoryTargetPair": ["have", "peace of mind"],
+                                  "SecondUserStoryTargetPair": ["have", "peace of mind"]
+                    }
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]             
+    }
+}, 
+
+{
+    "relatedStories": [397, 398],
+    "mainPartRedundancies": {
+                   "partialRedundancy": false,
+                   "fullRedundancy": true,
+                   "pairsOfTriggersRedundancies": [    
+                    {"descriptionOfTriggersRedundancies": "In both stories, the API User wants to understand something.", 
+                    "FirstUserStoryTriggerPair": ["API User", "understand"],
+                    "SecondUserStoryTriggerPair": ["API User", "understand"]
+                   }                            
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                    {"descriptionOfTargetPairRedundancies": "In both stories, someone wants to understand the user.", 
+                    "FirstUserStoryTargetPair": ["understand", "user"],
+                    "SecondUserStoryTargetPair": ["understand", "user"]
+                    }                            
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]
+    },
+    "benefitRedundancies": {
+                   "partialRedundancy": false,
+                   "fullRedundancy": true,
+                   "pairsOfTriggersRedundancies": [ 
+                          
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                    {"descriptionOfTargetPairRedundancies": "In both stories, functionality wants to be offered.", 
+                    "FirstUserStoryTargetPair": ["offer", "functionality"],
+                                  "SecondUserStoryTargetPair": ["offer", "functionality"]
+                    }
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]             
+    }
+}, 
+
+{
+    "relatedStories": [377, 417],
+    "mainPartRedundancies": {
+                   "partialRedundancy": true,
+                   "fullRedundancy": false,
+                   "pairsOfTriggersRedundancies": [   
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                    {"descriptionOfTargetPairRedundancies": "In both stories, someone wahts to have a view of something.", 
+                    "FirstUserStoryTargetPair": ["have", "view"],
+                    "SecondUserStoryTargetPair": ["have", "view"]
+                    }                            
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]
+    },
+    "benefitRedundancies": {
+                   "partialRedundancy": true,
+                   "fullRedundancy": false,
+                   "pairsOfTriggersRedundancies": [ 
+                          
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                    {"descriptionOfTargetPairRedundancies": "In both stories, someone wants to perform management actions.", 
+                    "FirstUserStoryTargetPair": ["perform", "management actions"],
+                                  "SecondUserStoryTargetPair": ["perform", "management actions"]
+                    }
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]             
+    }
+},
+
+{
+    "relatedStories": [408, 409],
+    "mainPartRedundancies": {
+                   "partialRedundancy": true,
+                   "fullRedundancy": false,
+                   "pairsOfTriggersRedundancies": [   
+                    {"descriptionOfTriggersRedundancies": "In both stories, the API User is able to normalise something.", 
+                     "FirstUserStoryTriggerPair": ["API User", "normalise"],
+                     "SecondUserStoryTriggerPair": ["API User", "normalise"]
+                    }
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                    {"descriptionOfTargetPairRedundancies": "In both stories, the API User wants to normalise measures.", 
+                    "FirstUserStoryTargetPair": ["normalise", "measures"],
+                                  "SecondUserStoryTargetPair": ["normalise", "measures"]
+                    }                         
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]
+    },
+    "benefitRedundancies": {
+                   "partialRedundancy": false,
+                   "fullRedundancy": true,
+                   "pairsOfTriggersRedundancies": [ 
+                    {"descriptionOfTriggersRedundancies": "In both stories, the user wants to work with datasets in reference with their contextual constraints.", 
+                     "FirstUserStoryTriggerPair": ["datasets", "contextual constraints"],
+                     "SecondUserStoryTriggerPair": ["datasets", "contextual constraints"]
+                    }
+                          
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                    {"descriptionOfTargetPairRedundancies": "In both stories, the API User wants to work with datasets", 
+                    "FirstUserStoryTargetPair": ["work", "datasets"],
+                                  "SecondUserStoryTargetPair": ["work", "datasets"]
+                    }
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]             
+    }
+}
+
+]
+
