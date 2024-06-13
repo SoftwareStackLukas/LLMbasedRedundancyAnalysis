@@ -31,10 +31,10 @@ OLD_DEFINITION_PARTIAL_FULL_REDUNDANCY: str = (
 # at last one / minium of one?
 # Something is broken with the second, third, forth, sentence
 DEFINITION_PARTIAL_FULL_REDUNDANCY: str = (
-    "1.) A partial main part redundancy occurs if one value of 'Targets'. 'Main Part' of the first User Story also occur in the second User Story.\n"
-    "2.) A main part redundancy occurs if the values of 'Targets'. 'Main Part', 'Triggers'. 'Main Part' and 'Contains'. 'Main Part' of the first User Story also occur in the second User story and vice versa.\n"
-    "3.) A benefit partial redundancy occurs if one value of of 'Targets'. 'Benefit' of the first User Story also occur in the second User Story. \n"
-    "4.) A benefit redundancy occurs if the values of 'Triggers'. 'Benefit' and 'Targets'. 'Benefit' and 'Contains'. 'Benefit' also occur in the second User Story and vice versa."
+    "1.) A partial main part redundancy occurs if one value of 'Targets'.'Main Part' of the first User Story also occur in the second User Story.\n"
+    "2.) A full main part redundancy occurs if the values of 'Targets'.'Main Part', 'Triggers'.'Main Part' and 'Contains'.'Main Part' of the first User Story also occur in the second User story and vice versa.\n"
+    "3.) A partial benefit redundancy occurs if one value of of 'Targets'.'Benefit' of the first User Story also occur in the second User Story.\n"
+    "4.) A full benefit redundancy occurs if the values of 'Triggers'.'Benefit' and 'Targets'.'Benefit' and 'Contains'.'Benefit' also occur in the second User Story and vice versa."
 )
 
 ## Add Gabis definitions
@@ -48,9 +48,9 @@ DEFINITION_JSON_SCHEMA: str = (
     "Before we proceed, consider the following JSON output format:\n"
     "This JSON structure organizes information about redundancies in User Stories, focusing on both the main parts and the benefits regarding full and partial redundancies. "
     "Each section includes descriptions of the redundancies and specific text references to illustrate where these redundancies occur within the stories."
-    "1.) The field 'relatedStories' is an array of two integer value. The value are the ids of the User Stories and this field is also mandatory.\n"
+    "1.) The field 'relatedStories' is an array of two integer value. The value are the usids of the User Stories and this field is also mandatory.\n"
     "2.) The 'mainPartRedundancies' is an json object which containes the following fields:\n"
-        "2.1) The field 'partialRedundancy' is of the type bool. true indicates that a pair of User Stories has a partial redundancy (partialRedundancy) in the main part and otherwise false. It can just be true when the main part is not full redundant. It is a mandatory field. \n"
+        "2.1) The field 'partialRedundancy' is of the type bool. true indicates that a pair of User Stories has a partial redundancy (partialRedundancy) in the main part and otherwise false. It just can be true when the main part is not full redundant. It is a mandatory field. \n"
         "2.2) The field 'fullRedundancy' is of the type bool. true indicates that a pair of User Stories has a full redundancy (fullRedundancy) in the main part and otherwise false. It is a mandatory field."
         "2.3) The field 'descriptionOfTriggersRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the trigger redundancies and when no trigger redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfTriggersRedundancies. \n"
         "2.4) The field 'pairsOfTriggersRedundancies' is \n"

@@ -10,7 +10,9 @@ def combine_chat_history_repair_request(message: list[dict[str, str]], answer: s
 def parsing_to_pair_requests(json_us_one: dict, json_us_two: dict) -> dict[str, str]:
     return {
         "role": "user",
-        "content": "Yes. Please, process the following pairs of user story annotations:\n"
-        f"id: {json_us_one["USID"]}, annotations: {json.dumps(json_us_one)};\n"
-        f"id: {json_us_two["USID"]}, annotations: {json.dumps(json_us_two)}",
+        "content": "Yes. Please, analyse the redundancies from the following pair of user stories:\n"
+        f"First User Story JSON-Data: {json.dumps(json_us_one)};\n"
+        f"Second User Story JSON-Data: {json.dumps(json_us_two)}",
+        #f"id: {json_us_one["USID"]}, jsonData: {json.dumps(json_us_one)};\n"
+        #f"id: {json_us_two["USID"]}, jsonData: {json.dumps(json_us_two)}",
     }
