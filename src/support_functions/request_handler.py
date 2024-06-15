@@ -210,7 +210,7 @@ def manage_single_request(
         current_message: list[dict] = copy.deepcopy(message)
         template_request_two_user_stories(
             current_message=current_message,
-            idx=idx, 
+            idx=idx,
             pairs=pairs
         )
         try:
