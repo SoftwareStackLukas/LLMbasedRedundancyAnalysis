@@ -23,6 +23,7 @@ import copy
 load_dotenv()
 API_KEY = os.getenv("OPENAI_API_KEY")
 MODEL_CODE = os.getenv("MODEL_VERSION")
+TEMPERATURE = float(os.getenv("TEMPERATURE"))
 LIMIT_OF_REQUESTS: int = int(os.getenv("LIMIT"))
 THRESHOLD_REPAIR: int = int(os.getenv("THRESHOLD_REPAIR"))
 
@@ -80,12 +81,12 @@ def repair_json_by_gpt(
         current_repair_request = copy.deepcopy(REPAIR_REQUEST)
         current_repair_request["content"] = current_repair_request["content"] + not_correct_json_reason
         if not correct:
-            combine_chat_history_repair_request(message=message, answer=answer, 
+            combine_chat_history_repair_request(message=message, answer=answer,
                                                 current_repair_request=current_repair_request)
             system_is_r_eng = client.chat.completions.create(
                 model=MODEL_CODE,
                 stream=False,
-                temperature=0.2,
+                temperature=TEMPERATURE,
                 response_format={"type": "json_object"},
                 messages=message,
             )
@@ -138,7 +139,7 @@ def send_requierment_to_chatgpt(
     system_is_r_eng = client.chat.completions.create(
         model=MODEL_CODE,
         stream=False,
-        temperature=0.2,
+        temperature=TEMPERATURE,
         response_format={"type": "json_object"},
         messages=message,
     )
