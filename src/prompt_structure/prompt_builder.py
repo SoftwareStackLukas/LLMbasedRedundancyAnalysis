@@ -3,6 +3,7 @@ import json, os, copy
 # Example for short answer:
 #   Absolutely, I'd be happy to help you with your Python needs. What do you need assistance with today?
 
+
 class PromptBuilder:
     """
     Singleton class to manage and generate prompt templates for analyzing user story redundancies.
@@ -305,3 +306,13 @@ class PromptBuilder:
             "role": "user",
             "content": temp,
         }
+        
+    @staticmethod
+    def get_instance():
+        """
+        Returns the singleton instance of PromptBuilder.
+
+        Returns:
+            PromptBuilder: The singleton instance of the PromptBuilder class.
+        """
+        return PromptBuilder()

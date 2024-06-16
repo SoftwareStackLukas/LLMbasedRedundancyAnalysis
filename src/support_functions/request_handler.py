@@ -1,7 +1,5 @@
 ### Own modules
-from prompt_structure.helper_prompt_composition import (
-    REPAIR_REQUEST,
-    combine_chat_history_repair_request)
+from prompt_structure.helper_prompt_composition import PromptHelperBuilder
 
 from .time_recorder import TimeRecorder
 from .save_data import save_to_json_persistent
@@ -33,11 +31,13 @@ EXCEPTION: str = "Exceptions"
 SEPERATOR: str = "-"
 REASON_KEY = "Reason"
 NOT_STOPPED_EXCEPTION_CHAT_GPT = "Not stopped exception from ChatGPT Endpoint"
-USID_ONE = "UID1"
-USID2_TWO = "UID2"
+USID_ONE = "USID1"
+USID2_TWO = "USID2"
 VALUE_ERROR = "ValueError"
 ELIPSED_TIME = "elipsedTimeNs"
 REPAIR_RUNS_JSON_FIELD = "repairRuns"
+
+PROMPT_HELPER_BUILDER: PromptHelperBuilder = PromptHelperBuilder.get_instance()
 
 class StoppedAnswerException(Exception):
     """
@@ -78,10 +78,10 @@ def repair_json_by_gpt(
     correct: bool = False
     current_repair_request: dict = None
     for _ in range(THRESHOLD_REPAIR):
-        current_repair_request = copy.deepcopy(REPAIR_REQUEST)
+        current_repair_request = PROMPT_HELPER_BUILDER.repair_request
         current_repair_request["content"] = current_repair_request["content"] + not_correct_json_reason
         if not correct:
-            combine_chat_history_repair_request(message=message, answer=answer,
+            PROMPT_HELPER_BUILDER.combine_chat_history_repair_request(message=message, answer=answer,
                                                 current_repair_request=current_repair_request)
             system_is_r_eng = client.chat.completions.create(
                 model=MODEL_CODE,
