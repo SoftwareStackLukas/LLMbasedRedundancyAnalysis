@@ -136,8 +136,6 @@ def create_tiggers_targets_contains_mapping(item: dict, ignored: dict[str,list])
     
     # First checking if items can be assigned by labels and then in the text
     for contain in item["Contains"]:
-        # contain[0] = Entity
-        # contain[1] = Entity
         if (contain[0] in item["Entity"]["Primary Entity"] and
                 contain[1] in item["Entity"]["Primary Entity"]):
             triggers["Main Part"].append(contain)
@@ -147,8 +145,8 @@ def create_tiggers_targets_contains_mapping(item: dict, ignored: dict[str,list])
         elif (contain[0] in main_part and
                 contain[1] in main_part):
             triggers["Main Part"].append(contain)
-        elif (contain[0] in item["Entity"]["Secondary Entity"] and
-                contain[1] in item["Entity"]["Secondary Entity"]):
+        elif (contain[0] in benefit and
+                contain[1] in benefit):
             triggers["Benefit"].append(contain)
         else:
             temp_text = str(item["Text"]).replace(str(item["PID"]) + ONE_WHITESPACE, "")

@@ -26,12 +26,37 @@ class PromptBuilder:
         self._SYSTEM_SIMULATION_ACTOR_ROLE: str = ("As a requirements engineer in agile development, it is my responsibility to review user stories for redundancies. My goal is to identify and report any overlapping or duplicate requirements. " 
         "By carefully analysing the user stories in depth, I ensure that each requirement is necessary and contributes uniquely, increasing the coherence of the product.")
         
-        self._DEFINITION_US: str = ("Act as a Requirements Engineer focused on identifying redundancies. "
-            "Please review pairs of two User Stories and pinpoint any unnecessary duplications that obscure clarity or add no distinct value.")
+        self._DEFINITION_US: str = ("A user story is a semi-structured sentence containing the following information:\n"
+                                    "(1) the persona involved in the story,\n"
+                                    "(2) the main part containing the actions that the persona will perform on the system and the entities involved in the actions, and optionally\n"
+                                    "(3) a benefit that the persona will receive after having completed these actions. The benefit may also include actions and entities.\n"
+                                    "Classically, a user story is expressed in the following form: 'As a <persona>, I can <Actions> over <entities>, so that <benefit>.'\n"
+                                    "An example of a User Story is:"
+                                    "As an API User, I want to be able to understand if a user is a Publisher, so that I can offer functionality based on Dataset Publisher privileges."
+                                    "An annotated user story is a user story together with a conceptual model that makes the following concepts explicit: "
+                                    "The persona, a set of actions, a set of entities, a set of trigger references running from"
+                                    "the persona to the actions, a set of target references running from"
+                                    "the action to the entities, and a set of contains references between"
+                                    "entities. The sets of actions and entities are divided between the"
+                                    "main part and the optional benefit of a user story.\n"
+                                    "An example of an annotated User Story in a JSON format is:\n"
+                                        """{
+                                            'PID': '#G05#',
+                                            'USID': '399',
+                                            'Text': 'As an API User, I want to be able to get bordering regions|cities when I query a region|city, so that I can provider wider visual context for mapping visualisations.',
+                                            'Main Part': 'As an API User, I want to be able to get bordering regions|cities when I query a region|city',
+                                            'Benefit': 'so that I can provider wider visual context for mapping visualisations.',
+                                            'Persona': ['API User'],
+                                            'Action': {'Main Part': [['get']], 'Benefit': [['query', 'provider']]},
+                                            'Entity': {'Main Part': [['cities', 'bordering regions']], 'Benefit': [['region', 'city', 'wider visual context', 'mapping visualisations']]},
+                                            'Triggers': {'Main Part': [['API User', 'get']], 'Benefit': [['mapping visualisations', 'wider visual context']]},
+                                            'Targets': {'Main Part': [['get', 'cities'], ['get', 'bordering regions']], 'Benefit': [['provider', 'wider visual context'], ['query', 'city,'], ['query', 'region']]},
+                                            'Contains': {'Main Part': [], 'Benefit': ['mapping visualisations', 'wider visual context']}},
+                                        }"""
+                                    )
         
         ### Addapt to new defintions
-        self._SYSTEM_SIMULATION_DEFINITION_US: str = ("As a requirements engineer in agile development, it is my responsibility to review user stories for redundancies. My goal is to identify and report any overlapping or duplicate requirements. " 
-        "By carefully analysing the user stories in depth, I ensure that each requirement is necessary and contributes uniquely, increasing the coherence of the product.")
+        self._SYSTEM_SIMULATION_DEFINITION_US: str = ("")
         
         self._DEFINITION_BASE_REDUNDANCY: str = (
             "Please, analyse redundancies in the main part and benefit of a pair of two given User Stories which are entered as JSON objects. "
@@ -56,9 +81,6 @@ class PromptBuilder:
             "The main part typically describes the desired functionality by the persona, while the benefit details the positive outcomes from the functionality."
         )
         
-        # Defining the handtel pair?
-        # at last one / minium of one?
-        # Something is broken with the second, third, forth, sentence
         self._DEFINITION_PARTIAL_FULL_REDUNDANCY: str = (
             "1.) A partial main part redundancy occurs if one value of 'Targets'.'Main Part' of the first User Story also occur in the second User Story.\n"
             "2.) A full main part redundancy occurs if the values of 'Targets'.'Main Part', 'Triggers'.'Main Part' and 'Contains'.'Main Part' of the first User Story also occur in the second User story and vice versa.\n"
@@ -69,12 +91,6 @@ class PromptBuilder:
         ### Adapt to new defintions full / partial in main and benefit - rempove Ready to proceed or change it in the next step as proceed is not process
         self._SYSTEM_SIMULATION_DEFINITION_PARTIAL_FULL_REDUNDANCY: str = ("I'll review the User Stories for redundancies in main parts and benefits, using the specified definitions. Ready to proceed?")
         
-        ## Add Gabis definitions
-        ## Maybe examples for the format. and improving the sentences
-        ## Defining the JSON output format and provide an example
-
-        # print(DEFINITION_PARTIAL_FULL_REDUNDANCY)
-
         self._INTRODUCING_JSON_DEFINITION: str = ("Before we proceed, consider :\n"
             "The following  JSON output format which organizes information about redundancies of a pair of User Stories, focusing on both the main parts and the benefits regarding full and partial redundancies. ")
 
