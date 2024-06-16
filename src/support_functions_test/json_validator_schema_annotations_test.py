@@ -3778,7 +3778,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
 
     def test_invalid_data14(self):
         '''
-            Incomplete Full Main Part: Missing pairsOfContainsRedundancies
+            Inomplete Full Main Part: Missing pairsOfContainsRedundancies
+            Inpreviews versions it was a invalid test, however, we can not expect that always a contains is given. Thus this constrain was removed
         '''
         test_data = '''
         {
@@ -3815,8 +3816,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
         }
         '''
         results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
-        self.assertTrue(bool(_))
-        self.assertFalse(results)
+        self.assertFalse(bool(_))
+        self.assertTrue(results)
         
     def test_invalid_data15(self):
         '''
@@ -3863,6 +3864,7 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
     def test_invalid_data16(self):
         '''
             Incomplete Full Benefit: Missing pairsOfContainsRedundancies
+            Inpreviews versions it was a invalid test, however, we can not expect that always a contains is given. Thus this constrain was removed.
         '''
         test_data = '''
         {
@@ -3899,12 +3901,13 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
         }
         '''
         results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
-        self.assertTrue(bool(_))
-        self.assertFalse(results)
+        self.assertFalse(bool(_))
+        self.assertTrue(results)
         
     def test_invalid_data17(self):
         '''
             Incomplete Full Benefit: Missing pairsOfTriggersRedundancies
+            Inpreviews versions it was a invalid test, however, we can not expect that always a trigger is given. Thus this constrain was removed.
         '''
         test_data = '''
         {
@@ -3941,8 +3944,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
         }
         '''
         results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
-        self.assertTrue(bool(_))
-        self.assertFalse(results)
+        self.assertFalse(bool(_))
+        self.assertTrue(results)
         
     def test_invalid_data18_1(self):
         '''
