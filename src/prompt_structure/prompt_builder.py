@@ -26,9 +26,16 @@ class PromptBuilder:
         self._SYSTEM_SIMULATION_ACTOR_ROLE: str = ("As a requirements engineer in agile development, it is my responsibility to review user stories for redundancies. My goal is to identify and report any overlapping or duplicate requirements. " 
         "By carefully analysing the user stories in depth, I ensure that each requirement is necessary and contributes uniquely, increasing the coherence of the product.")
         
+        self._DEFINITION_US: str = ("Act as a Requirements Engineer focused on identifying redundancies. "
+            "Please review pairs of two User Stories and pinpoint any unnecessary duplications that obscure clarity or add no distinct value.")
+        
+        ### Addapt to new defintions
+        self._SYSTEM_SIMULATION_DEFINITION_US: str = ("As a requirements engineer in agile development, it is my responsibility to review user stories for redundancies. My goal is to identify and report any overlapping or duplicate requirements. " 
+        "By carefully analysing the user stories in depth, I ensure that each requirement is necessary and contributes uniquely, increasing the coherence of the product.")
+        
         self._DEFINITION_BASE_REDUNDANCY: str = (
             "Please, analyse redundancies in the main part and benefit of a pair of two given User Stories which are entered as JSON objects. "
-            "Note that a User Story may include multiple redundancies in the main part as well as the benefit. The redundancies of the main part and benefit are disjoint sets. "
+            "Note that a User Story pair may include multiple redundancies in the main part as well as the benefit. The redundancies of the main part and benefit are disjoint sets. "
             "Hence, a main part can be redundant while a benefit is not and vice versa. " 
             "However, in some cases the main part and the benefit can be at the same time redundant, but they do not depend on each other and therefore they are independent redundant. "
             "The definition of the main part is: "
@@ -68,31 +75,59 @@ class PromptBuilder:
 
         # print(DEFINITION_PARTIAL_FULL_REDUNDANCY)
 
-        self._INTRODUCING_JSON_DEFINITION: str = ("Before we proceed, consider the following JSON output format:\n"
-            "This JSON structure organizes information about redundancies in User Stories, focusing on both the main parts and the benefits regarding full and partial redundancies. "
-            "Each section includes descriptions of the redundancies and specific text references to illustrate where these redundancies occur within the stories.")
+        self._INTRODUCING_JSON_DEFINITION: str = ("Before we proceed, consider :\n"
+            "The following  JSON output format which organizes information about redundancies of a pair of User Stories, focusing on both the main parts and the benefits regarding full and partial redundancies. ")
 
+        ### Should contain the definition of the redundancies to not overshaddow the definition from before
         ### Redefine the fields pairsOfTriggersRedundancies, pairsOfTargetsRedundancies, pairsOfContainsRedundancies
         self._DEFINITION_JSON_SCHEMA: str = (
-            "1.) The field 'relatedStories' is an array of two integer value. The value are the usids of the User Stories and this field is also mandatory.\n"
-            "2.) The 'mainPartRedundancies' is an json object which containes the following fields:\n"
-                "2.1) The field 'partialRedundancy' is of the type bool. true indicates that a pair of User Stories has a partial redundancy (partialRedundancy) in the main part and otherwise false. It just can be true when the main part is not full redundant. It is a mandatory field. \n"
-                "2.2) The field 'fullRedundancy' is of the type bool. true indicates that a pair of User Stories has a full redundancy (fullRedundancy) in the main part and otherwise false. It is a mandatory field."
-                "2.3) The field 'descriptionOfTriggersRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the trigger redundancies and when no trigger redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfTriggersRedundancies. \n"
-                "2.4) The field 'pairsOfTriggersRedundancies' is \n"
-                "2.5) The field 'descriptionOfTargetsRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the target redundancies and when no target redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfTargetsRedundancies.\n"
-                "2.6) The field 'pairsOfTargetsRedundancies' \n"
-                "2.7) The field 'descriptionOfContainsRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the contain redundancies and when no contain redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfContainsRedundancies.\n"
-                "2.8) The field 'pairsOfContainsRedundancies' \n"
-            "3.) The 'mainPartRedundancies' is an json object which containes the following fields:\n"
-                "3.1) The field 'partialRedundancy' is of the type bool. true indicates that a pair of User Stories has a partial redundancy (partialRedundancy) in the main part and otherwise false. It can just be true when the main part is not full redundant. It is a mandatory field. \n"
-                "3.2) The field 'fullRedundancy' is of the type bool. true indicates that a pair of User Stories has a full redundancy (fullRedundancy) in the main part and otherwise false. It is a mandatory field."
-                "3.3) The field 'descriptionOfTriggersRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the trigger redundancies and when no trigger redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfTriggersRedundancies.\n"
-                "3.4) The field 'pairsOfTriggersRedundancies' \n"
-                "3.5) The field 'descriptionOfTargetsRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the target redundancies and when no target redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfTargetsRedundancies.\n"
-                "3.6) The field 'pairsOfTargetsRedundancies' \n"
-                "3.7) The field 'descriptionOfContainsRedundancies' is of the type string. The value of this field contains a description that is explaining the reason for the contain redundancies and when no contain redundancy exists it is an empty string. It is a mandatory field and has a dependency with pairsOfContainsRedundancies.\n"
-                "3.8) The field 'pairsOfContainsRedundancies' \n"
+            "1.) The field 'relatedStories' is an array of exactly two integer values. These values are the user story IDs (usids) of the User Stories, and this field is mandatory.\n"
+            "2.) The 'mainPartRedundancies' field is a JSON object that provides detailed information about redundancies in the main parts of the User Stories pair. "
+                "Conditions and Dependencies: If both 'partialRedundancy' and 'fullRedundancy' are false, then the arrays 'pairsOfTriggersRedundancies', 'pairsOfTargetsRedundancies', and 'pairsOfContainsRedundancies' must all have a maximum of 0 items. "
+                "If 'partialRedundancy' is true, 'fullRedundancy' must be false, and vice versa. "
+                "If 'fullRedundancy' is true, the 'pairsOfTriggersRedundancies' and 'pairsOfTargetsRedundancies' arrays -- Insert here again the defintion to not over shadow def. --"
+                "If 'partialRedundancy' is true, the 'pairsOfTargetsRedundancies' array must have -- Insert here again the defintion to not over shadow def. --"
+                "It is mandatory and contains the following fields:\n"
+                "\t2.1) The 'partialRedundancy' field is of the type boolean. A value of true indicates that a pair of User Stories has a partial redundancy in the main part, while a value of false indicates no partial redundancy. This field can only be true when the main part is not fully redundant. It is a mandatory field.\n"
+                "\t2.2) The 'fullRedundancy' field is of the type boolean. A value of true indicates that a pair of User Stories has full redundancy in the main part, while a value of false indicates no full redundancy. It is a mandatory field.\n"
+                "\t2.3) The 'pairsOfTriggersRedundancies' field is an array of objects, each containing: \n"
+                    "\t\t2.3.1) A 'descriptionOfTriggerPairRedundancies' field. This is a string that provides a description explaining the reason for the trigger redundancies. It must have a minimum length of 1 character.\n"
+                    "\t\t2.3.2) A 'firstUserStoryTriggerPair' field. This is an array of exactly two string values representing the first pair of user story triggers.\n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t2.3.3) A 'secondUserStoryTriggerPair' field. This is an array of exactly two string values representing the second pair of user story triggers.\n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t2.3.4) Each object in this array must contain the fields 'descriptionOfTriggerPairRedundancies', 'firstUserStoryTriggerPair', and 'secondUserStoryTriggerPair'. The array must contain unique items and can have zero or multiple elements.\n"
+                "\t2.4) The 'pairsOfTargetsRedundancies' field is an array of objects, each containing:\n"
+                    "\t\t2.4.1) A 'descriptionOfTargetPairRedundancies' field. This is a string that provides a description explaining the reason for the target redundancies. It must have a minimum length of 1 character.\n"
+                    "\t\t2.4.2) A 'firstUserStoryTargetPair' field. This is an array of exactly two string values representing the first pair of user story targets.\n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t2.4.3) A 'secondUserStoryTargetPair' field. This is an array of exactly two string values representing the second pair of user story targets.\n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t2.4.4) Each object in this array must contain the fields 'descriptionOfTriggerPairRedundancies', 'firstUserStoryTriggerPair', and 'secondUserStoryTriggerPair'. The array must contain unique items and can have zero or multiple elements.\n"
+                "\t2.5) The 'pairsOfTriggersRedundancies' field is an array of objects, each containing:\n"
+                    "\t\t2.5.1) A 'descriptionOfContainPairsRedundancies' field.\n"
+                    "\t\t2.5.2) A 'firstUserStoryContainPair' field. This is an array of exactly two string values representing the first pair of user story contains. \n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t2.5.3) A 'secondUserStoryContainPair' field. This is an array of exactly two string values representing the second pair of user story contains. \n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t2.5.4) Each object in this array must contain the fields 'descriptionOfTriggerPairRedundancies', 'firstUserStoryTriggerPair', and 'secondUserStoryTriggerPair'. The array must contain unique items and can have zero or multiple elements.\n"
+            "3.) The 'mainPartRedundancies' field is a JSON object that provides detailed information about redundancies in the main parts of the User Stories pair. "
+                "Conditions and Dependencies: If both 'partialRedundancy' and 'fullRedundancy' are false, then the arrays 'pairsOfTriggersRedundancies', 'pairsOfTargetsRedundancies', and 'pairsOfContainsRedundancies' must all have a maximum of 0 items. "
+                "If 'partialRedundancy' is true, 'fullRedundancy' must be false, and vice versa. "
+                "If 'fullRedundancy' is true, the 'pairsOfTargetsRedundancies' arrays -- Insert here again the defintion to not over shadow def. --"
+                "If 'partialRedundancy' is true, the 'pairsOfTargetsRedundancies' array must have -- Insert here again the defintion to not over shadow def. --"
+                "It is mandatory and contains the following fields:\n"
+                "\t3.1) The 'partialRedundancy' field is of the type boolean. A value of true indicates that a pair of User Stories has a partial redundancy in the main part, while a value of false indicates no partial redundancy. This field can only be true when the main part is not fully redundant. It is a mandatory field.\n"
+                "\t3.2) The 'fullRedundancy' field is of the type boolean. A value of true indicates that a pair of User Stories has full redundancy in the main part, while a value of false indicates no full redundancy. It is a mandatory field.\n"
+                "\t3.3) The 'pairsOfTriggersRedundancies' field is an array of objects, each containing: \n"
+                    "\t\t3.3.1) A 'descriptionOfTriggerPairRedundancies' field. This is a string that provides a description explaining the reason for the trigger redundancies. It must have a minimum length of 1 character.\n"
+                    "\t\t3.3.2) A 'firstUserStoryTriggerPair' field. This is an array of exactly two string values representing the first pair of user story triggers.\n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t3.3.3) A 'secondUserStoryTriggerPair' field. This is an array of exactly two string values representing the second pair of user story triggers.\n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t3.3.4) Each object in this array must contain the fields 'descriptionOfTriggerPairRedundancies', 'firstUserStoryTriggerPair', and 'secondUserStoryTriggerPair'. The array must contain unique items and can have zero or multiple elements.\n"
+                "\t2.4) The 'pairsOfTargetsRedundancies' field is an array of objects, each containing:\n"
+                    "\t\t3.4.1) A 'descriptionOfTargetPairRedundancies' field. This is a string that provides a description explaining the reason for the target redundancies. It must have a minimum length of 1 character.\n"
+                    "\t\t3.4.2) A 'firstUserStoryTargetPair' field. This is an array of exactly two string values representing the first pair of user story targets.\n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t3.4.3) A 'secondUserStoryTargetPair' field. This is an array of exactly two string values representing the second pair of user story targets.\n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t3.4.4) Each object in this array must contain the fields 'descriptionOfTriggerPairRedundancies', 'firstUserStoryTriggerPair', and 'secondUserStoryTriggerPair'. The array must contain unique items and can have zero or multiple elements.\n"
+                "\t2.5) The 'pairsOfTriggersRedundancies' field is an array of objects, each containing:\n"
+                    "\t\t3.5.1) A 'descriptionOfContainPairsRedundancies' field.\n"
+                    "\t\t3.5.2) A 'firstUserStoryContainPair' field. This is an array of exactly two string values representing the first pair of user story contains. \n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t3.5.3) A 'secondUserStoryContainPair' field. This is an array of exactly two string values representing the second pair of user story contains. \n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t3.5.4) Each object in this array must contain the fields 'descriptionOfTriggerPairRedundancies', 'firstUserStoryTriggerPair', and 'secondUserStoryTriggerPair'. The array must contain unique items and can have zero or multiple elements.\n"
         )
         
         ### Adapt to new defintions

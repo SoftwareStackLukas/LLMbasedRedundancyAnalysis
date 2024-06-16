@@ -5,15 +5,15 @@
                    "fullRedundancy": false,
                    "pairsOfTriggersRedundancies": [
                                  {"descriptionOfTriggersRedundancies": "In both stories, the camp administrator wants to schedule something.", 
-                                 "FirstUserStoryTriggerPair": ["camp administrator", "schedule"],
-                                 "SecondUserStoryTriggerPair": ["camp administrator", "schedule"]
+                                 "firstUserStoryTriggerPair": ["camp administrator", "schedule"],
+                                 "secondUserStoryTriggerPair": ["camp administrator", "schedule"]
                                 }
                                 
                    ],
                    "pairsOfTargetsRedundancies": [
                                  {"descriptionOfTargetPairRedundancies": "In both stories, the camp adiministrator wants to schedule activities.", 
-                                  "FirstUserStoryTargetPair": ["schedule", "activities"],
-                                                "SecondUserStoryTargetPair": ["schedule", "activities"]
+                                  "firstUserStoryTargetPair": ["schedule", "activities"],
+                                                "secondUserStoryTargetPair": ["schedule", "activities"]
                    }
                                  
                    ],
@@ -53,8 +53,8 @@
                    ],
                    "pairsOfTargetsRedundancies": [
                     {"descriptionOfTargetPairRedundancies": "In both stories, pages should kept in some way.", 
-                    "FirstUserStoryTargetPair": ["keep", "pages"],
-                                  "SecondUserStoryTargetPair": ["keep", "pages"]
+                    "firstUserStoryTargetPair": ["keep", "pages"],
+                                  "secondUserStoryTargetPair": ["keep", "pages"]
                     }
                    ],
                    "pairsOfContainsRedundancies": [
@@ -83,8 +83,8 @@
                    ],
                    "pairsOfTargetsRedundancies": [
                     {"descriptionOfTargetPairRedundancies": "In both stories, someone wants to have a peace of mind.", 
-                    "FirstUserStoryTargetPair": ["have", "peace of mind"],
-                                  "SecondUserStoryTargetPair": ["have", "peace of mind"]
+                    "firstUserStoryTargetPair": ["have", "peace of mind"],
+                                  "secondUserStoryTargetPair": ["have", "peace of mind"]
                     }
                    ],
                    "pairsOfContainsRedundancies": [
@@ -99,14 +99,14 @@
                    "fullRedundancy": true,
                    "pairsOfTriggersRedundancies": [    
                     {"descriptionOfTriggersRedundancies": "In both stories, the API User wants to understand something.", 
-                    "FirstUserStoryTriggerPair": ["API User", "understand"],
-                    "SecondUserStoryTriggerPair": ["API User", "understand"]
+                    "firstUserStoryTriggerPair": ["API User", "understand"],
+                    "secondUserStoryTriggerPair": ["API User", "understand"]
                    }                            
                    ],
                    "pairsOfTargetsRedundancies": [
                     {"descriptionOfTargetPairRedundancies": "In both stories, someone wants to understand the user.", 
-                    "FirstUserStoryTargetPair": ["understand", "user"],
-                    "SecondUserStoryTargetPair": ["understand", "user"]
+                    "firstUserStoryTargetPair": ["understand", "user"],
+                    "secondUserStoryTargetPair": ["understand", "user"]
                     }                            
                    ],
                    "pairsOfContainsRedundancies": [
@@ -120,8 +120,8 @@
                    ],
                    "pairsOfTargetsRedundancies": [
                     {"descriptionOfTargetPairRedundancies": "In both stories, functionality wants to be offered.", 
-                    "FirstUserStoryTargetPair": ["offer", "functionality"],
-                                  "SecondUserStoryTargetPair": ["offer", "functionality"]
+                    "firstUserStoryTargetPair": ["offer", "functionality"],
+                                  "secondUserStoryTargetPair": ["offer", "functionality"]
                     }
                    ],
                    "pairsOfContainsRedundancies": [
@@ -138,8 +138,8 @@
                    ],
                    "pairsOfTargetsRedundancies": [
                     {"descriptionOfTargetPairRedundancies": "In both stories, someone wahts to have a view of something.", 
-                    "FirstUserStoryTargetPair": ["have", "view"],
-                    "SecondUserStoryTargetPair": ["have", "view"]
+                    "firstUserStoryTargetPair": ["have", "view"],
+                    "secondUserStoryTargetPair": ["have", "view"]
                     }                            
                    ],
                    "pairsOfContainsRedundancies": [
@@ -153,8 +153,8 @@
                    ],
                    "pairsOfTargetsRedundancies": [
                     {"descriptionOfTargetPairRedundancies": "In both stories, someone wants to perform management actions.", 
-                    "FirstUserStoryTargetPair": ["perform", "management actions"],
-                                  "SecondUserStoryTargetPair": ["perform", "management actions"]
+                    "firstUserStoryTargetPair": ["perform", "management actions"],
+                    "secondUserStoryTargetPair": ["perform", "management actions"]
                     }
                    ],
                    "pairsOfContainsRedundancies": [
@@ -169,14 +169,14 @@
                    "fullRedundancy": false,
                    "pairsOfTriggersRedundancies": [   
                     {"descriptionOfTriggersRedundancies": "In both stories, the API User is able to normalise something.", 
-                     "FirstUserStoryTriggerPair": ["API User", "normalise"],
-                     "SecondUserStoryTriggerPair": ["API User", "normalise"]
+                     "firstUserStoryTriggerPair": ["API User", "normalise"],
+                     "secondUserStoryTriggerPair": ["API User", "normalise"]
                     }
                    ],
                    "pairsOfTargetsRedundancies": [
                     {"descriptionOfTargetPairRedundancies": "In both stories, the API User wants to normalise measures.", 
-                    "FirstUserStoryTargetPair": ["normalise", "measures"],
-                                  "SecondUserStoryTargetPair": ["normalise", "measures"]
+                    "firstUserStoryTargetPair": ["normalise", "measures"],
+                                  "secondUserStoryTargetPair": ["normalise", "measures"]
                     }                         
                    ],
                    "pairsOfContainsRedundancies": [
@@ -187,15 +187,15 @@
                    "fullRedundancy": true,
                    "pairsOfTriggersRedundancies": [ 
                     {"descriptionOfTriggersRedundancies": "In both stories, the user wants to work with datasets in reference with their contextual constraints.", 
-                     "FirstUserStoryTriggerPair": ["datasets", "contextual constraints"],
-                     "SecondUserStoryTriggerPair": ["datasets", "contextual constraints"]
+                     "firstUserStoryTriggerPair": ["datasets", "contextual constraints"],
+                     "secondUserStoryTriggerPair": ["datasets", "contextual constraints"]
                     }
                           
                    ],
                    "pairsOfTargetsRedundancies": [
                     {"descriptionOfTargetPairRedundancies": "In both stories, the API User wants to work with datasets", 
-                    "FirstUserStoryTargetPair": ["work", "datasets"],
-                                  "SecondUserStoryTargetPair": ["work", "datasets"]
+                    "firstUserStoryTargetPair": ["work", "datasets"],
+                                  "secondUserStoryTargetPair": ["work", "datasets"]
                     }
                    ],
                    "pairsOfContainsRedundancies": [
