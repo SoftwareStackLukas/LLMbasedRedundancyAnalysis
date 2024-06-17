@@ -165,6 +165,16 @@ class PromptBuilder:
         
         self._PROCESS_REQUEST = "Yes. Please, process the following pairs of user story with annotations:\n"
 
+    @staticmethod
+    def get_instance():
+        """
+        Returns the singleton instance of PromptHelperBuilder.
+
+        Returns:
+            PromptHelperBuilder: The singleton instance of the PromptHelperBuilder class.
+        """
+        return PromptBuilder()
+
     def get_actor_role(self) -> dict:
         """
             Returns the predefined actor role for the requirements engineer.
@@ -256,7 +266,7 @@ class PromptBuilder:
             "content": temp,
         }
 
-    def get_system_simulation_json_format(self) -> dict:
+    def get_system_simulation_json_definition(self) -> dict:
         """
             Returns the system simulation JSON format definition.
             
@@ -333,37 +343,27 @@ class PromptBuilder:
             "content": temp,
         }
 
-    def process_request(self, json_us_one, json_us_two) -> dict:
-        """
-            Generates a structured request to process pairs of user story annotations.
+    # def process_request(self, json_us_one, json_us_two) -> dict:
+    #     """
+    #         Generates a structured request to process pairs of user story annotations.
 
-            Args:
-            json_us_one (dict): The first user story JSON object containing annotations.
-            json_us_two (dict): The second user story JSON object containing annotations.
+    #         Args:
+    #         json_us_one (dict): The first user story JSON object containing annotations.
+    #         json_us_two (dict): The second user story JSON object containing annotations.
 
-            Returns:
-            dict: A dictionary with a role and content, where the content is a formatted string describing the user story pairs.
+    #         Returns:
+    #         dict: A dictionary with a role and content, where the content is a formatted string describing the user story pairs.
 
-            Description:
-            This function performs the following steps:
-            1. Constructs a formatted string that includes the user story IDs and their respective annotations.
-            2. Returns a dictionary containing the role as "user" and the constructed string as the content.
-        """
-        temp: str = (self._PROCESS_REQUEST +
-            f"id: {json_us_one["USID"]}, annotations: {json.dumps(json_us_one)};\n"
-            f"id: {json_us_two["USID"]}, annotations: {json.dumps(json_us_two)}")
+    #         Description:
+    #         This function performs the following steps:
+    #         1. Constructs a formatted string that includes the user story IDs and their respective annotations.
+    #         2. Returns a dictionary containing the role as "user" and the constructed string as the content.
+    #     """
+    #     temp: str = (self._PROCESS_REQUEST +
+    #         f"id: {json_us_one["USID"]}, annotations: {json.dumps(json_us_one)};\n"
+    #         f"id: {json_us_two["USID"]}, annotations: {json.dumps(json_us_two)}")
 
-        return {
-            "role": "user",
-            "content": temp,
-        }
-        
-    @staticmethod
-    def get_instance():
-        """
-        Returns the singleton instance of PromptBuilder.
-
-        Returns:
-            PromptBuilder: The singleton instance of the PromptBuilder class.
-        """
-        return PromptBuilder()
+    #     return {
+    #         "role": "user",
+    #         "content": temp,
+    #     }

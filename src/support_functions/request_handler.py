@@ -29,13 +29,13 @@ THRESHOLD_REPAIR: int = int(os.getenv("THRESHOLD_REPAIR"))
 REDUNDANCY_MODEL: str = "redundancy-model-"
 EXCEPTION: str = "Exceptions"
 SEPERATOR: str = "-"
-REASON_KEY = "Reason"
-NOT_STOPPED_EXCEPTION_CHAT_GPT = "Not stopped exception from ChatGPT Endpoint"
-USID_ONE = "USID1"
-USID2_TWO = "USID2"
-VALUE_ERROR = "ValueError"
-ELIPSED_TIME = "elipsedTimeNs"
-REPAIR_RUNS_JSON_FIELD = "repairRuns"
+REASON_KEY: str = "Reason"
+NOT_STOPPED_EXCEPTION_CHAT_GPT: str = "Not stopped exception from ChatGPT Endpoint"
+USID_ONE: str = "USID1"
+USID2_TWO: str = "USID2"
+VALUE_ERROR: str = "ValueError"
+ELIPSED_TIME: str = "elipsedTimeNs"
+REPAIR_RUNS_JSON_FIELD: str = "repairRuns"
 
 PROMPT_HELPER_BUILDER: PromptHelperBuilder = PromptHelperBuilder.get_instance()
 
