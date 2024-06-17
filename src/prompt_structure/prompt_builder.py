@@ -214,7 +214,7 @@ class PromptBuilder:
             "content": temp,
         }
 
-    def get_system_simulation_redundancy_definition(self) -> dict:
+    def get_system_simulation_user_story_definition(self) -> dict:
         """
             Returns the system simulation redundancy definition.
             
@@ -227,7 +227,7 @@ class PromptBuilder:
             "content": temp,
         }
 
-    def get_redundancy_definition(self) -> dict:
+    def get_redundancy_full_partial_definition(self) -> dict:
         """
             Returns the definition of partial and full redundancies in user stories.
             
@@ -240,7 +240,7 @@ class PromptBuilder:
             "content": temp,
         }
 
-    def get_system_simulation_full_partial_definition(self) -> dict:
+    def get_system_simulation_redundancy_full_partial_definition(self) -> dict:
         """
             Returns the system simulation definition for partial and full redundancies.
             
