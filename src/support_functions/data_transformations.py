@@ -42,8 +42,8 @@ def remove_pov_and_add_usid(dataset: dict) -> dict:
 
 ### REGEX to split the data correctly
 ### We can match it like this as we have to assume that we have just one "so that" or ", so that"
-PATTERN_TO_SPLIT_MAIN_PART_WITH_COMMA = pattern = re.compile(r',\s*so\s*that', re.IGNORECASE)
-PATTERN_TO_SPLIT_MAIN_PART_WITHOUT_COMMA = pattern = re.compile(r'so\s*that', re.IGNORECASE)
+PATTERN_TO_SPLIT_MAIN_PART_WITH_COMMA = pattern = re.compile(r',\s*so\s*that\s*', re.IGNORECASE)
+PATTERN_TO_SPLIT_MAIN_PART_WITHOUT_COMMA = pattern = re.compile(r'\s*so\s*that\s*', re.IGNORECASE)
 def get_main_part_from_user_story(item:dict) -> str:
     ### DO it with an regex to get a better splitting as sometime , So that is in the data (uncleand)
     #main_part: str = item["Text"].split("so that")[0].split(f"{item["PID"]}{ONE_WHITESPACE}")[1]
@@ -54,14 +54,16 @@ def get_main_part_from_user_story(item:dict) -> str:
     local_pattern_for_pid: re = re.compile(temp, re.IGNORECASE)
     main_part = local_pattern_for_pid.split(main_part)[1]
     sub_parts = PATTERN_TO_SPLIT_MAIN_PART_WITH_COMMA.split(main_part)
-    if len(sub_parts ) == 2:
+    if len(sub_parts) == 2:
         main_part = sub_parts[0]
     else:
         sub_parts  = PATTERN_TO_SPLIT_MAIN_PART_WITHOUT_COMMA.split(main_part)
         if len(sub_parts) == 2:
             main_part = sub_parts[0]
         else:
-            raise ValueError("Split was not successful")
+            main_part = main_part.replace(str(item["Benefit"]+"."), "")
+            if item["Benefit"] in main_part:
+                main_part = main_part.replace(str(item["Benefit"]), "")
     
     # Can not be done as we can not assume that not more commas as seperators in a sentence are
     # which would change the sementical meaning
