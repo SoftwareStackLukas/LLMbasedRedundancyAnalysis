@@ -40,19 +40,17 @@ class PromptBuilder:
                                     "entities. The sets of actions and entities are divided between the"
                                     "main part and the optional benefit of a user story.\n"
                                     "An example of an annotated User Story in a JSON format is:\n"
-                                        """{
-                                            'PID': '#G05#',
+                                        """{'PID': '#G05#',
                                             'USID': '399',
-                                            'Text': 'As an API User, I want to be able to get bordering regions|cities when I query a region|city, so that I can provider wider visual context for mapping visualisations.',
-                                            'Main Part': 'As an API User, I want to be able to get bordering regions|cities when I query a region|city',
-                                            'Benefit': 'so that I can provider wider visual context for mapping visualisations.',
-                                            'Persona': ['API User'],
-                                            'Action': {'Main Part': [['get']], 'Benefit': [['query', 'provider']]},
-                                            'Entity': {'Main Part': [['cities', 'bordering regions']], 'Benefit': [['region', 'city', 'wider visual context', 'mapping visualisations']]},
-                                            'Triggers': {'Main Part': [['API User', 'get']], 'Benefit': [['mapping visualisations', 'wider visual context']]},
+                                            'Text': 'As an API User, I want to be able to get bordering regions|cities when I query a region|city, So that I can provider wider visual context for mapping visualisations.',
+                                            'Main Part': 'As an API User, I want to be able to get bordering regions|cities when I query a region|city, So that I can provider wider visual context for mapping visualisations.',
+                                            'Benefit': 'I can provider wider visual context for mapping visualisations',
+                                            "Action": {"Main Part": ["get"], "Benefit": ["query", "provider"]},
+                                            "Entity": {"Main Part": ["cities", "bordering regions"], "Benefit": ["region", "city,", "wider visual context", "mapping visualisations"]},
+                                            'Triggers': {'Main Part': [['API User', 'get']], 'Benefit': []},
                                             'Targets': {'Main Part': [['get', 'cities'], ['get', 'bordering regions']], 'Benefit': [['provider', 'wider visual context'], ['query', 'city,'], ['query', 'region']]},
-                                            'Contains': {'Main Part': [], 'Benefit': ['mapping visualisations', 'wider visual context']}},
-                                        }"""
+                                            'Contains': {'Main Part': [], 'Benefit': [['mapping visualisations', 'wider visual context']]}}
+                                        """
                                     )
         
         ### Addapt to new defintions
