@@ -1,0 +1,19 @@
+[
+    {
+        "relatedStories": [1, 3],
+        "mainPartRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        },
+        "benefitRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        }
+    }
+]
