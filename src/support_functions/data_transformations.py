@@ -61,7 +61,7 @@ def get_main_part_from_user_story(item:dict) -> str:
         if len(sub_parts) == 2:
             main_part = sub_parts[0]
         else:
-            main_part = main_part.replace(str(item["Benefit"]+"."), "")
+            main_part = main_part.replace(str(item["Benefit"] + "."), "")
             if item["Benefit"] in main_part:
                 main_part = main_part.replace(str(item["Benefit"]), "")
     
