@@ -1,9 +1,5 @@
 import json, os, copy
 
-# Example for short answer:
-#   Absolutely, I'd be happy to help you with your Python needs. What do you need assistance with today?
-
-
 class PromptBuilder:
     """
     Singleton class to manage and generate prompt templates for analyzing user story redundancies.
@@ -53,48 +49,49 @@ class PromptBuilder:
                                         """
                                     )
         
-        ### Addapt to new defintions
-        self._SYSTEM_SIMULATION_DEFINITION_US: str = ("")
+        self._SYSTEM_SIMULATION_DEFINITION_US: str = ("Understood. You provide me with a pair of two user stories and its annotations, represented in JSON format with conceptual modeling, similar to the provided example. "
+                                                      "This User Stories will be analysed. Anything to know more?")
         
-        self._DEFINITION_BASE_REDUNDANCY: str = (
-            "Please, analyse redundancies in the main part and benefit of a pair of two given User Stories which are entered as JSON objects. "
-            "Note that a User Story pair may include multiple redundancies in the main part as well as the benefit. The redundancies of the main part and benefit are disjoint sets. "
-            "Hence, a main part can be redundant while a benefit is not and vice versa. " 
-            "However, in some cases the main part and the benefit can be at the same time redundant, but they do not depend on each other and therefore they are independent redundant. "
-            "The definition of the main part is: "
+        self._TASK_DEFINTION: str = (
+            "Please, analyse redundancies in the 'Main Part' and 'Benefit' of a pair of two given User Stories which are entered as JSON objects. "
+            "Note that a User Story pair may include multiple redundancies in the 'Main Part' as well as the 'Benefit'. The redundancies of the 'Main Part' and 'Benefit' are disjoint sets. "
+            "Hence, a 'Main Part' can be redundant while a 'Benefit' is not and vice versa. " 
+            "However, in some cases the 'Main Part' and the 'Benefit' can be at the same time redundant, but they do not depend on each other and therefore they are independent redundant. "
+            "Focus on this aspects in the 'Main Part':"
         )
         
-        self._DEFINITION_MAIN_PART_BENEFIT: str = (
-            "The main part of the user Story describes the core action that a persona wishes to accomplish. "
+        self._DEFINITION_FOCUS_ASPECTS_MAIN_PART_BENEFIT: str = (
+            "The 'Main Part' of the user Story describes the core action that a persona wishes to accomplish. "
             "It is the value of the key called 'Main Part'. "
             "The definition of a benefit is as follows: The benefit of the User Story is contained the value of the key 'Benefit'." 
         )
 
-        self._DEFINITION_USER_STORY_RELATIONSHIPS: str = (
-            "Relationships within the user Stories are contained as values of Triggers, Targets, Benefit and Contains."
+        self._DEFINITION__FOCUS_ASPECTS_USER_STORY_RELATIONSHIPS: str = (
+            "Relationships within the user Stories are contained as values of 'Triggers', 'Targets' and 'Contains'." #, 'Benefit'
         )
         
-        ### Adapt to new defintions
-        self._SYSTEM_SIMULATION_DEFINITION_USER_STORY: str = ("I will analyse redundancies in the main parts and benefits of two User Stories. Each story might include multiple redundancies. "
-            "The main part typically describes the desired functionality by the persona, while the benefit details the positive outcomes from the functionality."
+        self._SYSTEM_SIMULATION_DEFINITION_FOCUS_ASPECTS_USER_STORY: str = ("I will analyse redundancies in the 'Main Part' and 'Benefit' of two User Stories. Each story might include multiple redundancies. "
+            "The main part typically describes the desired functionality by the persona, while the 'Benefit' details the positive outcomes from the functionality. What is your definition of redundancies in a pair of User Stories?"
         )
         
+        #This can also include partial redundancies in 'Triggers'.'Main Part' and 'Contains'.'Main Part', where not all 'Triggers'.'Main Part' and 'Contains'.'Main Part' occure in the second User Story.
+        ### Consider that also targets and contains can be included
         self._DEFINITION_PARTIAL_FULL_REDUNDANCY: str = (
-            "1.) A partial main part redundancy occurs if one value of 'Targets'.'Main Part' of the first User Story also occur in the second User Story.\n"
+            "We distinguish between full and partial 'Main Part' redundancies and full and partial 'Benefits' redundancies. Thus, a 'Main Part' can be either full and partial redundant, which is also valid for the 'Benefits'"
+            "1.) A partial main part redundancy occurs if one value of 'Targets'.'Main Part' of the first User Story also occur in the second User Story. \n"
             "2.) A full main part redundancy occurs if the values of 'Targets'.'Main Part', 'Triggers'.'Main Part' and 'Contains'.'Main Part' of the first User Story also occur in the second User story and vice versa.\n"
             "3.) A partial benefit redundancy occurs if one value of of 'Targets'.'Benefit' of the first User Story also occur in the second User Story.\n"
             "4.) A full benefit redundancy occurs if the values of 'Triggers'.'Benefit' and 'Targets'.'Benefit' and 'Contains'.'Benefit' also occur in the second User Story and vice versa."
         )
         
-        ### Adapt to new defintions full / partial in main and benefit - rempove Ready to proceed or change it in the next step as proceed is not process
-        self._SYSTEM_SIMULATION_DEFINITION_PARTIAL_FULL_REDUNDANCY: str = ("I'll review the User Stories for redundancies in main parts and benefits, using the specified definitions. Ready to proceed?")
+        self._SYSTEM_SIMULATION_DEFINITION_PARTIAL_FULL_REDUNDANCY: str = ("I'll review the User Stories for redundancies given by your definition. What shall the JSON output format look like?")
         
-        self._INTRODUCING_JSON_DEFINITION: str = ("Before we proceed, consider :\n"
-            "The following  JSON output format which organizes information about redundancies of a pair of User Stories, focusing on both the main parts and the benefits regarding full and partial redundancies. ")
+        self._INTRODUCING_JSON_FORMAT_DEFINITION: str = ("The following  JSON output format which organizes information about redundancies of a pair of User Stories, "
+                                                  "focusing on both the 'Main Part's and the 'Benefit's regarding full and partial redundancies:")
 
         ### Should contain the definition of the redundancies to not overshaddow the definition from before
         ### Redefine the fields pairsOfTriggersRedundancies, pairsOfTargetsRedundancies, pairsOfContainsRedundancies
-        self._DEFINITION_JSON_SCHEMA: str = (
+        self._DEFINITION_JSON_FORMAT_DEFINITION: str = (
             "1.) The field 'relatedStories' is an array of exactly two integer values. These values are the user story IDs (usids) of the User Stories, and this field is mandatory.\n"
             "2.) The 'mainPartRedundancies' field is a JSON object that provides detailed information about redundancies in the main parts of the User Stories pair. "
                 "Conditions and Dependencies: If both 'partialRedundancy' and 'fullRedundancy' are false, then the arrays 'pairsOfTriggersRedundancies', 'pairsOfTargetsRedundancies', and 'pairsOfContainsRedundancies' must all have a maximum of 0 items. "
@@ -106,7 +103,7 @@ class PromptBuilder:
                 "\t2.2) The 'fullRedundancy' field is of the type boolean. A value of true indicates that a pair of User Stories has full redundancy in the main part, while a value of false indicates no full redundancy. It is a mandatory field.\n"
                 "\t2.3) The 'pairsOfTriggersRedundancies' field is an array of objects, each containing: \n"
                     "\t\t2.3.1) A 'descriptionOfTriggerPairRedundancies' field. This is a string that provides a description explaining the reason for the trigger redundancies. It must have a minimum length of 1 character.\n"
-                    "\t\t2.3.2) A 'firstUserStoryTriggerPair' field. This is an array of exactly two string values representing the first pair of user story triggers.\n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
+                    "\t\t2.3.2) A 'firstUserStoryTriggerPair' field. This is an array of exactly two string values representing the first pair of user story triggers which is \n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
                     "\t\t2.3.3) A 'secondUserStoryTriggerPair' field. This is an array of exactly two string values representing the second pair of user story triggers.\n" # Think how to improve - should contain the definition of the redundancies to not overshaddow the definition from before
                     "\t\t2.3.4) Each object in this array must contain the fields 'descriptionOfTriggerPairRedundancies', 'firstUserStoryTriggerPair', and 'secondUserStoryTriggerPair'. The array must contain unique items and can have zero or multiple elements.\n"
                 "\t2.4) The 'pairsOfTargetsRedundancies' field is an array of objects, each containing:\n"
@@ -144,8 +141,7 @@ class PromptBuilder:
                     "\t\t3.5.4) Each object in this array must contain the fields 'descriptionOfTriggerPairRedundancies', 'firstUserStoryTriggerPair', and 'secondUserStoryTriggerPair'. The array must contain unique items and can have zero or multiple elements.\n"
         )
         
-        ### Adapt to new defintions
-        self._SYSTEM_SIMULATION_DEFINITION_JSON_FORMAT: str = "I've noted the JSON output format specified and will deliver the defined output. Can you provide some examples for me?"
+        self._SYSTEM_SIMULATION_DEFINITION_JSON_FORMAT: str = "I've noted the JSON output format specified and will deliver a valid output. Can you provide some examples?"
         
         self._FILE_PATH_INPUT_EXAMPLES: str = os.path.join(os.path.dirname(os.path.abspath(__file__)), "prompt_examples", "input_examples.json")
         self._FILE_PATH_OUTPUT_EXAMPLES: str = os.path.join(os.path.dirname(os.path.abspath(__file__)), "prompt_examples", "output_examples.json")
@@ -156,12 +152,11 @@ class PromptBuilder:
         with open(self._FILE_PATH_OUTPUT_EXAMPLES, 'r', encoding='utf-8') as file:
             self._json_output_examples = json.load(file)
 
-        self._INTRO_OF_EXAMPLES: str = "Yes, here are some examples:\n"
+        self._INTRO_OF_EXAMPLES: str = "Yes, here are some examples:"
         
-        ### Needs to be defined
-        self._SYSTEM_SIMULATION_EXAMPLE_CONSIDERATION: str = ""
-        
-        self._PROCESS_REQUEST = "Yes. Please, process the following pairs of user story with annotations:\n"
+        self._SYSTEM_SIMULATION_EXAMPLE_CONSIDERATION: str = ("Got it. "
+                                                              "The examples provided align with the definitions and JSON format description for identifying redundancies in user stories. "
+                                                              "Ready to proceed?")
 
     @staticmethod
     def get_instance():
@@ -193,9 +188,9 @@ class PromptBuilder:
             Returns:
                 dict: A dictionary containing the role and content for the system simulation actor.
         """
-        temp: str = self._SYSTEM_SIMULATION_DEFINITION_USER_STORY
+        temp: str = self._SYSTEM_SIMULATION_ACTOR_ROLE
         return {
-            "role": "user",
+            "role": "system",
             "content": temp,
         }
 
@@ -206,7 +201,7 @@ class PromptBuilder:
             Returns:
                 dict: A dictionary containing the role and content for the user story definition.
         """
-        temp: str = self._DEFINITION_BASE_REDUNDANCY + self._DEFINITION_MAIN_PART_BENEFIT + self._DEFINITION_USER_STORY_RELATIONSHIPS
+        temp: str = self._DEFINITION_US
         return {
             "role": "user",
             "content": temp,
@@ -219,9 +214,41 @@ class PromptBuilder:
             Returns:
                 dict: A dictionary containing the role and content for the redundancy definition.
         """
-        temp: str = self._SYSTEM_SIMULATION_DEFINITION_USER_STORY
+        temp: str = self._SYSTEM_SIMULATION_DEFINITION_US
+        return {
+            "role": "system",
+            "content": temp,
+        }
+        
+    def get_task_focus_definition(self) -> dict:
+        """
+        Constructs a dictionary representing a user's task focus definition. The definition is a 
+        concatenation of task-related aspects, including the main part benefit and user story relationships.
+
+        Returns:
+            dict: A dictionary with two keys:
+                - "role": A string set to "user" indicating the role.
+                - "content": A string containing the concatenated task focus definition.
+        """
+        temp: str = f"{self._TASK_DEFINTION} {self._DEFINITION_FOCUS_ASPECTS_MAIN_PART_BENEFIT} {self._DEFINITION__FOCUS_ASPECTS_USER_STORY_RELATIONSHIPS}"
         return {
             "role": "user",
+            "content": temp,
+        }
+
+    def get_system_simulation_task_focus_definition(self) -> dict:
+        """
+        Constructs a dictionary representing a system's simulation task focus definition. The definition
+        is based on the user story aspects related to system simulation.
+
+        Returns:
+            dict: A dictionary with two keys:
+                - "role": A string set to "system" indicating the role.
+                - "content": A string containing the system's simulation task focus definition.
+        """
+        temp: str = self._SYSTEM_SIMULATION_DEFINITION_FOCUS_ASPECTS_USER_STORY
+        return {
+            "role": "system",
             "content": temp,
         }
 
@@ -247,24 +274,24 @@ class PromptBuilder:
         """
         temp: str = self._SYSTEM_SIMULATION_DEFINITION_PARTIAL_FULL_REDUNDANCY
         return {
-            "role": "user",
+            "role": "system",
             "content": temp,
         }
 
-    def get_json_defintion(self) -> dict:
+    def get_json_format_defintion(self) -> dict:
         """
             Returns the JSON schema definition for redundancies in user stories.
             
             Returns:
                 dict: A dictionary containing the role and content for the JSON schema definition.
         """
-        temp: str = self._INTRODUCING_JSON_DEFINITION + self._DEFINITION_JSON_SCHEMA
+        temp: str = f"{self._INTRODUCING_JSON_FORMAT_DEFINITION}\n{self._DEFINITION_JSON_FORMAT_DEFINITION}"
         return {
             "role": "user",
             "content": temp,
         }
 
-    def get_system_simulation_json_definition(self) -> dict:
+    def get_system_simulation_json_format_defintion(self) -> dict:
         """
             Returns the system simulation JSON format definition.
             
@@ -273,7 +300,7 @@ class PromptBuilder:
         """
         temp: str = self._SYSTEM_SIMULATION_DEFINITION_JSON_FORMAT
         return {
-            "role": "user",
+            "role": "system",
             "content": temp,
         }
 
@@ -298,7 +325,7 @@ class PromptBuilder:
             and constructs a formatted example text showing the input examples and their expected output.
             4. Constructs a dictionary with a user role and the formatted content.
         """
-        temp_intro = self._INTRO_OF_EXAMPLES
+        temp_intro = f"{self._INTRO_OF_EXAMPLES}\n"
         temp_input = copy.deepcopy(self._json_input_examples)
         temp_input = [{k: v for k, v in entry.items() if k in schema_keys} for entry in temp_input]
         
@@ -337,31 +364,6 @@ class PromptBuilder:
         """
         temp: str = self._SYSTEM_SIMULATION_EXAMPLE_CONSIDERATION
         return {
-            "role": "user",
+            "role": "system",
             "content": temp,
         }
-
-    # def process_request(self, json_us_one, json_us_two) -> dict:
-    #     """
-    #         Generates a structured request to process pairs of user story annotations.
-
-    #         Args:
-    #         json_us_one (dict): The first user story JSON object containing annotations.
-    #         json_us_two (dict): The second user story JSON object containing annotations.
-
-    #         Returns:
-    #         dict: A dictionary with a role and content, where the content is a formatted string describing the user story pairs.
-
-    #         Description:
-    #         This function performs the following steps:
-    #         1. Constructs a formatted string that includes the user story IDs and their respective annotations.
-    #         2. Returns a dictionary containing the role as "user" and the constructed string as the content.
-    #     """
-    #     temp: str = (self._PROCESS_REQUEST +
-    #         f"id: {json_us_one["USID"]}, annotations: {json.dumps(json_us_one)};\n"
-    #         f"id: {json_us_two["USID"]}, annotations: {json.dumps(json_us_two)}")
-
-    #     return {
-    #         "role": "user",
-    #         "content": temp,
-    #     }
