@@ -185,12 +185,7 @@
     "benefitRedundancies": {
                    "partialRedundancy": false,
                    "fullRedundancy": true,
-                   "pairsOfTriggersRedundancies": [ 
-                    {"descriptionOfTriggersRedundancies": "In both stories, the user wants to work with datasets in reference with their contextual constraints.", 
-                     "firstUserStoryTriggerPair": ["datasets", "contextual constraints"],
-                     "secondUserStoryTriggerPair": ["datasets", "contextual constraints"]
-                    }
-                          
+                   "pairsOfTriggersRedundancies": [       
                    ],
                    "pairsOfTargetsRedundancies": [
                     {"descriptionOfTargetPairRedundancies": "In both stories, the API User wants to work with datasets", 
@@ -199,6 +194,10 @@
                     }
                    ],
                    "pairsOfContainsRedundancies": [
+                    {"descriptionOfContainsRedundancies": "In both stories, the user wants to work with datasets in reference with their contextual constraints.", 
+                     "firstUserStoryContainPair": ["datasets", "contextual constraints"],
+                     "secondUserStoryContainPair": ["datasets", "contextual constraints"]
+                    }
                    ]             
     }
 },
