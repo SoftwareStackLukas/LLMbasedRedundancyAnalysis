@@ -1,4 +1,5 @@
 import copy
+import re
 
 from .load_data import load_datasets_with_out_annotations
 
@@ -39,6 +40,38 @@ def remove_pov_and_add_usid(dataset: dict) -> dict:
         new_entries.clear()
     return dataset
 
+### REGEX to split the data correctly
+### We can match it like this as we have to assume that we have just one "so that" or ", so that"
+PATTERN_TO_SPLIT_MAIN_PART_WITH_COMMA = pattern = re.compile(r',\s*so\s*that\s*', re.IGNORECASE)
+PATTERN_TO_SPLIT_MAIN_PART_WITHOUT_COMMA = pattern = re.compile(r'\s*so\s*that\s*', re.IGNORECASE)
+def get_main_part_from_user_story(item:dict) -> str:
+    ### DO it with an regex to get a better splitting as sometime , So that is in the data (uncleand)
+    #main_part: str = item["Text"].split("so that")[0].split(f"{item["PID"]}{ONE_WHITESPACE}")[1]
+    if not str(item["Benefit"]):
+        return item["Text"]
+    main_part: str = str(item["Text"])
+    temp: str = fr"\s*{item["PID"]}\s*"
+    local_pattern_for_pid: re = re.compile(temp, re.IGNORECASE)
+    main_part = local_pattern_for_pid.split(main_part)[1]
+    sub_parts = PATTERN_TO_SPLIT_MAIN_PART_WITH_COMMA.split(main_part)
+    if len(sub_parts) == 2:
+        main_part = sub_parts[0]
+    else:
+        sub_parts  = PATTERN_TO_SPLIT_MAIN_PART_WITHOUT_COMMA.split(main_part)
+        if len(sub_parts) == 2:
+            main_part = sub_parts[0]
+        else:
+            main_part = main_part.replace(str(item["Benefit"] + "."), "")
+            if item["Benefit"] in main_part:
+                main_part = main_part.replace(str(item["Benefit"]), "")
+    
+    # Can not be done as we can not assume that not more commas as seperators in a sentence are
+    # which would change the sementical meaning
+    # if "," in main_part:
+    #     ### then remove
+
+    return main_part
+
 ### Used for Datasets with reorganizing the datasets for annotations
 def convert_single_entry(item: dict, tiggers: dict, targets: dict, contains: dict, usid: int) -> dict:
     main_part = get_main_part_from_user_story(item)
@@ -63,14 +96,6 @@ def convert_single_entry(item: dict, tiggers: dict, targets: dict, contains: dic
     }
 
     return new_data
-
-def get_main_part_from_user_story(item:dict) -> str:
-    main_part: str = item["Text"].split("so that")[0].split(f"{item["PID"]}{ONE_WHITESPACE}")[1]
-    if main_part[-1] == ",":
-        main_part = main_part[:-1]
-    elif main_part[-2] == ",ONE_WHITESPACE":
-        main_part = main_part[:-2]
-    return main_part
 
 def create_tiggers_targets_contains_mapping(item: dict, ignored: dict[str,list]) -> tuple[dict, dict, dict]:
     ignored_element_list: list = []
@@ -108,6 +133,12 @@ def create_tiggers_targets_contains_mapping(item: dict, ignored: dict[str,list])
                 trigger[1] in main_part):
             triggers["Main Part"].append(trigger)
         # Benefits do not be to considered
+        elif (trigger[0] in item["Persona"] and 
+                trigger[1] in item["Action"]["Secondary Action"]):
+            triggers["Benefit"].append(trigger)
+        elif (trigger[0] in benefit and
+                trigger[1] in benefit):
+            triggers["Benefit"].append(trigger)
         else:
             temp_text = str(item["Text"]).replace(str(item["PID"]) + ONE_WHITESPACE, "")
             ignored_element = f"PID: {item["PID"]}; Text: {temp_text}; Label Type: Trigger"
@@ -140,16 +171,16 @@ def create_tiggers_targets_contains_mapping(item: dict, ignored: dict[str,list])
         # contain[1] = Entity
         if (contain[0] in item["Entity"]["Primary Entity"] and
                 contain[1] in item["Entity"]["Primary Entity"]):
-            triggers["Main Part"].append(contain)
+            contains["Main Part"].append(contain)
         elif (contain[0] in item["Entity"]["Secondary Entity"] and
                 contain[1] in item["Entity"]["Secondary Entity"]):
-            triggers["Benefit"].append(contain)
+            contains["Benefit"].append(contain)
         elif (contain[0] in main_part and
                 contain[1] in main_part):
-            triggers["Main Part"].append(contain)
-        elif (contain[0] in item["Entity"]["Secondary Entity"] and
-                contain[1] in item["Entity"]["Secondary Entity"]):
-            triggers["Benefit"].append(contain)
+            contains["Main Part"].append(contain)
+        elif (contain[0] in benefit and
+                contain[1] in benefit):
+            contains["Benefit"].append(contain)
         else:
             temp_text = str(item["Text"]).replace(str(item["PID"]) + ONE_WHITESPACE, "")
             ignored_element = f"PID: {item["PID"]}; Text: {temp_text}; Label Type: Contain"
@@ -169,8 +200,8 @@ def convert_annotation_dataset(datasets: dict[str, list]) -> tuple[dict[str, lis
         items_to_append.clear()
         for json_entry in item:
             usid = return_usid(DATASET_WITH_ID=DATASET_WITH_USID, story=json_entry)
-            trigger, targets, contains = create_tiggers_targets_contains_mapping(json_entry, removed_items)
-            current_item = convert_single_entry(json_entry, trigger, targets, contains, usid)
+            triggers, targets, contains = create_tiggers_targets_contains_mapping(json_entry, removed_items)
+            current_item = convert_single_entry(json_entry, triggers, targets, contains, usid)
             items_to_append.append(current_item)
             usid = -1
         item.clear()

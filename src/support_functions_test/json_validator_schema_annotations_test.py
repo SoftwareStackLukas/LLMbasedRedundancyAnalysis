@@ -64,8 +64,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -98,22 +98,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     }    
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -144,32 +144,32 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string 1",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance2"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance2"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review3", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review3", "compliance"]
                     }   
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -200,32 +200,32 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string 1",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     }    
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string1",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance2"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance2"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review3", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review3", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -256,32 +256,32 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfContainPairRedundancies": "Test string",
-                        "FirstUserStoryContainPair": ["review", "compliance2"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance2"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfContainPairRedundancies": "Test string",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review3", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review3", "compliance"]
                     }
                 ]
             },
@@ -319,32 +319,32 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string 1",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance2"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance2"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review3", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review3", "compliance"]
                     }   
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -375,32 +375,32 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string 1",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     }    
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string1",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance2"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance2"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review3", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review3", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -431,32 +431,32 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfContainPairRedundancies": "Test string",
-                        "FirstUserStoryContainPair": ["review", "compliance2"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance2"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfContainPairRedundancies": "Test string",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review3", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review3", "compliance"]
                     }
                 ]
             }
@@ -480,8 +480,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [ 
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -513,22 +513,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -567,8 +567,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [ 
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -601,8 +601,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [ 
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -633,22 +633,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -671,22 +671,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -697,8 +697,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -723,8 +723,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -735,22 +735,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -773,22 +773,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -798,22 +798,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -836,18 +836,17 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": []
             },
             "benefitRedundancies": {
@@ -856,18 +855,17 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": []
             }
         }
@@ -890,16 +888,15 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -910,16 +907,15 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -942,23 +938,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -968,23 +963,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -1007,23 +1001,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -1033,23 +1026,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -1106,34 +1098,30 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
             "benefitRedundancies": {
                 "partialRedundancy": false,
                 "fullRedundancy": false,
-                "descriptionOfTargetsRedundancies": "",
                 "pairsOfTargetsRedundancies": [],
-                "descriptionOfTriggersRedundancies": "",
                 "pairsOfTriggersRedundancies": [],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": []
             }
         }
@@ -1152,11 +1140,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             "mainPartRedundancies": {
                 "partialRedundancy": false,
                 "fullRedundancy": false,
-                "descriptionOfTargetsRedundancies": "",
                 "pairsOfTargetsRedundancies": [],
-                "descriptionOfTriggersRedundancies": "",
                 "pairsOfTriggersRedundancies": [],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": []
             },
             "benefitRedundancies": {
@@ -1165,23 +1150,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -1204,34 +1188,30 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
             "benefitRedundancies": {
                 "partialRedundancy": false,
                 "fullRedundancy": false,
-                "descriptionOfTargetsRedundancies": "",
                 "pairsOfTargetsRedundancies": [],
-                "descriptionOfTriggersRedundancies": "",
                 "pairsOfTriggersRedundancies": [],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": []
             }
         }
@@ -1250,11 +1230,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             "mainPartRedundancies": {
                 "partialRedundancy": false,
                 "fullRedundancy": false,
-                "descriptionOfTargetsRedundancies": "",
                 "pairsOfTargetsRedundancies": [],
-                "descriptionOfTriggersRedundancies": "",
                 "pairsOfTriggersRedundancies": [],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": []
             },
             "benefitRedundancies": {
@@ -1263,23 +1240,23 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -1300,23 +1277,23 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -1358,23 +1335,23 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -1396,23 +1373,23 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -1422,23 +1399,23 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -1618,22 +1595,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "fullRedundancy": false,
                 "pairsOfTriggersRedundancies": [
                     {
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -1663,21 +1640,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -1707,21 +1684,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -1751,21 +1728,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -1795,21 +1772,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -1839,21 +1816,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -1883,21 +1860,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -1927,21 +1904,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -1971,21 +1948,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -2015,21 +1992,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -2065,22 +2042,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "fullRedundancy": false,
                 "pairsOfTriggersRedundancies": [
                     {
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -2103,21 +2080,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -2154,21 +2131,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -2198,21 +2175,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -2242,21 +2219,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -2286,21 +2263,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -2330,21 +2307,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -2374,21 +2351,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]                
             }
@@ -2418,21 +2395,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -2462,21 +2439,21 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -2966,8 +2943,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3000,15 +2977,15 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -3044,8 +3021,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3082,8 +3059,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3116,8 +3093,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", 1]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", 1]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3151,8 +3128,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3195,8 +3172,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3230,8 +3207,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review"],
-                        "SecondUserStoryTargetPair": ["review", "awd"]
+                        "firstUserStoryTargetPair": ["review"],
+                        "secondUserStoryTargetPair": ["review", "awd"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3265,8 +3242,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3300,8 +3277,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", 1]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", 1]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3335,8 +3312,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", 1],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", 1],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3370,8 +3347,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": [],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": [],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3397,42 +3374,42 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 1",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 2",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 3",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -3462,32 +3439,32 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -3517,52 +3494,52 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 1",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 2",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 3",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 1",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 2",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 3",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     } 
                 ]
             },
@@ -3599,42 +3576,42 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 1",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 2",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 3",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -3664,32 +3641,32 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -3720,52 +3697,52 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                     
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 1",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 2",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 3",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 1",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 2",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 3",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     },
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     } 
                 ]
             }
@@ -3778,7 +3755,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
 
     def test_invalid_data14(self):
         '''
-            Incomplete Full Main Part: Missing pairsOfContainsRedundancies
+            Inomplete Full Main Part: Missing pairsOfContainsRedundancies
+            Inpreviews versions it was a invalid test, however, we can not expect that always a contains is given. Thus this constrain was removed
         '''
         test_data = '''
         {
@@ -3789,15 +3767,15 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3805,18 +3783,15 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             "benefitRedundancies": {
                 "partialRedundancy": false,
                 "fullRedundancy": false,
-                "descriptionOfTriggersRedundancies": "",
                 "pairsOfTriggersRedundancies": [],
-                "descriptionOfTargetsRedundancies": "",
                 "pairsOfTargetsRedundancies": [],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": []
             }
         }
         '''
         results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
-        self.assertTrue(bool(_))
-        self.assertFalse(results)
+        self.assertFalse(bool(_))
+        self.assertTrue(results)
         
     def test_invalid_data15(self):
         '''
@@ -3832,15 +3807,15 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -3863,6 +3838,7 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
     def test_invalid_data16(self):
         '''
             Incomplete Full Benefit: Missing pairsOfContainsRedundancies
+            Inpreviews versions it was a invalid test, however, we can not expect that always a contains is given. Thus this constrain was removed.
         '''
         test_data = '''
         {
@@ -3870,11 +3846,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             "mainPartRedundancies": {
                 "partialRedundancy": false,
                 "fullRedundancy": false,
-                "descriptionOfTriggersRedundancies": "",
                 "pairsOfTriggersRedundancies": [],
-                "descriptionOfTargetsRedundancies": "",
                 "pairsOfTargetsRedundancies": [],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": []
             },
             "benefitRedundancies": {
@@ -3883,15 +3856,15 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfTriggerPairRedundancies": "Test string",
-                        "FirstUserStoryTriggerPair": ["review", "compliance"],
-                        "SecondUserStoryTriggerPair": ["review", "compliance"]
+                        "firstUserStoryTriggerPair": ["review", "compliance"],
+                        "secondUserStoryTriggerPair": ["review", "compliance"]
                     } 
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": []
@@ -3899,12 +3872,13 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
         }
         '''
         results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
-        self.assertTrue(bool(_))
-        self.assertFalse(results)
+        self.assertFalse(bool(_))
+        self.assertTrue(results)
         
     def test_invalid_data17(self):
         '''
             Incomplete Full Benefit: Missing pairsOfTriggersRedundancies
+            Inpreviews versions it was a invalid test, however, we can not expect that always a trigger is given. Thus this constrain was removed.
         '''
         test_data = '''
         {
@@ -3912,11 +3886,8 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
             "mainPartRedundancies": {
                 "partialRedundancy": false,
                 "fullRedundancy": false,
-                "descriptionOfTriggersRedundancies": "",
                 "pairsOfTriggersRedundancies": [],
-                "descriptionOfTargetsRedundancies": "",
                 "pairsOfTargetsRedundancies": [],
-                "descriptionOfContainsRedundancies": "",
                 "pairsOfContainsRedundancies": []
             },
             "benefitRedundancies": {
@@ -3926,23 +3897,23 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
         }
         '''
         results, _ = validation(json.loads(test_data), chat_gpt_schema_with_annotations)
-        self.assertTrue(bool(_))
-        self.assertFalse(results)
+        self.assertFalse(bool(_))
+        self.assertTrue(results)
         
     def test_invalid_data18_1(self):
         '''
@@ -3957,22 +3928,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": 5,
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4002,22 +3973,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4047,22 +4018,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4092,22 +4063,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": [],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": [],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4137,22 +4108,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": []
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": []
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4182,22 +4153,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4227,22 +4198,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4272,22 +4243,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": "test",
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": "test",
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4317,22 +4288,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": "test"
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": "test"
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4362,22 +4333,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": 5,
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4407,22 +4378,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review","compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review","compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4452,22 +4423,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4497,22 +4468,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": [],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": [],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4542,22 +4513,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": []
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": []
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4587,22 +4558,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4632,22 +4603,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4677,22 +4648,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": "test",
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": "test",
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4722,22 +4693,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": "test"
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": "test"
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4768,22 +4739,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 1",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": 5,
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4813,22 +4784,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review","compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review","compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4858,22 +4829,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review"]
                     }
                 ]
             },
@@ -4903,22 +4874,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": [],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": [],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -4948,22 +4919,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": []
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": []
                     }
                 ]
             },
@@ -4993,22 +4964,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance", "compliance"]
                     }
                 ]
             },
@@ -5038,22 +5009,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -5083,22 +5054,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": "test",
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": "test",
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             },
@@ -5128,22 +5099,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": "test"
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": "test"
                     }
                 ]
             },
@@ -5181,22 +5152,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": 5,
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5226,22 +5197,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5271,22 +5242,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5316,22 +5287,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": [],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": [],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5361,22 +5332,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": []
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": []
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5406,22 +5377,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5451,22 +5422,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5496,22 +5467,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": "test",
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": "test",
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5541,22 +5512,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": "test"
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": "test"
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5586,22 +5557,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": 5,
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5631,22 +5602,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review","compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review","compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5676,22 +5647,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5721,22 +5692,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": [],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": [],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5766,22 +5737,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": []
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": []
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5811,22 +5782,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5856,22 +5827,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5901,22 +5872,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": "test",
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": "test",
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5946,22 +5917,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": "test"
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": "test"
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -5992,22 +5963,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string 1",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": 5,
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -6037,22 +6008,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review","compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review","compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -6082,22 +6053,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review"]
                     }
                 ]
             }
@@ -6127,22 +6098,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": [],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": [],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -6172,22 +6143,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": []
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": []
                     }
                 ]
             }
@@ -6217,22 +6188,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance", "compliance"]
                     }
                 ]
                 
@@ -6263,22 +6234,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -6308,22 +6279,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": "test",
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": "test",
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ]
             }
@@ -6353,22 +6324,22 @@ class TestJSONValidationSchemaWithAnnotations(unittest.TestCase):
                 "pairsOfTriggersRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": ["review", "compliance"]
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfTargetsRedundancies": [
                     {
                         "descriptionOfTargetPairRedundancies": "Test string",
-                        "FirstUserStoryTargetPair": ["review", "compliance"],
-                        "SecondUserStoryTargetPair": ["review", "compliance"]
+                        "firstUserStoryTargetPair": ["review", "compliance"],
+                        "secondUserStoryTargetPair": ["review", "compliance"]
                     }
                 ],
                 "pairsOfContainsRedundancies": [
                     {
                         "descriptionOfContainPairRedundancies": "Test string 1",
-                        "FirstUserStoryContainPair": ["review", "compliance"],
-                        "SecondUserStoryContainPair": "test"
+                        "firstUserStoryContainPair": ["review", "compliance"],
+                        "secondUserStoryContainPair": "test"
                     }
                 ]
             }

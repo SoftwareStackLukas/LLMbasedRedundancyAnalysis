@@ -105,8 +105,18 @@ chat_gpt_schema_no_annotations =  {
     ]
 }
 
-# Check if the uniqueItems constrain is correct here
-# Consider extra checks for the unique keyword
+# This has been removed from main part as no annotations are needed for contains this ChatGPT could also return an empty entry
+# "pairsOfContainsRedundancies": {
+#     "minItems": 1
+# }
+
+# This has been removed from the benefit as it has in some rare cases triggers (almost never) and contains is like the main part
+# "pairsOfTriggersRedundancies": {
+#     "minItems": 1
+# },
+# "pairsOfContainsRedundancies": {
+#     "minItems": 1
+# }
 chat_gpt_schema_with_annotations = {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
@@ -137,7 +147,7 @@ chat_gpt_schema_with_annotations = {
                                 "type": "string",
                                 "minLength": 1
                             },
-                            "FirstUserStoryTriggerPair": {
+                            "firstUserStoryTriggerPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -145,7 +155,7 @@ chat_gpt_schema_with_annotations = {
                                 "minItems": 2,
                                 "maxItems": 2
                             },
-                            "SecondUserStoryTriggerPair": {
+                            "secondUserStoryTriggerPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -155,8 +165,8 @@ chat_gpt_schema_with_annotations = {
                             }
                         },
                         "required": ["descriptionOfTriggerPairRedundancies",
-                                     "FirstUserStoryTriggerPair",
-                                     "SecondUserStoryTriggerPair"]
+                                     "firstUserStoryTriggerPair",
+                                     "secondUserStoryTriggerPair"]
                     },
                     "minItems": 0,
                     "uniqueItems": True
@@ -170,7 +180,7 @@ chat_gpt_schema_with_annotations = {
                                 "type": "string",
                                 "minLength": 1
                             },
-                            "FirstUserStoryTargetPair": {
+                            "firstUserStoryTargetPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -178,7 +188,7 @@ chat_gpt_schema_with_annotations = {
                                 "minItems": 2,
                                 "maxItems": 2
                             },
-                            "SecondUserStoryTargetPair": {
+                            "secondUserStoryTargetPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -188,8 +198,8 @@ chat_gpt_schema_with_annotations = {
                             }
                         },
                         "required": ["descriptionOfTargetPairRedundancies",
-                                     "FirstUserStoryTargetPair",
-                                     "SecondUserStoryTargetPair"]
+                                     "firstUserStoryTargetPair",
+                                     "secondUserStoryTargetPair"]
                     },
                     "minItems": 0,
                     "uniqueItems": True
@@ -203,7 +213,7 @@ chat_gpt_schema_with_annotations = {
                                 "type": "string",
                                 "minLength": 1
                             },
-                            "FirstUserStoryContainPair": {
+                            "firstUserStoryContainPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -211,7 +221,7 @@ chat_gpt_schema_with_annotations = {
                                 "minItems": 2,
                                 "maxItems": 2
                             },
-                            "SecondUserStoryContainPair": {
+                            "secondUserStoryContainPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -221,8 +231,8 @@ chat_gpt_schema_with_annotations = {
                             }
                         },
                         "required": ["descriptionOfContainPairRedundancies",
-                                     "FirstUserStoryContainPair",
-                                     "SecondUserStoryContainPair"]
+                                     "firstUserStoryContainPair",
+                                     "secondUserStoryContainPair"]
                     },
                     "minItems": 0,
                     "uniqueItems": True
@@ -310,9 +320,6 @@ chat_gpt_schema_with_annotations = {
                                 "minItems": 1
                             },
                             "pairsOfTargetsRedundancies": {
-                                "minItems": 1
-                            },
-                            "pairsOfContainsRedundancies": {
                                 "minItems": 1
                             }
                         }
@@ -355,7 +362,7 @@ chat_gpt_schema_with_annotations = {
                                 "type": "string",
                                 "minLength": 1
                             },
-                            "FirstUserStoryTriggerPair": {
+                            "firstUserStoryTriggerPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -363,7 +370,7 @@ chat_gpt_schema_with_annotations = {
                                 "minItems": 2,
                                 "maxItems": 2
                             },
-                            "SecondUserStoryTriggerPair": {
+                            "secondUserStoryTriggerPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -373,8 +380,8 @@ chat_gpt_schema_with_annotations = {
                             }
                         },
                         "required": ["descriptionOfTriggerPairRedundancies",
-                                     "FirstUserStoryTriggerPair",
-                                     "SecondUserStoryTriggerPair"]
+                                     "firstUserStoryTriggerPair",
+                                     "secondUserStoryTriggerPair"]
                     },
                     "minItems": 0,
                     "uniqueItems": True
@@ -388,7 +395,7 @@ chat_gpt_schema_with_annotations = {
                                 "type": "string",
                                 "minLength": 1
                             },
-                            "FirstUserStoryTargetPair": {
+                            "firstUserStoryTargetPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -396,7 +403,7 @@ chat_gpt_schema_with_annotations = {
                                 "minItems": 2,
                                 "maxItems": 2
                             },
-                            "SecondUserStoryTargetPair": {
+                            "secondUserStoryTargetPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -406,8 +413,8 @@ chat_gpt_schema_with_annotations = {
                             }
                         },
                         "required": ["descriptionOfTargetPairRedundancies",
-                                     "FirstUserStoryTargetPair",
-                                     "SecondUserStoryTargetPair"]
+                                     "firstUserStoryTargetPair",
+                                     "secondUserStoryTargetPair"]
                     },
                     "minItems": 0,
                     "uniqueItems": True
@@ -421,7 +428,7 @@ chat_gpt_schema_with_annotations = {
                                 "type": "string",
                                 "minLength": 1
                             },
-                            "FirstUserStoryContainPair": {
+                            "firstUserStoryContainPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -429,7 +436,7 @@ chat_gpt_schema_with_annotations = {
                                 "minItems": 2,
                                 "maxItems": 2
                             },
-                            "SecondUserStoryContainPair": {
+                            "secondUserStoryContainPair": {
                                 "type": "array",
                                 "items": {
                                     "type": "string"
@@ -439,8 +446,8 @@ chat_gpt_schema_with_annotations = {
                             }
                         },
                         "required": ["descriptionOfContainPairRedundancies",
-                                     "FirstUserStoryContainPair",
-                                     "SecondUserStoryContainPair"]
+                                     "firstUserStoryContainPair",
+                                     "secondUserStoryContainPair"]
                     },
                     "minItems": 0,
                     "uniqueItems": True
@@ -524,13 +531,7 @@ chat_gpt_schema_with_annotations = {
                         },
                     "then": {
                         "properties": {
-                            "pairsOfTriggersRedundancies": {
-                                "minItems": 1
-                            },
                             "pairsOfTargetsRedundancies": {
-                                "minItems": 1
-                            },
-                            "pairsOfContainsRedundancies": {
                                 "minItems": 1
                             }
                         }
