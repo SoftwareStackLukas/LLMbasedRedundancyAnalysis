@@ -152,5 +152,26 @@
     "Benefit": [["have", "peace of mind"]]},
   "Contains": {"Main Part": [], 
     "Benefit": []}
-}
+}, 
+
+{"PID": "#G05#",
+  "USID": "373",
+  "Text": "As a Data Publishing User, I want to be able to edit a dataset I have published, So that I can correct or enhance existing data.",
+  "Main Part": "As a Data Publishing User, I want to be able to edit a dataset I have published",
+  "Benefit": "I can correct or enhance existing data",
+  "Triggers": {"Main Part": [["Data Publishing User", "edit"]], "Benefit": []},
+  "Targets": {"Main Part": [["edit", "dataset I have published"]],
+   "Benefit": [["correct", "existing data"], ["enhance", "existing data"]]},
+  "Contains": {"Main Part": [], "Benefit": []}},
+ 
+  {"PID": "#G05#",
+  "USID": "374",
+  "Text": "As a Data Publishing User, I want to be able to edit the model of data I have already imported, So that I can fix bugs or make enhancements in the API built for my data.",
+  "Main Part": "As a Data Publishing User, I want to be able to edit the model of data I have already imported",
+  "Benefit": "I can fix bugs or make enhancements in the API built for my data",
+  "Triggers": {"Main Part": [["Data Publishing User", "edit"]], "Benefit": []},
+  "Targets": {"Main Part": [["edit", "model"]],
+   "Benefit": [["fix", "bugs"], ["make", "enhancements"]]},
+  "Contains": {"Main Part": [["data I have already imported", "model"]],
+   "Benefit": [["API", "enhancements"], ["data", "API"]]}}
 ]

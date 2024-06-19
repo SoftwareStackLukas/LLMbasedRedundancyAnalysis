@@ -201,6 +201,30 @@
                    "pairsOfContainsRedundancies": [
                    ]             
     }
+},
+
+{
+    "relatedStories": [373, 374],
+    "mainPartRedundancies": {
+                   "partialRedundancy": false,
+                   "fullRedundancy": false,
+                   "pairsOfTriggersRedundancies": [   
+                   ],
+                   "pairsOfTargetsRedundancies": [                         
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]
+    },
+    "benefitRedundancies": {
+                   "partialRedundancy": false,
+                   "fullRedundancy": false,
+                   "pairsOfTriggersRedundancies": [      
+                   ],
+                   "pairsOfTargetsRedundancies": [
+                   ],
+                   "pairsOfContainsRedundancies": [
+                   ]             
+    }
 }
 
 ]
