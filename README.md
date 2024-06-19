@@ -43,4 +43,4 @@ You have to create a *.env*-file in the *src* folder. The following entries have
 - LIMIT  #"-1" =None, ""n" = any number
   
 
-This Repo was creafter for 'Insert here the title of the paper' for the [MDE Intelligence - 6th Workshop on Artificial Intelligence and Model-driven Engineering](https://mde-intelligence.github.io/)
+This Repo was creafter for 'Agile Development in the Era of GenAI: Redundancy Analysis of User Stories with Graph Approaches and Large Language Models' for the [MDE Intelligence - 6th Workshop on Artificial Intelligence and Model-driven Engineering](https://mde-intelligence.github.io/)
