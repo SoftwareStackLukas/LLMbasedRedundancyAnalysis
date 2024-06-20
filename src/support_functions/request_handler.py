@@ -10,6 +10,7 @@ import os
 import time
 import json
 import pandas as pd
+import math
 
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -24,7 +25,12 @@ MODEL_CODE = os.getenv("MODEL_VERSION")
 TEMPERATURE = float(os.getenv("TEMPERATURE"))
 LIMIT_OF_REQUESTS: int = int(os.getenv("LIMIT"))
 THRESHOLD_REPAIR: int = int(os.getenv("THRESHOLD_REPAIR"))
-THREAD_MULTIPLICATOR: int = int(os.getenv("THREAD_MULTIPLICATOR", "2"))
+THREAD_MULTIPLICATOR: float = float(os.getenv("THREAD_MULTIPLICATOR", "1"))
+
+TPM = int(os.getenv("TPM", "10.000"))
+RPM = int(os.getenv("RPM", "3"))
+TOKEN_DELTA = int(os.getenv("TOKEN_DELTA", "5000"))
+CPU_COUNT = os.cpu_count()
 
 # Const. for processing
 REDUNDANCY_MODEL: str = "redundancy-model-"
@@ -307,8 +313,7 @@ def process_user_stories(
     
     results_collection: dict = {}
     results_collection[key] = results
-    # if len(exceptions_during_processing) != 0:
-    #     results_collection[key + EXCEPTION] = exceptions_during_processing
+
     if redundancy_prefix:
         redundancy_prefix += SEPERATOR
     save_to_json_persistent(
@@ -322,7 +327,8 @@ def manage_parallel_request(
     q_messages,
     results,
     exceptions_during_processing,
-    json_schema: str
+    json_schema: str,
+    limiter
     ) -> None:
     """
     Processes a set of user stories by sending requests to the ChatGPT API and saves the results.
@@ -351,6 +357,9 @@ def manage_parallel_request(
         return validation(json_data, json_schema)
     time_recorder: TimeRecorder = None
     while not q_messages.empty():
+        if limiter["TO_HOLD"]:
+            time.sleep(0.5)
+            
         d: dict = dict(q_messages.get())
         usid1, usid2 = str(list(dict(d).keys())[0]).split(";")
         local_messages = list(dict(d).values())[0]
@@ -360,6 +369,16 @@ def manage_parallel_request(
             json_object = json.loads(resonse)
             json_object = {ELIPSED_TIME: time_recorder.nanoseconds, **json_object}
             results.append(json_object)
+            # Save the current time
+            limiter["CURRENT_QUATA"] += int(json_object["usage"]["total_tokens"])
+            limiter["CURRENT_REQUESTS"] += 1
+            if (limiter["CURRENT_QUATA"] + (limiter["DELTA_QUATA"] *
+                math.floor(CPU_COUNT * THREAD_MULTIPLICATOR)) >= limiter["MAX_QUATA"]
+                or (limiter["MAX_REQUESTS"] >= limiter["CURRENT_REQUESTS"])):
+                limiter["TO_HOLD"] = True
+                time.sleep(60) ### Clears the buffer at the API side
+                limiter["CURRENT_QUATA"] = limiter["MAX_REQUESTS"] = 0
+                limiter["TO_HOLD"] = True
         except StoppedAnswerException:
             exceptions_during_processing_data = {
                 REASON_KEY: NOT_STOPPED_EXCEPTION_CHAT_GPT,
@@ -460,6 +479,13 @@ def process_user_stories_parallel(
         processes: list = []
         results_thread_save = manager.list()
         exceptions_thread_save = manager.list()
+        limiter = manager.dict()
+        limiter["TO_HOLD"] = False
+        limiter["CURRENT_QUATA"] = 0
+        limiter["MAX_QUATA"] = TPM
+        limiter["CURRENT_REQUESTS"] = 0
+        limiter["MAX_REQUESTS"] = RPM
+        limiter["DELTA_QUATA"] = TOKEN_DELTA
 
         current_message: list[dict] = []
         count_of_requests: int = None
@@ -481,7 +507,7 @@ def process_user_stories_parallel(
             )
 
         start_time = time.time_ns()
-        for _ in range(os.cpu_count() * THREAD_MULTIPLICATOR):
+        for _ in range(math.floor(CPU_COUNT * THREAD_MULTIPLICATOR)):
             process = Process(
                 target=manage_parallel_request,
                 args=(
@@ -489,6 +515,7 @@ def process_user_stories_parallel(
                     results_thread_save,
                     exceptions_thread_save,
                     json_schema,
+                    limiter,
                 ),
             )
             processes.append(process)
