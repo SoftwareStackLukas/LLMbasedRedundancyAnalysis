@@ -367,7 +367,7 @@ def manage_parallel_request(
                 USID2_TWO: usid2,
             }
             exceptions_during_processing.append(
-                exceptions_during_processing
+                json.dumps(exceptions_during_processing_data)
             )
         except ValueError:
             exceptions_during_processing_data = {
@@ -376,7 +376,7 @@ def manage_parallel_request(
                 USID2_TWO: usid2,
             }
             exceptions_during_processing.append(
-                exceptions_during_processing_data
+                json.dumps(exceptions_during_processing_data)
             )
         except Exception as e:
             exceptions_during_processing_data = {
@@ -385,7 +385,7 @@ def manage_parallel_request(
                 USID2_TWO: usid2,
             }
             exceptions_during_processing.append(
-                exceptions_during_processing_data
+                json.dumps(exceptions_during_processing_data)
             )
 
 def process_user_stories_parallel(
