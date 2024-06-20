@@ -306,12 +306,14 @@ def process_user_stories(
     
     results_collection: dict = {}
     results_collection[key] = results
-    if len(exceptions_during_processing) != 0:
-        results_collection[key + EXCEPTION] = exceptions_during_processing
+    # if len(exceptions_during_processing) != 0:
+    #     results_collection[key + EXCEPTION] = exceptions_during_processing
     if redundancy_prefix:
         redundancy_prefix += SEPERATOR
     save_to_json_persistent(
-        f"{redundancy_prefix}{REDUNDANCY_MODEL}{model_version_name}", results_collection
+        folder_name=f"{redundancy_prefix}{REDUNDANCY_MODEL}{model_version_name}",
+        collection_json=results_collection,
+        collection_exception=exceptions_during_processing
     )
 
 ### Threading functions for data request

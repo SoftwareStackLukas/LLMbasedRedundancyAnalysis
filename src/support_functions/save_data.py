@@ -1,10 +1,11 @@
 import os
 import json
-
+import datetime
 
 def save_to_json_persistent(
     folder_name: str,
-    collection: any,
+    collection_json: any,
+    collection_exception: any,
     param_base_path: str = os.getcwd()
 ):
     """
@@ -38,15 +39,26 @@ def save_to_json_persistent(
 
     unique_json_file_path: str = ""
     idx: int = 0
-    for key in collection:
+    for key in collection_json:
         idx = 0
-        unique_json_file_path: str = os.path.join(folder_path, f"{idx:02d}_{key}.txt")
+        unique_json_file_path: str = os.path.join(folder_path, f"{idx:02d}_{key}.json")
         while os.path.exists(unique_json_file_path):
             idx += 1
-            unique_json_file_path = os.path.join(folder_path, f"{idx:02d}_{key}.txt")
-        with open(unique_json_file_path, "w", encoding='utf-8') as txt_file:
-            for dictionary in collection[key]:
-                for key, value in dictionary.items():
-                    txt_file.write(f"{key}: {value}")
-                    txt_file.write("\n----\n")
-        unique_json_file_path = None
+            unique_json_file_path = os.path.join(folder_path, f"{idx:02d}_{key}.json")
+        with open(unique_json_file_path, "w") as json_file:
+            json.dump(collection_json[key], json_file, indent=4)
+    
+    unique_json_file_path: str = os.path.join(folder_path, "exception_output.txt")
+    with open(unique_json_file_path, "a", encoding='utf-8') as txt_file:
+        txt_file.write("\n" * 3)
+        txt_file.write("\n------------\n")
+        txt_file.write(f"Current Exception-Count: {len(collection_exception)}")
+        txt_file.write("\n----\n")
+        
+        for item in collection_exception:
+            for key, value in item.items():
+                txt_file.write(f"{key}: {value}")
+                txt_file.write("\n----\n")
+            txt_file.write("\n------------\n")
+            txt_file.write("\n" * 3)
+    unique_json_file_path = None
