@@ -3,7 +3,8 @@ import json
 
 
 def save_to_json_persistent(
-    folder_name: str, json_collection: any, 
+    folder_name: str,
+    collection: any,
     param_base_path: str = os.getcwd()
 ):
     """
@@ -37,12 +38,15 @@ def save_to_json_persistent(
 
     unique_json_file_path: str = ""
     idx: int = 0
-    for key in json_collection:
+    for key in collection:
         idx = 0
-        unique_json_file_path: str = os.path.join(folder_path, f"{idx:02d}_{key}.json")
+        unique_json_file_path: str = os.path.join(folder_path, f"{idx:02d}_{key}.txt")
         while os.path.exists(unique_json_file_path):
             idx += 1
-            unique_json_file_path = os.path.join(folder_path, f"{idx:02d}_{key}.json")
-        with open(unique_json_file_path, "w") as json_file:
-            json.dump(json_collection[key], json_file, indent=4)
+            unique_json_file_path = os.path.join(folder_path, f"{idx:02d}_{key}.txt")
+        with open(unique_json_file_path, "w", encoding='utf-8') as txt_file:
+            for dictionary in collection[key]:
+                for key, value in dictionary.items():
+                    txt_file.write(f"{key}: {value}")
+                    txt_file.write("\n----\n")
         unique_json_file_path = None

@@ -227,7 +227,7 @@ def manage_single_request(
                 USID2_TWO: str(pairs.iat[idx, index_usid2]),
             }
             exceptions_during_processing.append(
-                json.loads(exceptions_during_processing_data)
+                exceptions_during_processing_data
             )
         except ValueError:
             exceptions_during_processing_data = {
@@ -236,7 +236,7 @@ def manage_single_request(
                 USID2_TWO: str(pairs.iat[idx, index_usid2]),
             }
             exceptions_during_processing.append(
-                json.loads(exceptions_during_processing_data)
+                exceptions_during_processing_data
             )
         except Exception as e:
             exceptions_during_processing_data = {
@@ -245,7 +245,7 @@ def manage_single_request(
                 USID2_TWO: str(pairs.iat[idx, index_usid2]),
             }
             exceptions_during_processing.append(
-                json.loads(exceptions_during_processing_data)
+                exceptions_during_processing_data
             )
 
 
@@ -364,7 +364,7 @@ def manage_parallel_request(
                 USID2_TWO: usid2,
             }
             exceptions_during_processing.append(
-                json.loads(exceptions_during_processing_data)
+                exceptions_during_processing
             )
         except ValueError:
             exceptions_during_processing_data = {
@@ -373,7 +373,7 @@ def manage_parallel_request(
                 USID2_TWO: usid2,
             }
             exceptions_during_processing.append(
-                json.loads(exceptions_during_processing_data)
+                exceptions_during_processing_data
             )
         except Exception as e:
             exceptions_during_processing_data = {
@@ -382,7 +382,7 @@ def manage_parallel_request(
                 USID2_TWO: usid2,
             }
             exceptions_during_processing.append(
-                json.loads(exceptions_during_processing_data)
+                exceptions_during_processing_data
             )
 
 def process_user_stories_parallel(
@@ -505,7 +505,6 @@ def process_user_stories_parallel(
             results_collection[key + EXCEPTION] = list(exceptions_thread_save)
         if redundancy_prefix:
             redundancy_prefix += SEPERATOR
-        print(results_collection.items())
         sort_threaded_results(results_collection)
         save_to_json_persistent(
             f"{redundancy_prefix}{REDUNDANCY_MODEL}{model_version_name}",
