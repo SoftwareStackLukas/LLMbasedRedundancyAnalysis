@@ -1,0 +1,70 @@
+[
+    {
+        "elipsedTimeNs": 5898073600,
+        "repairRuns": 0,
+        "relatedStories": [
+            426,
+            428
+        ],
+        "mainPartRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        },
+        "benefitRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        }
+    },
+    {
+        "elipsedTimeNs": 15963627500,
+        "repairRuns": 1,
+        "relatedStories": [
+            426,
+            429
+        ],
+        "mainPartRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        },
+        "benefitRedundancies": {
+            "partialRedundancy": true,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, there is a benefit related to providing analysis.",
+                    "firstUserStoryTargetPair": [
+                        "doing",
+                        "analysis"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "provide",
+                        "analysis"
+                    ]
+                }
+            ],
+            "pairsOfContainsRedundancies": [
+                {
+                    "descriptionOfContainPairRedundancies": "In both stories, there is a benefit related to data packages.",
+                    "firstUserStoryContainPair": [
+                        "Node",
+                        "Data Package"
+                    ],
+                    "secondUserStoryContainPair": [
+                        "Data Package",
+                        "data"
+                    ]
+                }
+            ]
+        }
+    }
+]

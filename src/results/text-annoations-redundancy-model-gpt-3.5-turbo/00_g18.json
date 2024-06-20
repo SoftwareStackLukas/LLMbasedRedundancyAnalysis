@@ -1,18 +1,23 @@
 [
     {
-        "relatedStories": [1, 3],
+        "elipsedTimeNs": 5685294500,
+        "repairRuns": 0,
+        "relatedStories": [
+            916,
+            919
+        ],
         "mainPartRedundancies": {
             "partialRedundancy": false,
             "fullRedundancy": false,
-            "pairsOfTargetsRedundancies": [],
             "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
             "pairsOfContainsRedundancies": []
         },
         "benefitRedundancies": {
             "partialRedundancy": false,
             "fullRedundancy": false,
-            "pairsOfTargetsRedundancies": [],
             "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
             "pairsOfContainsRedundancies": []
         }
     }

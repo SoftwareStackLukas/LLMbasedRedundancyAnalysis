@@ -1,0 +1,126 @@
+[
+    {
+        "elipsedTimeNs": 5422483200,
+        "repairRuns": 0,
+        "relatedStories": [
+            1365,
+            1366
+        ],
+        "mainPartRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        },
+        "benefitRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        }
+    },
+    {
+        "elipsedTimeNs": 18237026100,
+        "repairRuns": 1,
+        "relatedStories": [
+            1365,
+            1367
+        ],
+        "mainPartRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": true,
+            "pairsOfTriggersRedundancies": [
+                {
+                    "descriptionOfTriggerPairRedundancies": "In both stories, the depositor wants to deposit and maintain something.",
+                    "firstUserStoryTriggerPair": [
+                        "depositor",
+                        "deposit"
+                    ],
+                    "secondUserStoryTriggerPair": [
+                        "depositor",
+                        "deposit"
+                    ]
+                },
+                {
+                    "descriptionOfTriggerPairRedundancies": "In both stories, the depositor wants to deposit and maintain something.",
+                    "firstUserStoryTriggerPair": [
+                        "depositor",
+                        "maintain"
+                    ],
+                    "secondUserStoryTriggerPair": [
+                        "depositor",
+                        "maintain"
+                    ]
+                }
+            ],
+            "pairsOfTargetsRedundancies": [
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, the depositor wants to deposit and maintain datasets.",
+                    "firstUserStoryTargetPair": [
+                        "deposit",
+                        "datasets"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "deposit",
+                        "datasets"
+                    ]
+                },
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, the depositor wants to deposit and maintain datasets.",
+                    "firstUserStoryTargetPair": [
+                        "maintain",
+                        "datasets"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "maintain",
+                        "datasets"
+                    ]
+                }
+            ],
+            "pairsOfContainsRedundancies": []
+        },
+        "benefitRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        }
+    },
+    {
+        "elipsedTimeNs": 11573457300,
+        "repairRuns": 1,
+        "relatedStories": [
+            1365,
+            1368
+        ],
+        "mainPartRedundancies": {
+            "partialRedundancy": true,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, the depositor wants to maintain datasets.",
+                    "firstUserStoryTargetPair": [
+                        "maintain",
+                        "datasets"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "maintain",
+                        "datasets"
+                    ]
+                }
+            ],
+            "pairsOfContainsRedundancies": []
+        },
+        "benefitRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        }
+    }
+]

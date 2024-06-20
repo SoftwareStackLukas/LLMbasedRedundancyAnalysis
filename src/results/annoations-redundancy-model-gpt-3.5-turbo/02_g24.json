@@ -1,0 +1,103 @@
+[
+    {
+        "elipsedTimeNs": 3987973500,
+        "repairRuns": 0,
+        "relatedStories": [
+            1365,
+            1366
+        ],
+        "mainPartRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        },
+        "benefitRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        }
+    },
+    {
+        "elipsedTimeNs": 9838578800,
+        "repairRuns": 1,
+        "relatedStories": [
+            1365,
+            1367
+        ],
+        "mainPartRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        },
+        "benefitRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        }
+    },
+    {
+        "elipsedTimeNs": 16466952200,
+        "repairRuns": 1,
+        "relatedStories": [
+            1365,
+            1368
+        ],
+        "mainPartRedundancies": {
+            "partialRedundancy": true,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, the depositor wants to interact with datasets.",
+                    "firstUserStoryTargetPair": [
+                        "deposit",
+                        "datasets"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "deposit",
+                        "datasets"
+                    ]
+                },
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, the depositor wants to interact with datasets.",
+                    "firstUserStoryTargetPair": [
+                        "maintain",
+                        "datasets"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "maintain",
+                        "datasets"
+                    ]
+                }
+            ],
+            "pairsOfContainsRedundancies": [
+                {
+                    "descriptionOfContainPairRedundancies": "In both stories, the datasets are related to specific tools.",
+                    "firstUserStoryContainPair": [
+                        "simple web interface",
+                        "datasets"
+                    ],
+                    "secondUserStoryContainPair": [
+                        "Virtual Research Environments",
+                        "datasets"
+                    ]
+                }
+            ]
+        },
+        "benefitRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        }
+    }
+]

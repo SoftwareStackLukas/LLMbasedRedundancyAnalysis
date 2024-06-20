@@ -1,0 +1,138 @@
+[
+    {
+        "elipsedTimeNs": 18191626200,
+        "repairRuns": 1,
+        "relatedStories": [
+            1733,
+            1734
+        ],
+        "mainPartRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": true,
+            "pairsOfTriggersRedundancies": [
+                {
+                    "descriptionOfTriggerPairRedundancies": "In both stories, the user wants to search and discover something.",
+                    "firstUserStoryTriggerPair": [
+                        "user",
+                        "search"
+                    ],
+                    "secondUserStoryTriggerPair": [
+                        "user",
+                        "search"
+                    ]
+                },
+                {
+                    "descriptionOfTriggerPairRedundancies": "In both stories, the user wants to search and discover something.",
+                    "firstUserStoryTriggerPair": [
+                        "user",
+                        "discover"
+                    ],
+                    "secondUserStoryTriggerPair": [
+                        "user",
+                        "discover"
+                    ]
+                }
+            ],
+            "pairsOfTargetsRedundancies": [
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, the user wants to search and discover music.",
+                    "firstUserStoryTargetPair": [
+                        "search",
+                        "music"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "search",
+                        "music"
+                    ]
+                },
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, the user wants to search and discover music.",
+                    "firstUserStoryTargetPair": [
+                        "discover",
+                        "music"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "discover",
+                        "music"
+                    ]
+                }
+            ],
+            "pairsOfContainsRedundancies": []
+        },
+        "benefitRedundancies": {
+            "partialRedundancy": false,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [],
+            "pairsOfContainsRedundancies": []
+        }
+    },
+    {
+        "elipsedTimeNs": 9240141700,
+        "repairRuns": 0,
+        "relatedStories": [
+            1733,
+            1735
+        ],
+        "mainPartRedundancies": {
+            "partialRedundancy": true,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, users want to search or discover music.",
+                    "firstUserStoryTargetPair": [
+                        "search",
+                        "music"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "search",
+                        "music"
+                    ]
+                },
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, users want to discover music.",
+                    "firstUserStoryTargetPair": [
+                        "discover",
+                        "music"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "discover",
+                        "music"
+                    ]
+                }
+            ],
+            "pairsOfContainsRedundancies": []
+        },
+        "benefitRedundancies": {
+            "partialRedundancy": true,
+            "fullRedundancy": false,
+            "pairsOfTriggersRedundancies": [],
+            "pairsOfTargetsRedundancies": [
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, users want to use content identification or fingerprinting.",
+                    "firstUserStoryTargetPair": [
+                        "using",
+                        "content identification"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "using",
+                        "content identification"
+                    ]
+                },
+                {
+                    "descriptionOfTargetPairRedundancies": "In both stories, users want to use content identification or fingerprinting.",
+                    "firstUserStoryTargetPair": [
+                        "using",
+                        "fingerprinting"
+                    ],
+                    "secondUserStoryTargetPair": [
+                        "using",
+                        "fingerprinting"
+                    ]
+                }
+            ],
+            "pairsOfContainsRedundancies": []
+        }
+    }
+]
