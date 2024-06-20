@@ -50,7 +50,7 @@ def save_to_json_persistent(
     
     unique_json_file_path: str = os.path.join(folder_path, f"{idx:02d}_exception_output.txt")
     temp_convert = None
-    with open(unique_json_file_path, "a", encoding='utf-8') as txt_file:
+    with open(unique_json_file_path, "w", encoding='utf-8') as txt_file:
         txt_file.write("\n" * 3)
         txt_file.write("\n------------\n")
         txt_file.write(f"Current Exception-Count: {len(collection_exception)}")
@@ -58,8 +58,7 @@ def save_to_json_persistent(
         
         for item in collection_exception:            
             if isinstance(item, dict):
-                for key, value in item.items():
-                    txt_file.write(f"{key}: {value}\n")
+                txt_file.write(json.dumps(item))
             elif isinstance(item, (list, tuple)):
                 for idx, value in enumerate(item):
                     txt_file.write(f"Item {idx}: {value}\n")
@@ -69,9 +68,9 @@ def save_to_json_persistent(
                     txt_file.write(f"Value: {temp_convert}\n")
                 if isinstance(item, DictProxy):
                     temp_convert = dict(item)
-                    txt_file.write(f"Value: {temp_convert}\n")                    
+                    txt_file.write(f"Value: {temp_convert}\n")
                 else:
-                    txt_file.write(f"Value: {item}\n")
+                    txt_file.write(f"Value: {json.dumps(temp_convert)}\n")
                 
             txt_file.write("\n------------\n")
             txt_file.write("\n" * 3)

@@ -505,7 +505,14 @@ def process_user_stories_parallel(
         results_collection: dict = {}
         results_collection[key] = list(results_thread_save)
         
-        exceptions_thread_save = list(exceptions_thread_save)
+        if True:
+            temp: list = []
+            for _ in range(len(exceptions_thread_save)):
+                temp.append(exceptions_thread_save[_ - 1])
+            exceptions_thread_save = None
+            exceptions_thread_save = temp
+            temp = None
+                
         if redundancy_prefix:
             redundancy_prefix += SEPERATOR
         sort_threaded_results(results_collection)
