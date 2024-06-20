@@ -59,7 +59,7 @@ class PromptHelperBuilder():
             Returns:
                 None
         """
-        message.append({"role": "assistent", "content": str(answer)})
+        message.append({"role": "assistant", "content": str(answer)})
         message.append(current_repair_request)
 
     def parsing_to_pair_requests(self, json_us_one: dict, json_us_two: dict) -> dict[str, str]:
