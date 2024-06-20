@@ -24,6 +24,7 @@ MODEL_CODE = os.getenv("MODEL_VERSION")
 TEMPERATURE = float(os.getenv("TEMPERATURE"))
 LIMIT_OF_REQUESTS: int = int(os.getenv("LIMIT"))
 THRESHOLD_REPAIR: int = int(os.getenv("THRESHOLD_REPAIR"))
+THREAD_MULTIPLICATOR: int = int(os.getenv("THREAD_MULTIPLICATOR", "2"))
 
 # Const. for processing
 REDUNDANCY_MODEL: str = "redundancy-model-"
@@ -480,7 +481,7 @@ def process_user_stories_parallel(
             )
 
         start_time = time.time_ns()
-        for _ in range(os.cpu_count() * 2):
+        for _ in range(os.cpu_count() * THREAD_MULTIPLICATOR):
             process = Process(
                 target=manage_parallel_request,
                 args=(
@@ -503,14 +504,15 @@ def process_user_stories_parallel(
 
         results_collection: dict = {}
         results_collection[key] = list(results_thread_save)
-        if len(list(exceptions_thread_save)) != 0:
-            results_collection[key + EXCEPTION] = list(exceptions_thread_save)
+        
+        exceptions_thread_save = list(exceptions_thread_save)
         if redundancy_prefix:
             redundancy_prefix += SEPERATOR
         sort_threaded_results(results_collection)
         save_to_json_persistent(
-            f"{redundancy_prefix}{REDUNDANCY_MODEL}{model_version_name}",
-            results_collection,
+            folder_name=f"{redundancy_prefix}{REDUNDANCY_MODEL}{model_version_name}",
+            collection_json=results_collection,
+            collection_exception=exceptions_thread_save
         )
 
 

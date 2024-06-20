@@ -6,6 +6,7 @@ TEMPERATURE="Insert TEMPERATURE" #e.g., 0.2
 OUTPUT_EXCEL_NAME_WITH_JUST_TEXT="'Insert here the name of the file'.xlsx" #Insert here the name of the .xlsx-file which stores the results
 OUTPUT_EXCEL_NAME_WITH_ANNOTATIONS="'Insert here the name of the file'.xlsx" #Insert here the name of the .xlsx-file which stores the results
 OUTPUT_EXCEL_NAME_WITH_TEXT_AND_ANNOTATIONS="'Insert here the name of the file'.xlsx" #Insert here the name of the .xlsx-file which stores the results
-THRESHOLD_REPAIR="3" #Any positive number including 0 of repair steps 
+THRESHOLD_REPAIR="3" #Any positive number including 0 of repair steps
+THREAD_MULTIPLICATOR = "4" # Any natural number for thread multiplication > 0
 THREADING="0" # "0" = OFF, "1" = ON, 
 LIMIT="0" #"-1" =None, ""n" = any number
