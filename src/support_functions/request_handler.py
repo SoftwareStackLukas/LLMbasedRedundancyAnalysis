@@ -379,7 +379,7 @@ def manage_parallel_request(
                 ### Improve the half-way time (as while one request is done maybe other tokens are already free again)
                 time.sleep(60) ### Clears the buffer at the API side
                 limiter["CURRENT_QUATA"] = limiter["MAX_REQUESTS"] = 0
-                limiter["TO_HOLD"] = True
+                limiter["TO_HOLD"] = False
         except StoppedAnswerException:
             exceptions_during_processing_data = {
                 REASON_KEY: NOT_STOPPED_EXCEPTION_CHAT_GPT,
@@ -549,6 +549,7 @@ def process_user_stories_parallel(
             collection_json=results_collection,
             collection_exception=exceptions_thread_save
         )
+        time.sleep(45)
 
 
 # #### Structure of the completion response:

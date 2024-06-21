@@ -13,6 +13,9 @@
 ### Steps
     - Different abstractions redundant 0/1 full 0/1 partial 0/1
     - Do in future work just plain text and then non processed jsons
+    - [] Using word net alown and combination with the graph approach
+    - [] Using Gemini 
+    - [] Using open sourc model like LLAMA from meta on MaRC3a https://www.uni-marburg.de/de/hrz/dienste/hochleistungsrechnen
     - [] Write an interface for batch processing https://platform.openai.com/docs/guides/batch/getting-started & https://github.com/brianSalk/JSONLgenerator (create for this a docker)
     - [] Improving the limitors for the threading and non-threading approach https://platform.openai.com/docs/guides/rate-limits/usage-tiers?context=tier-four & https://cookbook.openai.com/examples/how_to_handle_rate_limits & https://github.com/openai/openai-cookbook/blob/main/examples/api_request_parallel_processor.py 
     - [] Multi Agent strategy that another LLM is checking the response 
