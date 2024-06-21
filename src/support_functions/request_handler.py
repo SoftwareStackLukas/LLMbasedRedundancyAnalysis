@@ -376,6 +376,7 @@ def manage_parallel_request(
                 math.floor(CPU_COUNT * THREAD_MULTIPLICATOR)) >= limiter["MAX_QUATA"]
                 or (limiter["MAX_REQUESTS"] >= limiter["CURRENT_REQUESTS"])):
                 limiter["TO_HOLD"] = True
+                ### Improve the half-way time (as while one request is done maybe other tokens are already free again)
                 time.sleep(60) ### Clears the buffer at the API side
                 limiter["CURRENT_QUATA"] = limiter["MAX_REQUESTS"] = 0
                 limiter["TO_HOLD"] = True
