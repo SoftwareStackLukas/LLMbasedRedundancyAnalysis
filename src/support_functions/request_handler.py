@@ -372,9 +372,10 @@ def manage_parallel_request(
             # Save the current time
             limiter["CURRENT_QUATA"] += int(json_object["usage"]["total_tokens"])
             limiter["CURRENT_REQUESTS"] += 1
-            if (limiter["CURRENT_QUATA"] + (limiter["DELTA_QUATA"] *
+            if ((limiter["CURRENT_QUATA"] + (limiter["DELTA_QUATA"] *
                 math.floor(CPU_COUNT * THREAD_MULTIPLICATOR)) >= limiter["MAX_QUATA"]
-                or (limiter["MAX_REQUESTS"] >= limiter["CURRENT_REQUESTS"])):
+                or (limiter["MAX_REQUESTS"] >= limiter["CURRENT_REQUESTS"]))
+                and not limiter["TO_HOLD"]):
                 limiter["TO_HOLD"] = True
                 ### Improve the half-way time (as while one request is done maybe other tokens are already free again)
                 time.sleep(60) ### Clears the buffer at the API side

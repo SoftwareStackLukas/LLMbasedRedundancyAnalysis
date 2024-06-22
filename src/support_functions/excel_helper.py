@@ -80,7 +80,7 @@ def load_datasets_add_line_counter() -> dict[str, list]:
     return datasets
 
 
-def prepaire_excel_data() -> pd:
+def prepaire_excel_data(sheet_name: str = "Ground Truth") -> pd:
     current_directory = os.getcwd()
     suffix = "\\src"
     directory_excel = (
@@ -93,7 +93,7 @@ def prepaire_excel_data() -> pd:
         directory_excel,
         usecols=lambda column: "Item" not in column,
         skiprows=range(1),
-        sheet_name="Ground Truth",
+        sheet_name=sheet_name,
     )
     excel_data = excel_data.drop(
         columns=[
@@ -107,6 +107,7 @@ def prepaire_excel_data() -> pd:
             "benefit.1",
         ],
         axis=1,
+        errors='ignore'
     )
     excel_data = excel_data.rename(
         columns={
@@ -138,39 +139,39 @@ def prepaire_excel_data() -> pd:
     return excel_data
 
 def formatter_ignored_items(wb: Workbook, sheet_name: str): 
-        ws = wb[sheet_name]
-        header_font = Font(size=14, bold=True)
-        for cell in ws["1:1"]:
-            cell.font = header_font
-        
-        ADDITIONAL_LENGTH: int = 0
-        ADJUSTED_WIDTH: int = 0
-        MAX_LEN: int = 0
-        for col in ws.iter_cols(min_row=1, max_row=1):
-            for cell in col:
-                MAX_LEN = len(str(cell.value))
-                ADDITIONAL_LENGTH = (MAX_LEN + 2)
-                ADJUSTED_WIDTH = 0
-                
-                if cell.col_idx == 1:
-                    ADJUSTED_WIDTH =  ADDITIONAL_LENGTH * 10
-                if cell.col_idx == 2:
-                    ADJUSTED_WIDTH =  ADDITIONAL_LENGTH * 3
-                else:
-                    ADJUSTED_WIDTH =  ADDITIONAL_LENGTH * 1.5
-                ws.column_dimensions[utils_get_column_letter(cell.column)].width = ADJUSTED_WIDTH
-                
-        alignment = Alignment(vertical='center', horizontal='left')
-        for row in ws.iter_rows():
-            for cell in row:
-                cell.alignment = alignment
+    ws = wb[sheet_name]
+    header_font = Font(size=14, bold=True)
+    for cell in ws["1:1"]:
+        cell.font = header_font
+    
+    ADDITIONAL_LENGTH: int = 0
+    ADJUSTED_WIDTH: int = 0
+    MAX_LEN: int = 0
+    for col in ws.iter_cols(min_row=1, max_row=1):
+        for cell in col:
+            MAX_LEN = len(str(cell.value))
+            ADDITIONAL_LENGTH = (MAX_LEN + 2)
+            ADJUSTED_WIDTH = 0
+            
+            if cell.col_idx == 1:
+                ADJUSTED_WIDTH =  ADDITIONAL_LENGTH * 10
+            if cell.col_idx == 2:
+                ADJUSTED_WIDTH =  ADDITIONAL_LENGTH * 3
+            else:
+                ADJUSTED_WIDTH =  ADDITIONAL_LENGTH * 1.5
+            ws.column_dimensions[utils_get_column_letter(cell.column)].width = ADJUSTED_WIDTH
+            
+    alignment = Alignment(vertical='center', horizontal='left')
+    for row in ws.iter_rows():
+        for cell in row:
+            cell.alignment = alignment
 
-        num_columns = ws.max_column
-        header_range = f"A1:{utils_get_column_letter(num_columns)}1"
-        ws.auto_filter.ref = header_range
-        ws.freeze_panes = ws['A2']
+    num_columns = ws.max_column
+    header_range = f"A1:{utils_get_column_letter(num_columns)}1"
+    ws.auto_filter.ref = header_range
+    ws.freeze_panes = ws['A2']
 
-        wrap_alignment = Alignment(wrap_text=True, vertical='top', horizontal='left')
-        for row in ws.iter_rows(min_row=2):
-            for cell in row:
-                cell.alignment = wrap_alignment
+    wrap_alignment = Alignment(wrap_text=True, vertical='top', horizontal='left')
+    for row in ws.iter_rows(min_row=2):
+        for cell in row:
+            cell.alignment = wrap_alignment
