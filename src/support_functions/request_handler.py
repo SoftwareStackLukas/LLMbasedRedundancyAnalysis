@@ -29,7 +29,7 @@ THREAD_MULTIPLICATOR: float = float(os.getenv("THREAD_MULTIPLICATOR", "1"))
 
 TPM = int(os.getenv("TPM", "10.000"))
 RPM = int(os.getenv("RPM", "3"))
-TOKEN_DELTA = int(os.getenv("TOKEN_DELTA", "5000"))
+TOKEN_DELTA = int(os.getenv("TOKEN_DELTA", "15000"))
 CPU_COUNT = os.cpu_count()
 
 # Const. for processing
@@ -370,16 +370,17 @@ def manage_parallel_request(
             json_object = {ELIPSED_TIME: time_recorder.nanoseconds, **json_object}
             results.append(json_object)
             # Save the current time
-            limiter["CURRENT_QUATA"] += int(json_object["usage"]["total_tokens"])
+            limiter["CURRENT_QUOTA"] += int(json_object["usage"]["total_tokens"])
             limiter["CURRENT_REQUESTS"] += 1
-            if ((limiter["CURRENT_QUATA"] + (limiter["DELTA_QUATA"] *
-                math.floor(CPU_COUNT * THREAD_MULTIPLICATOR)) >= limiter["MAX_QUATA"]
+            if ((limiter["CURRENT_QUOTA"] + (limiter["DELTA_QUOTA"] *
+                math.floor(CPU_COUNT * THREAD_MULTIPLICATOR)) >= limiter["MAX_QUOTA"]
                 or (limiter["MAX_REQUESTS"] >= limiter["CURRENT_REQUESTS"]))
                 and not limiter["TO_HOLD"]):
                 limiter["TO_HOLD"] = True
                 ### Improve the half-way time (as while one request is done maybe other tokens are already free again)
                 time.sleep(60) ### Clears the buffer at the API side
-                limiter["CURRENT_QUATA"] = limiter["MAX_REQUESTS"] = 0
+                limiter["CURRENT_QUOTA"] = 0
+                limiter["MAX_REQUESTS"] = 0
                 limiter["TO_HOLD"] = False
         except StoppedAnswerException:
             exceptions_during_processing_data = {
@@ -483,11 +484,11 @@ def process_user_stories_parallel(
         exceptions_thread_save = manager.list()
         limiter = manager.dict()
         limiter["TO_HOLD"] = False
-        limiter["CURRENT_QUATA"] = 0
-        limiter["MAX_QUATA"] = TPM
+        limiter["CURRENT_QUOTA"] = 0
+        limiter["MAX_QUOTA"] = TPM
         limiter["CURRENT_REQUESTS"] = 0
         limiter["MAX_REQUESTS"] = RPM
-        limiter["DELTA_QUATA"] = TOKEN_DELTA
+        limiter["DELTA_QUOTA"] = TOKEN_DELTA
 
         current_message: list[dict] = []
         count_of_requests: int = None
