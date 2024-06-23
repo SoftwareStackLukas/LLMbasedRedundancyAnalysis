@@ -30,6 +30,7 @@ Add https://zenodo.org/records/8136975 and https://github.com/ace-design/nlp-sto
 - Create a .venv
 - pip pip install -r /<usr_path>/requirements.txt
 - pip install . in src
+- start jupyter notebook in src
 
 ## Env.
 You have to create a *.env*-file in the *src* folder. The following entries have to be consideres:
