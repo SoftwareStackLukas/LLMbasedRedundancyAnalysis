@@ -79,11 +79,12 @@ def repair_json_by_gpt(
     not_correct_json_reason: str,
     client,
     json_validation: Callable[[dict], bool]
-    ) -> str:
+    ) -> tuple[str, int]:
     repair_run: int = 1
     message = copy.deepcopy(message)
     correct: bool = False
     current_repair_request: dict = None
+    usage: int = 0
     for _ in range(THRESHOLD_REPAIR):
         current_repair_request = PROMPT_HELPER_BUILDER.repair_request
         current_repair_request["content"] = current_repair_request["content"] + not_correct_json_reason
@@ -99,9 +100,10 @@ def repair_json_by_gpt(
             )
             check_for_stopped_resonse(system_is_r_eng)
             answer = system_is_r_eng.choices[0].message.content
+            usage += system_is_r_eng.usage.total_tokens
             correct, not_correct_json_reason = json_validation(json.loads(answer))
             if correct:
-                return add_repair_runs_count(answer, repair_run)
+                return add_repair_runs_count(answer, repair_run), usage
             repair_run += 1
     raise StoppedAnswerException(
         "Response error message: The schema could not been correctly generated and not been repaired"
@@ -111,7 +113,7 @@ def send_requierment_to_chatgpt(
     message: list[dict],
     json_validation: Callable[[dict], bool],
     time_recorder: TimeRecorder = None
-) -> str:
+) -> tuple[str, int]:
     """
     Sends a requirement to the ChatGPT API and returns the response.
 
@@ -132,6 +134,8 @@ def send_requierment_to_chatgpt(
     -------
     str
         The content of the response message from the ChatGPT model.
+    int
+        returns total usage
 
     Raises:
     ------
@@ -152,9 +156,11 @@ def send_requierment_to_chatgpt(
     )
     check_for_stopped_resonse(system_is_r_eng)
     answer = system_is_r_eng.choices[0].message.content
+    usage: int = system_is_r_eng.usage.total_tokens
     correct, not_correct_json_reason = json_validation(json.loads(answer))
     if THRESHOLD_REPAIR > 0 and not correct:
-        answer = repair_json_by_gpt(message, answer, not_correct_json_reason, client, json_validation)
+        answer, _ = repair_json_by_gpt(message, answer, not_correct_json_reason, client, json_validation)
+        usage += _
     else:
         answer = add_repair_runs_count(answer=answer, repair_run=0)
     client.close()
@@ -162,7 +168,7 @@ def send_requierment_to_chatgpt(
     if time_recorder:
         elapsed_time_ns = end_time - start_time
         time_recorder.nanoseconds = elapsed_time_ns
-    return answer
+    return answer, usage
 
 ## Data Processing Definition Pipline for User Stories
 ### General Function for data requests
@@ -223,7 +229,7 @@ def manage_single_request(
         )
         try:
             time_recorder = TimeRecorder()
-            resonse = send_requierment_to_chatgpt(message=current_message, json_validation=json_validation, time_recorder=time_recorder)
+            resonse, _ = send_requierment_to_chatgpt(message=current_message, json_validation=json_validation, time_recorder=time_recorder)
             json_object = json.loads(resonse)
             json_object = {ELIPSED_TIME: time_recorder.nanoseconds, **json_object}
             results.append(json_object)
@@ -365,12 +371,12 @@ def manage_parallel_request(
         local_messages = list(dict(d).values())[0]
         try:
             time_recorder = TimeRecorder()
-            resonse = send_requierment_to_chatgpt(message=local_messages, json_validation=json_validation, time_recorder=time_recorder)
+            resonse, usage = send_requierment_to_chatgpt(message=local_messages, json_validation=json_validation, time_recorder=time_recorder)
             json_object = json.loads(resonse)
             json_object = {ELIPSED_TIME: time_recorder.nanoseconds, **json_object}
             results.append(json_object)
             # Save the current time
-            limiter["CURRENT_QUOTA"] += int(json_object["usage"]["total_tokens"])
+            limiter["CURRENT_QUOTA"] += int(usage)
             limiter["CURRENT_REQUESTS"] += 1
             if ((limiter["CURRENT_QUOTA"] + (limiter["DELTA_QUOTA"] *
                 math.floor(CPU_COUNT * THREAD_MULTIPLICATOR)) >= limiter["MAX_QUOTA"]
