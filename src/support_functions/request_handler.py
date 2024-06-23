@@ -135,7 +135,7 @@ def send_requierment_to_chatgpt(
     str
         The content of the response message from the ChatGPT model.
     int
-        returns total usage
+        returns total usage of tokens
 
     Raises:
     ------
