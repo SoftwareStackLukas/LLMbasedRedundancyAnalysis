@@ -357,8 +357,8 @@ def manage_parallel_request(
         return validation(json_data, json_schema)
     time_recorder: TimeRecorder = None
     while not q_messages.empty():
-        if limiter["TO_HOLD"]:
-            time.sleep(0.5)
+        while limiter["TO_HOLD"]:
+            time.sleep(1)
             
         d: dict = dict(q_messages.get())
         usid1, usid2 = str(list(dict(d).keys())[0]).split(";")
