@@ -17,204 +17,778 @@ def extract_usid_pair(data: str):
     return extracted_data
 
 exception_data_one: str = """
-----
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1022", "USID2": "1099"}
+{"Reason": "Connection error.", "USID1": "1138", "USID2": "1146"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1025", "USID2": "1026"}
+{"Reason": "Connection error.", "USID1": "1138", "USID2": "1147"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1026", "USID2": "1029"}
+{"Reason": "Connection error.", "USID1": "1138", "USID2": "1148"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1026", "USID2": "1031"}
+{"Reason": "Connection error.", "USID1": "1138", "USID2": "1149"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1026", "USID2": "1038"}
+{"Reason": "Connection error.", "USID1": "1138", "USID2": "1144"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1026", "USID2": "1042"}
+{"Reason": "Connection error.", "USID1": "1138", "USID2": "1153"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1026", "USID2": "1044"}
+{"Reason": "Connection error.", "USID1": "1138", "USID2": "1151"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1026", "USID2": "1049"}
+{"Reason": "Connection error.", "USID1": "1138", "USID2": "1152"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1027", "USID2": "1029"}
+{"Reason": "Connection error.", "USID1": "1138", "USID2": "1150"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1027", "USID2": "1030"}
+{"Reason": "Connection error.", "USID1": "1138", "USID2": "1155"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1027", "USID2": "1041"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1141"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1027", "USID2": "1049"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1144"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1027", "USID2": "1106"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1143"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1027", "USID2": "1110"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1142"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1028", "USID2": "1098"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1140"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1029", "USID2": "1039"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1145"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1030", "USID2": "1041"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1146"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1039", "USID2": "1041"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1148"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1039", "USID2": "1068"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1147"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1040", "USID2": "1041"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1149"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1041", "USID2": "1105"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1150"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1049", "USID2": "1105"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1151"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1068", "USID2": "1078"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1155"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1068", "USID2": "1098"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1152"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1077", "USID2": "1078"}
+{"Reason": "Connection error.", "USID1": "1139", "USID2": "1153"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1077", "USID2": "1098"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1141"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1078", "USID2": "1105"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1142"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1078", "USID2": "1106"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1145"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1078", "USID2": "1107"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1144"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1078", "USID2": "1108"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1143"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1078", "USID2": "1122"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1146"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1078", "USID2": "1124"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1147"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1086", "USID2": "1122"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1148"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1089", "USID2": "1093"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1150"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1092", "USID2": "1093"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1149"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1098", "USID2": "1105"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1151"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1098", "USID2": "1110"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1152"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1121", "USID2": "1125"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1153"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1140", "USID2": "1141"}
+{"Reason": "Connection error.", "USID1": "1140", "USID2": "1155"}
+
 ------------
 
 
 
-{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1148", "USID2": "1150"}
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1142"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1143"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1144"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1145"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1146"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1147"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1148"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1150"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1149"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1151"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1152"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1141", "USID2": "1155"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1143"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1145"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1144"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1146"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1147"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1148"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1149"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1150"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1151"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1152"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1143", "USID2": "1144"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1142", "USID2": "1155"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1143", "USID2": "1145"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1143", "USID2": "1146"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1143", "USID2": "1147"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1143", "USID2": "1149"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1143", "USID2": "1148"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1143", "USID2": "1150"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1143", "USID2": "1152"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1143", "USID2": "1151"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1143", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1143", "USID2": "1155"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1144", "USID2": "1145"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1144", "USID2": "1147"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1144", "USID2": "1146"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1144", "USID2": "1149"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1144", "USID2": "1148"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1144", "USID2": "1150"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1144", "USID2": "1151"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1144", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1144", "USID2": "1152"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1144", "USID2": "1155"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1145", "USID2": "1146"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1145", "USID2": "1147"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1145", "USID2": "1148"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1145", "USID2": "1150"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1145", "USID2": "1149"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1145", "USID2": "1151"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1145", "USID2": "1152"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1145", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1145", "USID2": "1155"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1146", "USID2": "1147"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1146", "USID2": "1148"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1146", "USID2": "1149"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1146", "USID2": "1151"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1146", "USID2": "1150"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1146", "USID2": "1152"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1146", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1147", "USID2": "1148"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1146", "USID2": "1155"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1147", "USID2": "1149"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1147", "USID2": "1150"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1147", "USID2": "1151"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1147", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1147", "USID2": "1152"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1147", "USID2": "1155"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1148", "USID2": "1149"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1148", "USID2": "1150"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1148", "USID2": "1151"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1148", "USID2": "1152"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1148", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1148", "USID2": "1155"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1149", "USID2": "1150"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1149", "USID2": "1151"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1149", "USID2": "1152"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1149", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1150", "USID2": "1151"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1149", "USID2": "1155"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1150", "USID2": "1152"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1150", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1150", "USID2": "1155"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1151", "USID2": "1152"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1151", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1151", "USID2": "1155"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1152", "USID2": "1153"}
+
+------------
+
+
+
+{"Reason": "Connection error.", "USID1": "1153", "USID2": "1155"}
+
+------------
 ------------
 """
 
-print(extract_usid_pair(exception_data_one))
+print(len(extract_usid_pair(exception_data_one)))
