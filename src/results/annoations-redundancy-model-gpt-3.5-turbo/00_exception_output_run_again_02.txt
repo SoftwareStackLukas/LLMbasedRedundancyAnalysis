@@ -1,22 +1,9 @@
-import re
-import json
 
-def extract_usid_pair(data: str):
-    # Extract the JSON objects from the data
-    pattern = re.compile(r'\{.*?\}', re.DOTALL)
-    matches = pattern.findall(data)
 
-    extracted_data = []
-    for match in matches:
-        try:
-            json_data = json.loads(match)
-            extracted_data.append([int(json_data['USID1']), int(json_data['USID2'])])
-        except json.JSONDecodeError as e:
-            print(f"Error decoding JSON: {e}")
-            print(f"Problematic JSON string: {match}")
-    return extracted_data
 
-exception_data_one: str = """
+
+------------
+Current Exception-Count: 40
 ----
 {"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1022", "USID2": "1099"}
 ------------
@@ -215,6 +202,63 @@ exception_data_one: str = """
 
 {"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1148", "USID2": "1150"}
 ------------
-"""
 
-print(extract_usid_pair(exception_data_one))
+
+
+
+
+
+
+------------
+Current Exception-Count: 10
+----
+{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1267", "USID2": "1290"}
+------------
+
+
+
+{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1270", "USID2": "1271"}
+------------
+
+
+
+{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1275", "USID2": "1287"}
+------------
+
+
+
+{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1282", "USID2": "1285"}
+------------
+
+
+
+{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1285", "USID2": "1288"}
+------------
+
+
+
+{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1285", "USID2": "1290"}
+------------
+
+
+
+{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1285", "USID2": "1294"}
+------------
+
+
+
+{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1285", "USID2": "1307"}
+------------
+
+
+
+{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1287", "USID2": "1291"}
+------------
+
+
+
+{"Reason": "Not stopped exception from ChatGPT Endpoint", "USID1": "1299", "USID2": "1302"}
+------------
+
+
+
