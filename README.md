@@ -63,3 +63,9 @@ You have to create a *.env*-file in the *src* folder. The following entries have
   
 
 This Repo was creafter for 'Agile Development in the Era of GenAI: Redundancy Analysis of User Stories with Graph Approaches and Large Language Models' for the [MDE Intelligence - 6th Workshop on Artificial Intelligence and Model-driven Engineering](https://mde-intelligence.github.io/)
+
+
+## Contributers
+- [Lukas Sebastian Hofmann](lukas.hofmann@uni-marburg.de)
+- [Alexander Lauer](alexander.lauer@uni-marburg.de)
+- [Gabriele Taentzer](taentzer@mathematik.uni-marburg.de)
