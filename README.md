@@ -60,7 +60,7 @@ We compared our LLM approach against a formal approach from [Alexander Lauer, Am
 
 ## Env.
 You have to create a *.env*-file in the *src* folder. The following entries have to be consideres:
-- OPENAI_API_KEY # Enter here your API key
+- OPENAI_API_KEY (Enter here your API key)
 - MODEL_VERSION (GPT 3.5 = gpt-3.5-turbo points to gpt-3.5-turbo-0125, GPT-4o = gpt-4o-2024-05-13)
 - TPM (Tokens-Per-Minute)
 - RPM (Requests-Per-Minute)
@@ -81,4 +81,5 @@ This Repo was creafter for 'Agile Development in the Era of GenAI: Redundancy An
 ## Contributers
 - [Lukas Sebastian Hofmann](lukas.hofmann@uni-marburg.de)
 - [Alexander Lauer](alexander.lauer@uni-marburg.de)
+- [Arno Kesper](arno.kesper@uni-marburg.de)
 - [Gabriele Taentzer](taentzer@mathematik.uni-marburg.de)
