@@ -65,14 +65,14 @@ You have to create a *.env*-file in the *src* folder. The following entries have
 - TPM (Tokens-Per-Minute)
 - RPM (Requests-Per-Minute)
 - TOKEN_DELTA (Approximation of the Request Size to avoid GPT "Deadlocks")
-- TEMPERATURE (refers to a parameter that controls the randomness of predictions, with lower values making the output more focused and deterministic, while higher values make it more diverse and creative.)
-- OUTPUT_EXCEL_NAME_WITH_JUST_TEXT #Insert here the name of the .xlsx-file which stores the results of results from without annoations
-- OUTPUT_EXCEL_NAME_WITH_ANNOTATIONS #Insert here the name of the .xlsx-file which stores the results of results from with annoations
-- OUTPUT_EXCEL_NAME_WITH_TEXT_AND_ANNOTATIONS #Insert here the name of the .xlsx-file which stores the results of results from with plain annoations
-- THRESHOLD_REPAIR #Any number of repairs e.g. "3"
-- THREADING # "1" = ON, "2" = OFF
+- TEMPERATURE (e.g. 0.2)
+- OUTPUT_EXCEL_NAME_WITH_JUST_TEXT (Insert here the name of the .xlsx-file which stores the results of results from without annoations)
+- OUTPUT_EXCEL_NAME_WITH_ANNOTATIONS (Insert here the name of the .xlsx-file which stores the results of results from with annoations)
+- OUTPUT_EXCEL_NAME_WITH_TEXT_AND_ANNOTATIONS (Insert here the name of the .xlsx-file which stores the results of results from with plain annoations)
+- THRESHOLD_REPAIR (Any number of repairs, e.g., "3")
+- THREADING ("1" = ON, "2" = OFF)
 - THREAD_MULTIPLICATOR (Any number for thread multiplication > 0)
-- LIMIT  #"-1" =None, ""n" = any number
+- LIMIT  ("-1" =None, "n" = any number)
   
 
 This Repo was creafter for 'Agile Development in the Era of GenAI: Redundancy Analysis of User Stories with Graph Approaches and Large Language Models' for the [MDE Intelligence - 6th Workshop on Artificial Intelligence and Model-driven Engineering](https://mde-intelligence.github.io/)
