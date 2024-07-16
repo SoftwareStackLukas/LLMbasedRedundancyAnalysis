@@ -28,6 +28,10 @@ We compared our LLM approach against a formal approach from [Alexander Lauer, Am
   - [X] /utils: Utility functions.
   - [X] /Various Jupyter Notebooks: To connect and execute to our progam logic.
   - [X] /setup.py: -
+ 
+## Architecture (Component-Diagramm)
+![](ComponentDiagramLLM.pdf)
+
 
 ## IDE + Plugins
 - VSCode
