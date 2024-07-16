@@ -19,7 +19,15 @@ We compared our LLM approach against a formal approach from [Alexander Lauer, Am
 - ExperimentsWordSimilarity: Contains a future project ideas
 - results: Important results shown in the paper for [MDE Intelligence - 6th Workshop on Artificial Intelligence and Model-driven Engineering](https://mde-intelligence.github.io/)
 - src: containg the source code of our implementation. Please, consider for installation our installation and dependecies decriptiong
-- src/ : Containing the prompts used for our expirements.  
+  - [] /controller: Implementation of the Fask API endpoint.
+  - [O] /future_work: Contains future experiments in jupyter notebook form.
+  - [X] /prompt_structure : Containing the prompts used for our expirements.  
+  - [X] /results: All results achieved during our developments.
+  - [X] /support_functions: As our implementation is based on a functional approach this src folder contains all abstracted functions. 
+  - [X] /support_functions_test: Tests for the support functions (pythonic style to organise tests).
+  - [X] utils: Utility functions.
+  - [X] Various Jupyter Notebooks: To connect and execute to our progam logic.
+  - [X] setup.py: -
 
 ## IDE + Plugins
 - VSCode
