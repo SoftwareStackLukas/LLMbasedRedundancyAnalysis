@@ -60,13 +60,18 @@ We compared our LLM approach against a formal approach from [Alexander Lauer, Am
 
 ## Env.
 You have to create a *.env*-file in the *src* folder. The following entries have to be consideres:
-- MODEL_VERSION (GPT 3.5 = gpt-3.5-turbo points to gpt-3.5-turbo-0125, GPT-4o = gpt-4o-2024-05-13)
 - OPENAI_API_KEY # Enter here your API key
-- OUTPUT_EXCEL_NAME_WITHOUT_ANNOTATIONS #Insert here the name of the .xlsx-file which stores the results of results from without annoations
+- MODEL_VERSION (GPT 3.5 = gpt-3.5-turbo points to gpt-3.5-turbo-0125, GPT-4o = gpt-4o-2024-05-13)
+- TPM (Tokens-Per-Minute)
+- RPM (Requests-Per-Minute)
+- TOKEN_DELTA (Approximation of the Request Size to avoid GPT "Deadlocks")
+- TEMPERATURE (refers to a parameter that controls the randomness of predictions, with lower values making the output more focused and deterministic, while higher values make it more diverse and creative.)
+- OUTPUT_EXCEL_NAME_WITH_JUST_TEXT #Insert here the name of the .xlsx-file which stores the results of results from without annoations
 - OUTPUT_EXCEL_NAME_WITH_ANNOTATIONS #Insert here the name of the .xlsx-file which stores the results of results from with annoations
-- OUTPUT_EXCEL_NAME_WITH_PLAIN_ANNOTATIONS #Insert here the name of the .xlsx-file which stores the results of results from with plain annoations
+- OUTPUT_EXCEL_NAME_WITH_TEXT_AND_ANNOTATIONS #Insert here the name of the .xlsx-file which stores the results of results from with plain annoations
 - THRESHOLD_REPAIR #Any number of repairs e.g. "3"
 - THREADING # "1" = ON, "2" = OFF
+- THREAD_MULTIPLICATOR (Any number for thread multiplication > 0)
 - LIMIT  #"-1" =None, ""n" = any number
   
 
