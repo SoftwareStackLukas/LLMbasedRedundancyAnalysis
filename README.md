@@ -30,7 +30,7 @@ We compared our LLM approach against a formal approach from [Alexander Lauer, Am
   - [X] /setup.py: -
  
 ## Architecture (Component-Diagramm)
-![](ComponentDiagramLLM.pdf)
+![Component Diagram](ComponentDiagramLLM.pdf)
 
 
 ## IDE + Plugins
