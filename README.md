@@ -7,6 +7,8 @@ The first approach translates annotated USs into graph transformation rules, whi
 The second approach uses a large language model (LLM), here \emph{GPT}, to analyse annotated USs for redundancy. 
 We compare the results of these redundancy analyses and discuss their similarities and differences. 
 We found that the graph transformation (GT)-based approach is particularly suitable for syntactic analysis, whereas the LLM-based approach seems to find semantic redundancies.
+
+![Example User Story](ExampleSentence.pdf)
   
 ## Redundancy Detection with LLMs
 Redundant requierments can be paired and between this pairs redundancies can be found. 
@@ -29,9 +31,11 @@ We compared our LLM approach against a formal approach from [Alexander Lauer, Am
   - [X] /Various Jupyter Notebooks: To connect and execute to our progam logic.
   - [X] /setup.py: -
  
-## Architecture (Component-Diagramm)
+## Architecture
 ![Component Diagram](ComponentDiagramLLM.pdf)
 
+## Workflow
+![Workflow for an LLM-based approach to redundancy detection](WorkflowAgent.pdf)
 
 ## IDE + Plugins
 - VSCode
