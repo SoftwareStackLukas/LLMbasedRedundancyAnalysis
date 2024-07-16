@@ -15,6 +15,11 @@ We use the User Stories from [nlp-stories](https://github.com/ace-design/nlp-sto
 We compared our LLM approach against a formal approach from [Alexander Lauer, Amir Rabieyan Nejad, Lukas Hofmann](https://github.com/amirrabieyannejad/USs_Annotation.git) 
 
 ## Folder explanation
+- Datasets: Contains the annotaited [nlp-stories](https://github.com/ace-design/nlp-stories/tree/main)
+- ExperimentsWordSimilarity: Contains a future project ideas
+- results: Important results shown in the paper for [MDE Intelligence - 6th Workshop on Artificial Intelligence and Model-driven Engineering](https://mde-intelligence.github.io/)
+- src: containg the source code of our implementation. Please, consider for installation our installation and dependecies decriptiong
+- src/ : Containing the prompts used for our expirements.  
 
 ## IDE + Plugins
 - VSCode
