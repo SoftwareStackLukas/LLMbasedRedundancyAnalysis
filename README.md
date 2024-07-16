@@ -1,14 +1,18 @@
-# Clustering
-Redundant requierments can be clustered together 
+# Abstract
+User stories (USs) are a widely used notation for requirements in agile development. 
+However, it can easily happen that two USs are redundant, at least partially. 
+While some form of redundancy may be acceptable, the user should keep an eye on redundancy in USs for the sake of conciseness and to reduce the risk of inconsistencies.
+We present two different approaches to analysing USs for redundancy and compare their potential and limitations.
+The first approach translates annotated USs into graph transformation rules, which are then analysed for conflicts to infer redundancies.
+The second approach uses a large language model (LLM), here \emph{GPT}, to analyse annotated USs for redundancy. 
+We compare the results of these redundancy analyses and discuss their similarities and differences. 
+We found that the graph transformation (GT)-based approach is particularly suitable for syntactic analysis, whereas the LLM-based approach seems to find semantic redundancies.
+  
+## Redundancy Detection with LLMs
+Redundant requierments can be paired and between this pairs redundancies can be found. 
 
-We use the User Stories from [nlp-stories](https://github.com/ace-design/nlp-stories/tree/main)
-We use for the formal approach [Amirs Repo](https://github.com/amirrabieyannejad/USs_Annotation.git) 
- - Linke the project to this project
- - Use either:
-     - Git-Submodules
-     - Just cloning the importent code
-
-Add https://zenodo.org/records/8136975 and https://github.com/ace-design/nlp-stories/tree/main
+We use the User Stories from [nlp-stories](https://github.com/ace-design/nlp-stories/tree/main) and [user story repo](https://zenodo.org/records/8136975) 
+We compared our LLM approach against a formal approach from [Alexander Lauer, Amir Rabieyan Nejad, Lukas Hofmann](https://github.com/amirrabieyannejad/USs_Annotation.git) 
 
 ## Folder explanation
 
@@ -24,6 +28,7 @@ Add https://zenodo.org/records/8136975 and https://github.com/ace-design/nlp-sto
 - Python Enviorment Manager
 
 ## Dependencies
+- Listed in the requirements.txt
 
 ## Installation guide
 - Install python >= 3.12
